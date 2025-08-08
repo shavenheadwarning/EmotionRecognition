@@ -1,0 +1,142 @@
+# Speech Emotion Recognition Project Configuration
+
+# Dataset Configuration
+dataset:
+  name: "RAVDESS"
+  data_path: "data/RAVDESS"
+  speech_path: "Audio_Speech_Actors_01-24"
+  song_path: "Audio_Song_Actors_01-24"
+  use_speech: true
+  use_song: false
+  train_split: 0.8
+  val_split: 0.2
+  random_seed: 42
+
+# Emotion Labels (RAVDESS encoding)
+emotions:
+  1: "neutral"
+  2: "calm"
+  3: "happy"
+  4: "sad"
+  5: "angry"
+  6: "fearful"
+  7: "disgust"
+  8: "surprised"
+
+# Feature Extraction
+features:
+  # MFCC Configuration
+  mfcc:
+    n_mfcc: 40
+    n_fft: 2048
+    hop_length: 512
+    n_mels: 128
+
+  # Mel Spectrogram Configuration
+  mel_spectrogram:
+    n_mels: 128
+    n_fft: 2048
+    hop_length: 512
+    win_length: 2048
+
+  # Audio Processing
+  sample_rate: 22050
+  max_length: 3.0  # seconds
+  normalize: true
+
+# Model Configurations
+models:
+  # MLP for MFCC features
+  mlp:
+    type: "MLP"
+    feature_type: "mfcc"
+    input_size: 40  # n_mfcc
+    hidden_sizes: [128, 64, 32]
+    num_classes: 8
+    dropout: 0.3
+
+
+
+  # Shallow CNN for Mel Spectrogram
+  shallow_cnn:
+    type: "ShallowCNN"
+    feature_type: "mel_spectrogram"
+    num_classes: 8
+    dropout: 0.3
+
+  # ResNet-18 for Mel Spectrogram
+  resnet18:
+    type: "ResNet18"
+    feature_type: "mel_spectrogram"
+    num_classes: 8
+    pretrained: false
+
+  # Audio Spectrogram Transformer (AST) models
+  ast_tiny:
+    type: "AST"
+    feature_type: "ast"
+    model_size: "tiny224"
+    num_classes: 8
+    imagenet_pretrain: true
+    audioset_pretrain: false
+
+  ast_small:
+    type: "AST"
+    feature_type: "ast"
+    model_size: "small224"
+    num_classes: 8
+    imagenet_pretrain: true
+    audioset_pretrain: false
+
+  ast_base:
+    type: "AST"
+    feature_type: "ast"
+    model_size: "base384"
+    num_classes: 8
+    imagenet_pretrain: true
+    audioset_pretrain: false
+
+  # AST with AudioSet pretraining (if available)
+  ast_audioset:
+    type: "AST"
+    feature_type: "ast"
+    model_size: "base384"
+    num_classes: 8
+    imagenet_pretrain: true
+    audioset_pretrain: true
+
+# Training Configuration
+training:
+  model_name: "mlp"  # Choose: mlp, shallow_cnn, resnet18
+  batch_size: 128
+  num_epochs: 2
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: "adam"
+  scheduler: "step"
+  step_size: 20
+  gamma: 0.1
+
+  # Early stopping
+  early_stopping:
+    patience: 10
+    min_delta: 0.001
+
+  # Checkpoints
+  save_model: true
+  checkpoint_dir: "checkpoints"
+  save_best_only: true
+
+# Evaluation
+evaluation:
+  metrics: ["accuracy", "precision", "recall", "f1_macro"]
+  confusion_matrix: true
+
+# Device Configuration
+device: "cuda"  # cuda, cpu, auto
+
+# Logging
+logging:
+  level: "INFO"
+  save_logs: true
+  log_dir: "logs"

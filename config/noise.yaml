@@ -1,0 +1,7 @@
+noise_augmentation:
+  enabled: true
+  type: white
+  p_apply: 0.7
+  snr_db_choices: [20.0]
+  target_peak_dbfs: -1.0
+

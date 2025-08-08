@@ -1,0 +1,90 @@
+dataset:
+  name: "IEMOCAP"
+  data_path: "data/IEMOCAP"
+  # Split by sessions to avoid speaker leakage
+  split_strategy: "session"   # session | random
+  train_sessions: ["Session1", "Session2", "Session3", "Session4"]
+  val_sessions: ["Session5"]
+  # Map raw labels (IEMOCAP tokens) to target class names used in `emotions` below
+  # Common 4-class mapping: angry/happy/sad/neutral (merge excited->happy)
+  emotion_mapping:
+    ang: "angry"
+    hap: "happy"
+    exc: "happy"
+    sad: "sad"
+    neu: "neutral"
+    fru: null
+    fea: null
+    sur: null
+    dis: null
+    oth: null
+  random_seed: 42
+
+emotions:
+  1: "neutral"
+  2: "happy"
+  3: "sad"
+  4: "angry"
+
+features:
+  sample_rate: 16000
+  max_length: 3.0
+  normalize: true
+  mfcc:
+    n_mfcc: 40
+    n_fft: 400
+    hop_length: 160
+    n_mels: 64
+  mel_spectrogram:
+    n_mels: 128
+    n_fft: 400
+    hop_length: 160
+    win_length: 400
+
+models:
+  shallow_cnn:
+    type: "ShallowCNN"
+    feature_type: "mel_spectrogram"
+    num_classes: 4
+    dropout: 0.3
+  resnet18:
+    type: "ResNet18"
+    feature_type: "mel_spectrogram"
+    num_classes: 4
+  ast_base:
+    type: "AST"
+    feature_type: "ast"
+    model_size: "base384"
+    num_classes: 4
+    imagenet_pretrain: true
+    audioset_pretrain: false
+
+training:
+  model_name: "ast_base"
+  batch_size: 128
+  num_epochs: 50
+  learning_rate: 1e-4
+  weight_decay: 1e-4
+  optimizer: "adam"
+  scheduler: "step"
+  step_size: 20
+  gamma: 0.1
+  early_stopping:
+    patience: 7
+    min_delta: 0.001
+  save_model: true
+  checkpoint_dir: "checkpoints"
+  save_best_only: true
+
+evaluation:
+  metrics: ["accuracy", "precision", "recall", "f1_macro"]
+  confusion_matrix: true
+
+device: "cuda"
+
+logging:
+  level: "INFO"
+  save_logs: true
+  log_dir: "logs"
+
+

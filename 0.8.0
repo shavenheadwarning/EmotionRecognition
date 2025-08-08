@@ -1,0 +1,35 @@
+Looking in indexes: https://pypi.tuna.tsinghua.edu.cn/simple
+Collecting librosa
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/b5/ba/c63c5786dfee4c3417094c4b00966e61e4a63efecee22cb7b4c0387dda83/librosa-0.11.0-py3-none-any.whl (260 kB)
+Collecting audioread>=2.1.9
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/57/8d/30aa32745af16af0a9a650115fbe81bde7c610ed5c21b381fca0196f3a7f/audioread-3.0.1-py3-none-any.whl (23 kB)
+Requirement already satisfied: lazy_loader>=0.1 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from librosa) (0.3)
+Collecting soundfile>=0.12.1
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/14/e9/6b761de83277f2f02ded7e7ea6f07828ec78e4b229b80e4ca55dd205b9dc/soundfile-0.13.1-py2.py3-none-win_amd64.whl (1.0 MB)
+Requirement already satisfied: joblib>=1.0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from librosa) (1.2.0)
+Requirement already satisfied: decorator>=4.3.0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from librosa) (5.1.1)
+Requirement already satisfied: pooch>=1.1 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from librosa) (1.7.0)
+Requirement already satisfied: scipy>=1.6.0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from librosa) (1.10.1)
+Requirement already satisfied: numpy>=1.22.3 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from librosa) (1.23.5)
+Requirement already satisfied: scikit-learn>=1.1.0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from librosa) (1.3.2)
+Requirement already satisfied: msgpack>=1.0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from librosa) (1.0.8)
+Requirement already satisfied: numba>=0.51.0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from librosa) (0.56.4)
+Collecting soxr>=0.3.2
+  Using cached https://pypi.tuna.tsinghua.edu.cn/packages/e2/8f/bd1c42ae58a41a7f30f908659b510d27b30657312e64d8005f234450d529/soxr-0.3.7-cp38-cp38-win_amd64.whl (184 kB)
+Requirement already satisfied: typing_extensions>=4.1.1 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from librosa) (4.13.2)
+Requirement already satisfied: llvmlite<0.40,>=0.39.0dev0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from numba>=0.51.0->librosa) (0.39.1)
+Requirement already satisfied: importlib-metadata in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from numba>=0.51.0->librosa) (6.6.0)
+Requirement already satisfied: setuptools in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from numba>=0.51.0->librosa) (68.2.2)
+Requirement already satisfied: packaging>=20.0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from pooch>=1.1->librosa) (23.1)
+Requirement already satisfied: requests>=2.19.0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from pooch>=1.1->librosa) (2.31.0)
+Requirement already satisfied: platformdirs>=2.5.0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from pooch>=1.1->librosa) (3.10.0)
+Requirement already satisfied: threadpoolctl>=2.0.0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from scikit-learn>=1.1.0->librosa) (3.1.0)
+Requirement already satisfied: cffi>=1.0 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from soundfile>=0.12.1->librosa) (1.15.1)
+Requirement already satisfied: pycparser in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from cffi>=1.0->soundfile>=0.12.1->librosa) (2.21)
+Requirement already satisfied: charset-normalizer<4,>=2 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from requests>=2.19.0->pooch>=1.1->librosa) (2.1.1)
+Requirement already satisfied: idna<4,>=2.5 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from requests>=2.19.0->pooch>=1.1->librosa) (3.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from requests>=2.19.0->pooch>=1.1->librosa) (1.26.15)
+Requirement already satisfied: certifi>=2017.4.17 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from requests>=2.19.0->pooch>=1.1->librosa) (2024.8.30)
+Requirement already satisfied: zipp>=0.5 in c:\users\pc\.conda\envs\alphapose\lib\site-packages (from importlib-metadata->numba>=0.51.0->librosa) (3.15.0)
+Installing collected packages: soxr, audioread, soundfile, librosa
+Successfully installed audioread-3.0.1 librosa-0.11.0 soundfile-0.13.1 soxr-0.3.7

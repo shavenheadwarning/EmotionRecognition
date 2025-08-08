@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+/ref_repos
+
+# Datasets (keep docs)
+/data/**
+!data/IEMOCAP/README.md
+!data/.gitkeep
+
+# Model artifacts and experiments
+/checkpoints/**
+/experiments/**
+/logs/**
+*.pth
+*.pt
+
+# Archives and large binaries
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# IDE/editor
+.vscode/
+.idea/
+.cursor/
