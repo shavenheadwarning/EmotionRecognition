@@ -59,6 +59,14 @@ models:
     imagenet_pretrain: true
     audioset_pretrain: false
 
+  ast_tiny:
+    type: "AST"
+    feature_type: "ast"
+    model_size: "tiny224"
+    num_classes: 4
+    imagenet_pretrain: true
+    audioset_pretrain: false
+
 training:
   model_name: "ast_base"
   batch_size: 128

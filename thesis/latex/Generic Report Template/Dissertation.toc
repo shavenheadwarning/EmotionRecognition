@@ -1,0 +1,26 @@
+\contentsline {chapter}{Abstract}{ii}{}%
+\contentsline {chapter}{Acknowledgements}{iii}{}%
+\contentsline {chapter}{Abbreviations}{iv}{}%
+\contentsline {chapter}{List of Figures}{vii}{}%
+\contentsline {chapter}{List of Tables}{viii}{}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{}%
+\contentsline {subsection}{\numberline {1.0.1}Background}{1}{}%
+\contentsline {subsection}{\numberline {1.0.2}Main Contents of the Dissertation}{2}{}%
+\contentsline {subsection}{\numberline {1.0.3}Structure of the Dissertation}{2}{}%
+\contentsline {chapter}{\numberline {2}Literature Review}{3}{}%
+\contentsline {chapter}{\numberline {3}Methodology}{4}{}%
+\contentsline {section}{\numberline {3.1}Feature Extraction}{4}{}%
+\contentsline {subsection}{\numberline {3.1.1}MFCC}{4}{}%
+\contentsline {subsection}{\numberline {3.1.2}Mel-spectrogram}{5}{}%
+\contentsline {section}{\numberline {3.2}Model Developments}{6}{}%
+\contentsline {subsection}{\numberline {3.2.1}Multi-layer Perceptron}{6}{}%
+\contentsline {subsection}{\numberline {3.2.2}Shallow CNN}{7}{}%
+\contentsline {subsection}{\numberline {3.2.3}ResNet-18}{7}{}%
+\contentsline {subsection}{\numberline {3.2.4}Audio Spectrogram Transformer}{8}{}%
+\contentsline {chapter}{\numberline {4}Experiments}{9}{}%
+\contentsline {chapter}{\numberline {5}Discussion}{10}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{11}{}%
+\contentsline {chapter}{\numberline {7}Chapter Title}{12}{}%
+\contentsline {chapter}{\numberline {8}Chapter Title}{13}{}%
+\contentsline {chapter}{\numberline {9}Chapter Title}{14}{}%
+\contentsline {chapter}{\numberline {10}Chapter Title}{15}{}%

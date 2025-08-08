@@ -1,5 +1,5 @@
 noise_augmentation:
-  enabled: true
+  enabled: false
   type: white
   p_apply: 0.7
   snr_db_choices: [20.0]
