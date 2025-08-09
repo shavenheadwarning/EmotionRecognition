@@ -15,6 +15,14 @@
 - RAVDESS：8类（neutral, calm, happy, sad, angry, fearful, disgust, surprised）
 - IEMOCAP：内置4类配置（angry/happy/sad/neutral，将excited合并到happy），可按需扩展
 
+### 最近更新（数据增强与IEMOCAP集成）
+- 新增 ESC-50 环境噪声增广（训练集生效，验证集保持干净），两种接入方式：
+  - 目录模式：为两类环境噪声分别指定包含`.wav`的目录
+  - meta模式（推荐）：使用官方`meta/esc50.csv`与`audio/`，按类别名分组抽取两类噪声
+- 同时支持非 AST 管线与 AST 管线（波形级混合→特征提取）；SNR 支持`[0,5,10,20]`等集合
+- IEMOCAP 数据集加载器完善：按会话划分、标签规范为0起连续索引，避免越界；支持4类映射
+- 训练日志新增：在启用增广时打印所用增广器与`p_apply`
+
 
 ### 快速开始（训练命令）
 ```bash
@@ -31,6 +39,8 @@ python main.py --config config/iemocap.yaml --model ast_base
 python main.py --config config/iemocap.yaml --model resnet18 --device cuda --batch-size 64 --lr 1e-4
 
 # 可选：启用噪声增强（编辑 config/noise.yaml 将 enabled 设为 true）
+#   - 白噪声：type: white
+#   - ESC-50：type: esc50（见下方配置示例）
 ```
 
 
@@ -200,6 +210,48 @@ AST是首个完全基于注意力机制的音频分类模型，改编自Vision T
 - 配置文件：`config/noise.yaml`
 - 参数：`enabled`（开关）、`p_apply`、`snr_db_choices`（如 `[0,5,10,20]`）、`target_peak_dbfs`
 - 生效范围：训练集的波形级增广（AST与非AST均已支持）
+
+ESC-50 配置示例（二选一）：
+
+1) 目录模式（若已手动整理两个噪声目录）
+```yaml
+noise_augmentation:
+  enabled: true
+  type: esc50
+  p_apply: 0.7
+  snr_db_choices: [0.0, 5.0, 10.0, 20.0]
+  target_peak_dbfs: -1.0
+  esc50:
+    resample_sr: 16000
+    categories:
+      - name: natural_soundscapes
+        path: d:/PTProjects/EmotionRecognition/data/ESC-50/audio/1-100/
+      - name: human_non_speech
+        path: d:/PTProjects/EmotionRecognition/data/ESC-50/audio/101-200/
+```
+
+2) meta模式（推荐，使用官方`meta/esc50.csv`）
+```yaml
+noise_augmentation:
+  enabled: true
+  type: esc50
+  p_apply: 0.7
+  snr_db_choices: [0.0, 5.0, 10.0, 20.0]
+  target_peak_dbfs: -1.0
+  esc50:
+    resample_sr: 16000
+    audio_root: d:/PTProjects/EmotionRecognition/data/ESC-50/audio
+    meta_csv:   d:/PTProjects/EmotionRecognition/data/ESC-50/meta/esc50.csv
+    groups:
+      - name: natural_soundscapes
+        categories: [rain, sea_waves, crickets, chirping_birds, wind, frog, thunderstorm, water_drops, crackling_fire, insects]
+      - name: human_non_speech
+        categories: [coughing, sneezing, breathing, laughing, footsteps, clapping]
+```
+
+提示：
+- 若同时配置`categories`与`audio_root/meta_csv/groups`，将优先使用meta模式。
+- ESC-50 目录与CSV路径请按你的本地路径修改；Windows路径区分大小写与盘符。
 
 
 
