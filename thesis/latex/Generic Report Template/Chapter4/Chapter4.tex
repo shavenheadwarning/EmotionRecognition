@@ -2,3 +2,77 @@
 
 \chapter{Experiments}
 
+This chapter presents a comprehensive experimental study on Speech Emotion Recognition (SER) under clean and noisy conditions. We evaluate multiple architectures and noise augmentation strategies on two datasets, adhering to the unified notation and preprocessing defined in Chapter 3. Unless otherwise specified, audio is sampled at \(f_s\), the time-domain signal is \(x[n]\), noise is \(v[n]\), and on-the-fly mixtures during training follow
+\(x_{\mathrm{mix}}[n] = x_s[n] + g\, x_n[n]\) with gain \(g\) computed from target SNR as in Chapter 3.
+
+\section{Common Settings}
+
+\subsection{Datasets and splits}
+We use RAVDESS (speech actors 01–24) and IEMOCAP. Data splits follow the established protocol for each dataset. Validation and clean test sets are never augmented; only the training split is subjected to on-the-fly noise mixing when enabled.
+
+\subsection{Models}
+We compare a convolutional baseline (ResNet-18 on Log-Mel spectrograms) and a transformer-based model (AST Base on filterbank features), alongside lighter baselines where applicable (MLP and shallow CNN) to contextualize complexity–performance trade-offs.
+
+\subsection{Training and evaluation}
+Training uses mini-batch stochastic optimization with standard regularization. Metrics on the validation set include accuracy, precision, recall, and macro-F1. Confusion matrices are reported to analyze class-wise separability. Robustness is further assessed on noisy test sets created by offline mixing of \(x[n]\) with held-out noise at specified SNRs \(\in \{0,5,10,20\}\,\mathrm{dB}\). All experiments fix a base random seed unless otherwise stated; key findings are validated by repeating with multiple seeds to estimate mean and variance.
+
+\subsection{Noise augmentation policy}
+When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}}\), we sample a noise type (white or ESC-50 subsets), sample SNR from \(\{0,5,10,20\}\,\mathrm{dB}\), time-align noise to the utterance, compute gain \(g\) via RMS matching to satisfy the target SNR, form \(x_{\mathrm{mix}}[n]\), apply peak limiting at \(-1\,\mathrm{dBFS}\), and optionally mean–variance normalize prior to feature extraction.
+
+\section{Experiment A: Clean Baselines}
+\textbf{Objective.} Establish performance ceilings under matched clean conditions and provide a reference for subsequent noisy training.
+
+\textbf{Setup.} No augmentation: all training, validation, and test audio remain clean. Features follow Chapter 3 (MFCC/Log-Mel) per model. Optimization settings are dataset-appropriate and fixed across runs.
+
+\textbf{Evaluation.} Report accuracy, precision, recall, macro-F1 on validation and clean test sets. Provide confusion matrices to examine class confusability. Analyze overfitting by comparing training vs. validation curves.
+
+\textbf{Expected analysis.} Identify baseline strengths and failure modes (e.g., emotions with overlapping prosody). Quantify headroom for robustness improvements.
+
+\section{Experiment B: White-Noise Training at 20 dB}
+\textbf{Objective.} Assess whether training with mild additive white noise (\(\mathrm{SNR}=20\,\mathrm{dB}\)) improves robustness without harming clean-set performance.
+
+\textbf{Setup.} During training, with probability \(p_{\mathrm{aug}}\) we mix white noise at \(\mathrm{SNR}=20\,\mathrm{dB}\) using gain from RMS control as defined in Chapter 3. Validation and test remain clean; an additional noisy test set at 20 dB is created offline for robustness assessment.
+
+\textbf{Evaluation.} Compare metrics to Experiment A on clean validation/test, and on the 20 dB noisy test. Include confusion matrices to visualize changes in class boundaries.
+
+\textbf{Expected analysis.} Determine whether small stochastic perturbations act as regularization that improves generalization. Inspect any trade-off on clean performance.
+
+\section{Experiment C: ESC-50 Multi-Category, Multi-SNR}
+\textbf{Objective.} Measure the effect of realistic environmental noise on SER across a range of SNRs and categories (natural soundscapes and human non-speech).
+
+\textbf{Setup.} Training-time augmentation samples a noise category uniformly from two ESC-50 groups and SNR uniformly from \(\{0,5,10,20\}\,\mathrm{dB}\). Mixing follows the RMS-controlled procedure to obtain \(x_{\mathrm{mix}}[n]\) with peak limiting at \(-1\,\mathrm{dBFS}\).
+
+\textbf{Evaluation.} On the clean validation/test sets (unaugmented) and on noisy test sets stratified by noise category and SNR. Report per-SNR metrics and class-wise performance; provide heatmaps summarizing model × noise × SNR.
+
+\textbf{Expected analysis.} Identify which noise categories and SNR regimes most strongly impact recognition. Examine whether models learn noise-invariant features.
+
+\section{Experiment D: SNR Ablation (Natural Soundscapes)}
+\textbf{Objective.} Characterize performance sensitivity to SNR under a fixed noise category to locate robustness breakpoints.
+
+\textbf{Setup.} Train four models with the same natural-soundscape noise but a single SNR each: \(0, 5, 10, 20\,\mathrm{dB}\). All other settings are identical.
+
+\textbf{Evaluation.} Plot accuracy and macro-F1 versus SNR; compare confusion matrices across SNRs to see which emotions become confusable at low SNR.
+
+\textbf{Expected analysis.} Determine the SNR threshold below which performance collapses, and quantify any non-linear degradation.
+
+\section{Experiment E: Model Robustness Comparison (ResNet-18 vs AST)}
+\textbf{Objective.} Compare architectural robustness between a CNN (ResNet-18) and a transformer (AST) under identical augmentation policies.
+
+\textbf{Setup.} Use the multi-category, multi-SNR ESC-50 augmentation during training for both models. Features follow their respective best practices (Log-Mel for ResNet-18; filterbank features for AST). Keep validation clean; prepare noisy test sets matching the augmentation distribution for controlled comparison.
+
+\textbf{Evaluation.} Report clean vs. noisy metrics side-by-side; include confusion matrices to highlight shifts in decision boundaries.
+
+\textbf{Expected analysis.} Assess whether AST exhibits superior noise robustness due to global receptive fields and attention, and whether gains persist across datasets.
+
+\section{Experiment F: Augmentation Intensity Ablation (\(p_{\mathrm{aug}}\))}
+\textbf{Objective.} Find the optimal augmentation probability by varying \(p_{\mathrm{aug}} \in \{0.3, 0.5, 0.7, 0.9\}\) under the multi-SNR ESC-50 setting.
+
+\textbf{Setup.} Keep all factors fixed except \(p_{\mathrm{aug}}\). Training follows the same on-the-fly RMS-controlled mixing and peak limiting.
+
+\textbf{Evaluation.} Plot performance versus \(p_{\mathrm{aug}}\) and analyze under- vs over-augmentation effects. Inspect learning curves for signs of regularization benefits or optimization instability.
+
+\textbf{Expected analysis.} Identify the augmentation intensity that maximizes robustness without harming clean accuracy; quantify variance across seeds.
+
+\section{Summary of Results and Visualization}
+We summarize results across models, noise types, SNRs, and datasets. Visualizations include: (i) performance–SNR curves per model; (ii) bar charts comparing macro-F1 for clean vs. noisy protocols; and (iii) confusion matrices for key settings to examine class-specific trends. Where applicable, we report mean ± standard deviation across seeds to reflect statistical stability.
+
