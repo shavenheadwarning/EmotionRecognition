@@ -286,14 +286,31 @@ def create_ast_data_loaders(config: Dict) -> Tuple[torch.utils.data.DataLoader, 
     noise_cfg = config.get('noise_augmentation', {})
     if noise_cfg.get('enabled', False):
         try:
-            from augmentations.noise import WhiteNoiseAugmentor
-            waveform_augmentor = WhiteNoiseAugmentor(
-                p_apply=float(noise_cfg.get('p_apply', 0.7)),
-                snr_db_choices=list(noise_cfg.get('snr_db_choices', [20.0])),
-                target_peak_dbfs=float(noise_cfg.get('target_peak_dbfs', -1.0)),
-            )
+            aug_type = str(noise_cfg.get('type', 'white')).lower()
+            if aug_type == 'white':
+                from augmentations.noise import WhiteNoiseAugmentor
+                waveform_augmentor = WhiteNoiseAugmentor(
+                    p_apply=float(noise_cfg.get('p_apply', 0.7)),
+                    snr_db_choices=list(noise_cfg.get('snr_db_choices', [20.0])),
+                    target_peak_dbfs=float(noise_cfg.get('target_peak_dbfs', -1.0)),
+                )
+            elif aug_type == 'esc50':
+                from augmentations.esc50_noise import ESC50NoiseAugmentor
+                esc50_cfg = noise_cfg.get('esc50', {})
+                waveform_augmentor = ESC50NoiseAugmentor(
+                    categories=list(esc50_cfg.get('categories', [])) or None,
+                    p_apply=float(noise_cfg.get('p_apply', 0.7)),
+                    snr_db_choices=list(noise_cfg.get('snr_db_choices', [0.0, 5.0, 10.0, 20.0])),
+                    target_peak_dbfs=float(noise_cfg.get('target_peak_dbfs', -1.0)),
+                    resample_sr=int(esc50_cfg.get('resample_sr', config['features']['sample_rate'])),
+                    audio_root=esc50_cfg.get('audio_root'),
+                    meta_csv=esc50_cfg.get('meta_csv'),
+                    groups=esc50_cfg.get('groups'),
+                )
+            else:
+                logging.warning(f"Unknown noise augmentation type for AST: {aug_type}")
         except Exception as e:
-            logging.warning(f"Failed to initialize WhiteNoiseAugmentor for AST: {e}")
+            logging.warning(f"Failed to initialize noise augmentor for AST: {e}")
 
     # Wrap datasets with AST feature extraction
     train_ast_dataset = ASTFeatureDataset(

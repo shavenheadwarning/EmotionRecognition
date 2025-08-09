@@ -196,17 +196,34 @@ def create_feature_data_loaders(config: Dict) -> Tuple[torch.utils.data.DataLoad
     waveform_augmentor = None
     noise_cfg = config.get('noise_augmentation', {})
     if noise_cfg.get('enabled', False):
-        # Currently only white noise is supported
         try:
-            from augmentations.noise import WhiteNoiseAugmentor
-            waveform_augmentor = WhiteNoiseAugmentor(
-                p_apply=float(noise_cfg.get('p_apply', 0.7)),
-                snr_db_choices=list(noise_cfg.get('snr_db_choices', [20.0])),
-                target_peak_dbfs=float(noise_cfg.get('target_peak_dbfs', -1.0)),
-            )
-            # print(f"Waveform augmentor: {waveform_augmentor}")
+            aug_type = str(noise_cfg.get('type', 'white')).lower()
+            if aug_type == 'white':
+                from augmentations.noise import WhiteNoiseAugmentor
+                waveform_augmentor = WhiteNoiseAugmentor(
+                    p_apply=float(noise_cfg.get('p_apply', 0.7)),
+                    snr_db_choices=list(noise_cfg.get('snr_db_choices', [20.0])),
+                    target_peak_dbfs=float(noise_cfg.get('target_peak_dbfs', -1.0)),
+                )
+                logging.info(f"Using white noise augmentor p_apply: {noise_cfg.get('p_apply', 0.7)}")
+            elif aug_type == 'esc50':
+                from augmentations.esc50_noise import ESC50NoiseAugmentor
+                esc50_cfg = noise_cfg.get('esc50', {})
+                waveform_augmentor = ESC50NoiseAugmentor(
+                    categories=list(esc50_cfg.get('categories', [])) or None,
+                    p_apply=float(noise_cfg.get('p_apply', 0.7)),
+                    snr_db_choices=list(noise_cfg.get('snr_db_choices', [0.0, 5.0, 10.0, 20.0])),
+                    target_peak_dbfs=float(noise_cfg.get('target_peak_dbfs', -1.0)),
+                    resample_sr=int(esc50_cfg.get('resample_sr', config['features']['sample_rate'])),
+                    audio_root=esc50_cfg.get('audio_root'),
+                    meta_csv=esc50_cfg.get('meta_csv'),
+                    groups=esc50_cfg.get('groups'),
+                )
+                logging.info(f"Using ESC-50 noise augmentor p_apply: {noise_cfg.get('p_apply', 0.7)}")
+            else:
+                logging.warning(f"Unknown noise augmentation type: {aug_type}")
         except Exception as e:
-            logging.warning(f"Failed to initialize WhiteNoiseAugmentor: {e}")
+            logging.warning(f"Failed to initialize noise augmentor: {e}")
             waveform_augmentor = None
 
     # Wrap datasets with feature extraction
@@ -245,7 +262,7 @@ def create_feature_data_loaders(config: Dict) -> Tuple[torch.utils.data.DataLoad
 
 if __name__ == "__main__":
     # Test feature extraction
-    from data_loader import load_config
+    from data_processing.data_loader import load_config
 
     config = load_config()
     feature_extractor = FeatureExtractor(config)

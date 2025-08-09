@@ -87,12 +87,7 @@ IEMOCAP：将官方解压后的`Session1..Session5`放置到 `data/IEMOCAP/`（�
 
 ### 硬件建议
 
-#### Hugging Face AST 🔥
-| GPU内存 | 批次大小 | 命令示例 |
-|---------|----------|----------|
-| 8GB | 4-6 | `python main_ast_hf.py --batch-size 4` |
-| 12GB | 8-12 | `python main_ast_hf.py --batch-size 8` |
-| 16GB+ | 16+ | `python main_ast_hf.py --batch-size 16` |
+
 
 #### 原始AST
 | GPU内存 | 推荐模型 | 批次大小 | 预期性能 |

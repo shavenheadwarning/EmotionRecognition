@@ -1,7 +1,24 @@
 noise_augmentation:
-  enabled: false
-  type: white
+  enabled: true
+  type: esc50  # white | esc50
   p_apply: 0.7
-  snr_db_choices: [20.0]
+  snr_db_choices: [0.0, 5.0, 10.0, 20.0]
   target_peak_dbfs: -1.0
+  # ESC-50 settings (set type: esc50 to enable). Provide two categories (or more) with absolute paths.
+  esc50:
+    resample_sr: 16000
+    # Option 1: use explicit directories under ESC-50 audio
+    categories:
+      - name: "natural_soundscapes"
+        path: "d:/PTProjects/EmotionRecognition/data/ESC-50/audio/1-100/"   # example; adjust as needed
+      - name: "human_non_speech"
+        path: "d:/PTProjects/EmotionRecognition/data/ESC-50/audio/101-200/"  # example; adjust as needed
+    # Option 2: use meta CSV to select categories by name (overrides categories if provided)
+    audio_root: "d:/PTProjects/EmotionRecognition/data/ESC-50/audio"
+    meta_csv: "d:/PTProjects/EmotionRecognition/data/ESC-50/meta/esc50.csv"
+    groups:
+      - name: "natural_soundscapes"
+        categories: ["rain", "sea_waves", "crickets", "chirping_birds", "wind", "frog", "thunderstorm", "water_drops", "crackling_fire", "insects"]
+      - name: "human_non_speech"
+        categories: ["coughing", "sneezing", "breathing", "laughing", "footsteps", "clapping"]
 
