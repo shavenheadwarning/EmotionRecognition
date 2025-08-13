@@ -4,12 +4,15 @@
 
 
 \section{Feature Extraction}
+Feature extraction plays a crucial role in speech emotion recognition. A variety of acoustic features can be derived from emotional speech to reflect characteristics of a speaker’s affective behavior. High‑quality and informative features have a significant impact on recognition accuracy. How to extract and select features that effectively capture emotional variation remains one of the most important problems in the current field of speech emotion recognition.
 
 This section details the feature extraction pipeline and unified notation used throughout the thesis. Let \(x[n]\) denote the discrete-time speech signal sampled at rate \(f_s\) (Hz). Frames are indexed by \(m\), frequency bins by \(k\), and Mel bands by \(f\). The frame length is \(N\) samples, hop size is \(H\) samples, the analysis window is \(w[n]\) (Hann unless otherwise stated), the discrete Fourier transform (DFT) length is \(K\), and the number of Mel filters is \(F\). We use \(X[k,m]\) for the short-time spectrum, \(P[k,m] = |X[k,m]|^2\) for the power spectrum, \(\mathbf{B} \in \mathbb{R}^{F\times K}\) for the Mel filterbank, and a small constant \(\varepsilon>0\) for numerical stability.
 
+
+
 \subsection{MFCC}
 
-Mel-frequency cepstral coefficients (MFCCs) are compact features that approximate human auditory perception by (i) warping frequency to the Mel scale, (ii) applying a band-pass filterbank to obtain perceptual energies, (iii) compressing the dynamic range, and (iv) decorrelating energies via a discrete cosine transform (DCT). The standard pipeline is as follows.
+Mel-frequency cepstral coefficients (MFCCs) \cite{davis1980comparison} are compact features that approximate human auditory perception by (i) warping frequency to the Mel scale, (ii) applying a band-pass filterbank to obtain perceptual energies, (iii) compressing the dynamic range, and (iv) decorrelating energies via a discrete cosine transform (DCT). The standard pipeline is as follows.
 
 1) Pre-emphasis (optional) enhances high-frequency components:
 \begin{equation}\label{eq:preemphasis}
@@ -83,7 +86,7 @@ optionally augmented with standard deviation pooling. Let \(\mathbf{y} \in \{0,1
 
 \subsection{Multi-layer Perceptron}
 
-We adopt a feed-forward multilayer perceptron (MLP) as a lightweight baseline operating on MFCC-based utterance vectors. Given input \(\bar{\mathbf{z}}\) from (\ref{eq:meanpool}), a depth-\(L\) MLP computes
+We adopt a feed-forward multilayer perceptron (MLP, as shown in \ref{fig:mlp arch}) as a lightweight baseline operating on MFCC-based utterance vectors. Given input \(\bar{\mathbf{z}}\) from (\ref{eq:meanpool}), a depth-\(L\) MLP computes
 \begin{align}\label{eq:mlp}
 \mathbf{h}^{(1)} &= \sigma\!\big( \mathbf{W}^{(1)} \bar{\mathbf{z}} + \mathbf{b}^{(1)} \big),\\
 \mathbf{h}^{(\ell)} &= \sigma\!\big( \mathbf{W}^{(\ell)} \mathbf{h}^{(\ell-1)} + \mathbf{b}^{(\ell)} \big), \quad 2\le \ell \le L-1,\\
@@ -100,6 +103,15 @@ We train with cross-entropy and \(\ell_2\) regularization:
 where \(\Theta\) collects all parameters and \(\lambda\) controls weight decay. Dropout between hidden layers improves generalization.
 
 Role in this thesis: the MLP serves as a parameter-efficient baseline with MFCC inputs, quantifying the incremental benefits of time–frequency 2D models.
+
+
+\begin{figure}[htbp]
+    \centering
+    \caption{The architecture of MLP }
+    \label{fig:mlp arch}
+    \includestandalone[mode=image,width=.8\textwidth]{Figures/tikz/mlp}
+    % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+  \end{figure}
 
 \subsection{Shallow CNN}
 

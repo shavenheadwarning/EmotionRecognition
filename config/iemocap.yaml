@@ -42,6 +42,13 @@ features:
     win_length: 400
 
 models:
+  mlp:
+    type: "MLP"
+    feature_type: "mfcc"
+    input_size: 40  # n_mfcc
+    hidden_sizes: [128, 64, 32]
+    num_classes: 8
+    dropout: 0.3
   shallow_cnn:
     type: "ShallowCNN"
     feature_type: "mel_spectrogram"

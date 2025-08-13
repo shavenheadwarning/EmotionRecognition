@@ -1,0 +1,69 @@
+This is BibTeX, Version 0.99d (TeX Live 2025)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Dissertation.aux
+A level-1 auxiliary file: Preamble/Frontpage.aux
+A level-1 auxiliary file: Preamble/Abstract.aux
+A level-1 auxiliary file: Preamble/Acknowledge.aux
+A level-1 auxiliary file: Preamble/Abbreviations.aux
+A level-1 auxiliary file: Preamble/Contents.aux
+A level-1 auxiliary file: Preamble/Lists.aux
+A level-1 auxiliary file: Preamble/ChapterMods.aux
+A level-1 auxiliary file: Chapter1/Chapter1.aux
+A level-1 auxiliary file: Chapter2/Chapter2.aux
+A level-1 auxiliary file: Chapter3/Chapter3.aux
+A level-1 auxiliary file: Chapter4/Chapter4.aux
+A level-1 auxiliary file: Chapter5/Chapter5.aux
+A level-1 auxiliary file: Chapter6/Chapter6.aux
+A level-1 auxiliary file: Chapter7/Chapter7.aux
+A level-1 auxiliary file: Chapter8/Chapter8.aux
+A level-1 auxiliary file: Chapter9/Chapter9.aux
+A level-1 auxiliary file: Chapter10/Chapter10.aux
+The style file: abbrv.bst
+A level-1 auxiliary file: Appendices/Appendices.aux
+Database file #1: bibliography.bib
+Repeated entry---line 689 of file bibliography.bib
+ : @inproceedings{trigeorgis2016adieu
+ :                                   ,
+I'm skipping whatever remains of this entry
+You've used 51 entries,
+            2118 wiz_defined-function locations,
+            814 strings with 15424 characters,
+and the built_in function-call counts, 22664 in all, are:
+= -- 2251
+> -- 1227
+< -- 22
++ -- 486
+- -- 430
+* -- 1701
+:= -- 3609
+add.period$ -- 164
+call.type$ -- 51
+change.case$ -- 360
+chr.to.int$ -- 0
+cite$ -- 51
+duplicate$ -- 805
+empty$ -- 1617
+format.name$ -- 430
+if$ -- 4790
+int.to.chr$ -- 0
+int.to.str$ -- 51
+missing$ -- 51
+newline$ -- 258
+num.names$ -- 102
+pop$ -- 366
+preamble$ -- 1
+purify$ -- 309
+quote$ -- 0
+skip$ -- 633
+stack$ -- 0
+substring$ -- 1582
+swap$ -- 265
+text.length$ -- 22
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 204
+warning$ -- 0
+while$ -- 202
+width$ -- 53
+write$ -- 571
+(There was 1 error message)

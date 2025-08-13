@@ -109,7 +109,7 @@ models:
 training:
   model_name: "mlp"  # Choose: mlp, shallow_cnn, resnet18
   batch_size: 128
-  num_epochs: 2
+  num_epochs: 50
   learning_rate: 0.001
   weight_decay: 0.0001
   optimizer: "adam"

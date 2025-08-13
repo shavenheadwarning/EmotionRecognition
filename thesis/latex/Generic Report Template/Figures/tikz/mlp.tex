@@ -1,92 +1,100 @@
-\documentclass[tikz,border=6pt]{standalone}
-\usepackage{amsmath,amsfonts}
-\usetikzlibrary{positioning,shapes,arrows.meta,decorations.pathreplacing,calc}
+\documentclass[border=3pt,tikz]{standalone}
+\usepackage{amsmath} % for aligned
+\usepackage{listofitems} % for \readlist to create arrays
+\usetikzlibrary{arrows.meta} % for arrow size
+\usepackage[outline]{contour} % glow around text
+\contourlength{1.4pt}
+\usepackage{tikz-3dplot}
+
+%%%%%
+% \usepackage[cmintegrals,cmbraces]{newtxmath}
+% \usepackage{ebgaramond-maths}
+% \usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\newcommand{\tikzmarkk}[1]{\tikz[baseline,remember picture] \coordinate (#1) {};}
+%%%%%
+
+% COLORS
+\usepackage{xcolor}
+\colorlet{myred}{red!80!black}
+\colorlet{myblue}{blue!80!black}
+\colorlet{mybluee}{myblue!80!black}
+\colorlet{mygreen}{green!60!black}
+\colorlet{myorange}{orange!70!red!60!black}
+\colorlet{mydarkred}{red!30!black}
+\colorlet{mydarkblue}{blue!40!black}
+\colorlet{mydarkgreen}{green!30!black}
+
+% STYLES
+\tikzset{
+  >=latex, % for default LaTeX arrow head
+  node/.style={thick,circle,draw=myblue,minimum size=22,inner sep=0.5,outer sep=0.6},
+  node in/.style={node,green!20!black,draw=mygreen!30!black,fill=mygreen!25},
+  node hidden/.style={node,blue!20!black,draw=myblue!30!black,fill=myblue!20},
+  node convol/.style={node,orange!20!black,draw=myorange!30!black,fill=myorange!20},
+  node out/.style={node,red!20!black,draw=myred!30!black,fill=myred!20},
+  connect/.style={thick,mydarkblue}, %,line cap=round
+  connect arrow/.style={-{Latex[length=4,width=3.5]},thick,mydarkblue,shorten <=0.5,shorten >=1},
+  node 1/.style={node in}, % node styles, numbered for easy mapping with \nstyle
+  node 2/.style={node hidden},
+  node 3/.style={node out}
+}
+\def\nstyle{int(\lay<\Nnodlen?min(2,\lay):3)} % map layer number onto 1, 2, or 3
 
 \begin{document}
-	\begin{tikzpicture}[
-		node distance=10mm and 18mm,
-		every node/.style={font=\small},
-		input/.style={draw, rounded rectangle, fill=yellow!20, inner sep=6pt, minimum width=36mm, minimum height=9mm},
-		layer/.style={draw, rectangle, rounded corners=2pt, inner sep=6pt, minimum width=40mm, minimum height=12mm},
-		act/.style={draw, ellipse, inner sep=3pt, minimum width=16mm, fill=white},
-		op/.style={draw, rectangle, fill=green!10, inner sep=6pt, minimum width=34mm},
-		arrow/.style={-Stealth, line width=0.9pt},
-		note/.style={font=\footnotesize\itshape}
-		]
-		
-		% Input
-		\node[input] (z) {$\bar{\mathbf{z}}$ \\ \footnotesize (mean-pooled MFCC vector)};
-		
-		% Layer 1
-		\node[layer, right=of z, xshift=8mm, fill=cyan!12] (L1) {
-			$\mathbf{h}^{(1)}=\sigma\!\big(\mathbf{W}^{(1)}\bar{\mathbf{z}}+\mathbf{b}^{(1)}\big)$
-		};
-		\node[act, below=2mm of L1] (relu1) {ReLU};
-		\node[note, below=0mm of relu1] (do1) {Dropout};
-		
-		% Layer 2
-		\node[layer, right=of L1, xshift=8mm, fill=teal!12] (L2) {
-			$\mathbf{h}^{(2)}=\sigma\!\big(\mathbf{W}^{(2)}\mathbf{h}^{(1)}+\mathbf{b}^{(2)}\big)$
-		};
-		\node[act, below=2mm of L2] (relu2) {ReLU};
-		\node[note, below=0mm of relu2] (do2) {Dropout};
-		
-		% Middle hidden (representing ... up to L-1)
-		\node[layer, right=of L2, xshift=8mm, fill=purple!12] (Lk) {
-			$\mathbf{h}^{(L-1)}=\sigma\!\big(\mathbf{W}^{(L-1)}\mathbf{h}^{(L-2)}+\mathbf{b}^{(L-1)}\big)$
-		};
-		\node[act, below=2mm of Lk] (reluk) {ReLU};
-		\node[note, below=0mm of reluk] (dok) {Dropout};
-		
-		% Output linear layer
-		\node[op, right=of Lk, xshift=8mm, fill=orange!8] (out) {
-			$\mathbf{o}=\mathbf{W}^{(L)}\mathbf{h}^{(L-1)}+\mathbf{b}^{(L)}$
-		};
-		
-		% Softmax and probabilities
-		\node[layer, right=of out, xshift=8mm, fill=lime!8] (soft) {
-			$\mathbf{p}=\mathrm{softmax}(\mathbf{o})$\\[2pt] $p_c=\dfrac{\exp(o_c)}{\sum_{c'}\exp(o_{c'})}$
-		};
-		
-		% Loss box
-		\node[draw, rounded rectangle, below=12mm of soft, fill=red!6, inner sep=6pt] (loss) {
-			$\displaystyle \mathcal{L}=-\sum_{c=1}^C y_c\log p_c + \lambda \lVert \Theta\rVert_2^2$
-		};
-		
-		% Connections
-		\draw[arrow] (z) -- (L1);
-		\draw[arrow] (L1) -- (L2);
-		\draw[arrow] (L2) -- (Lk);
-		\draw[arrow] (Lk) -- (out);
-		\draw[arrow] (out) -- (soft);
-		\draw[arrow] (soft.south) -- ++(0,-6mm) -| (loss.north);
-		
-		% Parameter annotations
-		\node[above=1mm of L1] {\footnotesize $\mathbf{W}^{(1)},\mathbf{b}^{(1)}$};
-		\node[above=1mm of L2] {\footnotesize $\mathbf{W}^{(2)},\mathbf{b}^{(2)}$};
-		\node[above=1mm of Lk] {\footnotesize $\mathbf{W}^{(L-1)},\mathbf{b}^{(L-1)}$};
-		\node[above=1mm of out] {\footnotesize $\mathbf{W}^{(L)},\mathbf{b}^{(L)}$};
-		
-		% Legend
-		\begin{scope}[shift={(0,-40mm)}]
-			\node[anchor=north west] (leg) at (-42mm,-6mm) {\textbf{Legend / Symbol mapping}};
-			\node[note, right=of leg, xshift=18mm, anchor=west] (s1) {
-				$\bar{\mathbf{z}}$: input (mean-pooled MFCC)
-			};
-			\node[note, below=1mm of s1, anchor=west] (s2) {
-				$\mathbf{h}^{(\ell)}$: hidden vector at layer $\ell$; $\sigma(\cdot)$ is elementwise nonlinearity (ReLU)
-			};
-			\node[note, below=1mm of s2, anchor=west] (s3) {
-				$\mathbf{o}$: final linear outputs; $\mathbf{p}=\mathrm{softmax}(\mathbf{o})$ are class probabilities
-			};
-			\node[note, below=1mm of s3, anchor=west] (s4) {
-				Dropout: applied between hidden layers; $\ell_2$ weight decay appears in loss
-			};
-		\end{scope}
-		
-		% Brace to show many hidden layers
-		\draw[decorate,decoration={brace,amplitude=6pt},line width=0.6pt]
-		($(L1.north east)+(2mm,3mm)$) -- ($(Lk.north west)+(-2mm,3mm)$) node[midway,above=5mm,font=\footnotesize] {Hidden layers $\mathbf{h}^{(1)},\dots,\mathbf{h}^{(L-1)}$};
-		
-	\end{tikzpicture}
+
+
+% NEURAL NETWORK with coefficients, uniform arrows
+\newcommand\setAngles[3]{
+  \pgfmathanglebetweenpoints{\pgfpointanchor{#2}{center}}{\pgfpointanchor{#1}{center}}
+  \pgfmathsetmacro\angmin{\pgfmathresult}
+  \pgfmathanglebetweenpoints{\pgfpointanchor{#2}{center}}{\pgfpointanchor{#3}{center}}
+  \pgfmathsetmacro\angmax{\pgfmathresult}
+  \pgfmathsetmacro\dang{\angmax-\angmin}
+  \pgfmathsetmacro\dang{\dang<0?\dang+360:\dang}
+}
+
+\begin{tikzpicture}[x=2.2cm,y=1.4cm]
+  % \message{^^JNeural network with uniform arrows}
+  \readlist\Nnod{4,3,3,3,2} % array of number of nodes per layer
+
+  \foreachitem \N \in \Nnod{ % loop over layers
+    \def\lay{\Ncnt} % alias of index of current layer
+    \pgfmathsetmacro\prev{int(\Ncnt-1)} % number of previous layer
+    \message{^^J Layer \lay, N=\N, prev=\prev ->}
+
+    % NODES
+    \foreach \i [evaluate={\y=\N/2-\i; \x=\lay; \n=\nstyle;}] in {1,...,\N}{ % loop over nodes
+        \message{N\lay-\i, }
+        \node[node \n] (N\lay-\i) at (\x,\y) {};
+        % \node[node \n] (N\lay-\i) at (\x,\y) {$a_\i^{(\prev)}$};
+      }
+
+    % CONNECTIONS
+    \foreach \i in {1,...,\N}{ % loop over nodes
+        \ifnum\lay>1 % connect to previous layer
+          \setAngles{N\prev-1}{N\lay-\i}{N\prev-\Nnod[\prev]} % angles in current node
+          %\draw[red,thick] (N\lay-\i)++(\angmin:0.2) --++ (\angmin:-0.5) node[right,scale=0.5] {\dang};
+          %\draw[blue,thick] (N\lay-\i)++(\angmax:0.2) --++ (\angmax:-0.5) node[right,scale=0.5] {\angmin, \angmax};
+          \foreach \j [evaluate={\ang=\angmin+\dang*(\j-1)/(\Nnod[\prev]-1);}] %-180+(\angmax-\angmin)*\j/\Nnod[\prev]
+          in {1,...,\Nnod[\prev]}{ % loop over nodes in previous layer
+              \setAngles{N\lay-1}{N\prev-\j}{N\lay-\N} % angles out from previous node
+              \pgfmathsetmacro\angout{\angmin+(\dang-360)*(\i-1)/(\N-1)} % number of previous layer
+              %\draw[connect arrow,white,line width=1.1] (N\prev-\j.{\angout}) -- (N\lay-\i.{\ang});
+              \draw[connect arrow] (N\prev-\j.{\angout}) -- (N\lay-\i.{\ang}); % connect arrows uniformly
+            }
+        \fi % else: nothing to connect first layer
+      }
+  }
+
+  % LABELS
+  \node[above=0.3,align=center,mygreen] at (N1-1.90) {Input Layer};
+  \node[above=0.5,align=center,mybluee] at (N3-1.90) {Hidden Layers};
+  \node[above=0.8,align=center,myred] at (N\Nnodlen-1.90) {Output Layer};
+
+\end{tikzpicture}
+
 \end{document}

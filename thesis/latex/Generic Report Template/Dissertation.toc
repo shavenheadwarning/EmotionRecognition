@@ -4,46 +4,46 @@
 \contentsline {chapter}{List of Figures}{vii}{}%
 \contentsline {chapter}{List of Tables}{viii}{}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{}%
-\contentsline {subsection}{\numberline {1.0.1}Background}{1}{}%
-\contentsline {subsection}{\numberline {1.0.2}Main Contents of the Dissertation}{2}{}%
-\contentsline {subsection}{\numberline {1.0.3}Structure of the Dissertation}{2}{}%
-\contentsline {chapter}{\numberline {2}Literature Review}{3}{}%
-\contentsline {section}{\numberline {2.1}Datasets for Speech Emotion Recognition}{3}{}%
-\contentsline {section}{\numberline {2.2}SER with Acoustic Features}{4}{}%
-\contentsline {section}{\numberline {2.3}SER with Spectrogram-based Features}{5}{}%
-\contentsline {chapter}{\numberline {3}Methodology}{7}{}%
-\contentsline {section}{\numberline {3.1}Feature Extraction}{7}{}%
-\contentsline {subsection}{\numberline {3.1.1}MFCC}{7}{}%
-\contentsline {subsection}{\numberline {3.1.2}Mel-spectrogram}{8}{}%
-\contentsline {section}{\numberline {3.2}Model Developments}{9}{}%
-\contentsline {subsection}{\numberline {3.2.1}Multi-layer Perceptron}{9}{}%
-\contentsline {subsection}{\numberline {3.2.2}Shallow CNN}{10}{}%
-\contentsline {subsection}{\numberline {3.2.3}ResNet-18}{10}{}%
-\contentsline {subsection}{\numberline {3.2.4}Audio Spectrogram Transformer}{11}{}%
-\contentsline {section}{\numberline {3.3}Data Augmentation}{11}{}%
-\contentsline {subsection}{\numberline {3.3.1}Noise sources and SNR set}{12}{}%
-\contentsline {subsection}{\numberline {3.3.2}On-the-fly sampling policy}{12}{}%
-\contentsline {subsection}{\numberline {3.3.3}Time alignment and preprocessing}{12}{}%
-\contentsline {subsection}{\numberline {3.3.4}RMS, target SNR, and gain computation}{12}{}%
-\contentsline {subsection}{\numberline {3.3.5}Peak limiting and re-normalization}{12}{}%
-\contentsline {subsection}{\numberline {3.3.6}Integration with the training pipeline}{13}{}%
-\contentsline {subsection}{\numberline {3.3.7}Evaluation protocol}{13}{}%
-\contentsline {chapter}{\numberline {4}Experiments}{14}{}%
-\contentsline {section}{\numberline {4.1}Common Settings}{14}{}%
-\contentsline {subsection}{\numberline {4.1.1}Datasets and splits}{14}{}%
-\contentsline {subsection}{\numberline {4.1.2}Models}{14}{}%
-\contentsline {subsection}{\numberline {4.1.3}Training and evaluation}{14}{}%
-\contentsline {subsection}{\numberline {4.1.4}Noise augmentation policy}{15}{}%
-\contentsline {section}{\numberline {4.2}Experiment A: Clean Baselines}{15}{}%
-\contentsline {section}{\numberline {4.3}Experiment B: White-Noise Training at 20 dB}{15}{}%
-\contentsline {section}{\numberline {4.4}Experiment C: ESC-50 Multi-Category, Multi-SNR}{15}{}%
-\contentsline {section}{\numberline {4.5}Experiment D: SNR Ablation (Natural Soundscapes)}{16}{}%
-\contentsline {section}{\numberline {4.6}Experiment E: Model Robustness Comparison (ResNet-18 vs AST)}{16}{}%
-\contentsline {section}{\numberline {4.7}Experiment F: Augmentation Intensity Ablation (\(p_{\mathrm {aug}}\))}{16}{}%
-\contentsline {section}{\numberline {4.8}Summary of Results and Visualization}{17}{}%
-\contentsline {chapter}{\numberline {5}Discussion}{18}{}%
-\contentsline {chapter}{\numberline {6}Conclusion}{19}{}%
-\contentsline {chapter}{\numberline {7}Chapter Title}{20}{}%
-\contentsline {chapter}{\numberline {8}Chapter Title}{21}{}%
-\contentsline {chapter}{\numberline {9}Chapter Title}{22}{}%
-\contentsline {chapter}{\numberline {10}Chapter Title}{23}{}%
+\contentsline {section}{\numberline {1.1}Background}{1}{}%
+\contentsline {section}{\numberline {1.2}Main Contents of the Dissertation}{2}{}%
+\contentsline {section}{\numberline {1.3}Structure of the Dissertation}{2}{}%
+\contentsline {chapter}{\numberline {2}Literature Review}{4}{}%
+\contentsline {section}{\numberline {2.1}Datasets for Speech Emotion Recognition}{4}{}%
+\contentsline {section}{\numberline {2.2}SER with Acoustic Features}{5}{}%
+\contentsline {section}{\numberline {2.3}SER with Spectrogram-based Features}{6}{}%
+\contentsline {chapter}{\numberline {3}Methodology}{9}{}%
+\contentsline {section}{\numberline {3.1}Feature Extraction}{9}{}%
+\contentsline {subsection}{\numberline {3.1.1}MFCC}{9}{}%
+\contentsline {subsection}{\numberline {3.1.2}Mel-spectrogram}{11}{}%
+\contentsline {section}{\numberline {3.2}Model Developments}{11}{}%
+\contentsline {subsection}{\numberline {3.2.1}Multi-layer Perceptron}{11}{}%
+\contentsline {subsection}{\numberline {3.2.2}Shallow CNN}{12}{}%
+\contentsline {subsection}{\numberline {3.2.3}ResNet-18}{13}{}%
+\contentsline {subsection}{\numberline {3.2.4}Audio Spectrogram Transformer}{13}{}%
+\contentsline {section}{\numberline {3.3}Data Augmentation}{14}{}%
+\contentsline {subsection}{\numberline {3.3.1}Noise sources and SNR set}{14}{}%
+\contentsline {subsection}{\numberline {3.3.2}On-the-fly sampling policy}{14}{}%
+\contentsline {subsection}{\numberline {3.3.3}Time alignment and preprocessing}{14}{}%
+\contentsline {subsection}{\numberline {3.3.4}RMS, target SNR, and gain computation}{15}{}%
+\contentsline {subsection}{\numberline {3.3.5}Peak limiting and re-normalization}{15}{}%
+\contentsline {subsection}{\numberline {3.3.6}Integration with the training pipeline}{15}{}%
+\contentsline {subsection}{\numberline {3.3.7}Evaluation protocol}{15}{}%
+\contentsline {chapter}{\numberline {4}Experiments}{17}{}%
+\contentsline {section}{\numberline {4.1}Common Settings}{17}{}%
+\contentsline {subsection}{\numberline {4.1.1}Datasets and splits}{17}{}%
+\contentsline {subsection}{\numberline {4.1.2}Models}{17}{}%
+\contentsline {subsection}{\numberline {4.1.3}Training and evaluation}{18}{}%
+\contentsline {subsection}{\numberline {4.1.4}Noise augmentation policy}{18}{}%
+\contentsline {section}{\numberline {4.2}Experiment A: Clean Baselines}{18}{}%
+\contentsline {section}{\numberline {4.3}Experiment B: White-Noise Training at 20 dB}{19}{}%
+\contentsline {section}{\numberline {4.4}Experiment C: ESC-50 Multi-Category, Multi-SNR}{19}{}%
+\contentsline {section}{\numberline {4.5}Experiment D: SNR Ablation (Natural Soundscapes)}{20}{}%
+\contentsline {section}{\numberline {4.6}Experiment E: Model Robustness Comparison (ResNet-18 vs AST)}{20}{}%
+\contentsline {section}{\numberline {4.7}Experiment F: Augmentation Intensity Ablation (\(p_{\mathrm {aug}}\))}{20}{}%
+\contentsline {section}{\numberline {4.8}Summary of Results and Visualization}{20}{}%
+\contentsline {chapter}{\numberline {5}Discussion}{22}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{23}{}%
+\contentsline {chapter}{\numberline {7}Chapter Title}{24}{}%
+\contentsline {chapter}{\numberline {8}Chapter Title}{25}{}%
+\contentsline {chapter}{\numberline {9}Chapter Title}{26}{}%
+\contentsline {chapter}{\numberline {10}Chapter Title}{27}{}%

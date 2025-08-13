@@ -2,19 +2,19 @@
 
 \chapter{Experiments}
 
-This chapter presents a comprehensive experimental study on Speech Emotion Recognition (SER) under clean and noisy conditions. We evaluate multiple architectures and noise augmentation strategies on two datasets, adhering to the unified notation and preprocessing defined in Chapter 3. Unless otherwise specified, audio is sampled at \(f_s\), the time-domain signal is \(x[n]\), noise is \(v[n]\), and on-the-fly mixtures during training follow
+This chapter presents a comprehensive experimental study on SER under clean and noisy conditions. We evaluate multiple architectures and noise augmentation strategies on two datasets, adhering to the unified notation and preprocessing defined in Chapter 3. Unless otherwise specified, audio is sampled at \(f_s\), the time-domain signal is \(x[n]\), noise is \(v[n]\), and on-the-fly mixtures during training follow
 \(x_{\mathrm{mix}}[n] = x_s[n] + g\, x_n[n]\) with gain \(g\) computed from target SNR as in Chapter 3.
 
 \section{Common Settings}
 
 \subsection{Datasets and splits}
-We use RAVDESS (speech actors 01–24) and IEMOCAP. Data splits follow the established protocol for each dataset. Validation and clean test sets are never augmented; only the training split is subjected to on-the-fly noise mixing when enabled.
+We use RAVDESS (speech actors 01–24) and IEMOCAP. Data splits follow the established protocol for each dataset. Validation and clean test sets are never augmented; only the training split is subjected to on-the-fly noise mixing when enabled. The batch size of MLP, shallow CNN, and Resnet18 is 128, and 64 for AST. All models are trained using Adam \cite{Kingma2014Adam} optimizer with a initial learning rate of 0.001. The training is terminated when the validation loss does not improve for 10 epochs.
 
 \subsection{Models}
 We compare a convolutional baseline (ResNet-18 on Log-Mel spectrograms) and a transformer-based model (AST Base on filterbank features), alongside lighter baselines where applicable (MLP and shallow CNN) to contextualize complexity–performance trade-offs.
 
 \subsection{Training and evaluation}
-Training uses mini-batch stochastic optimization with standard regularization. Metrics on the validation set include accuracy, precision, recall, and macro-F1. Confusion matrices are reported to analyze class-wise separability. Robustness is further assessed on noisy test sets created by offline mixing of \(x[n]\) with held-out noise at specified SNRs \(\in \{0,5,10,20\}\,\mathrm{dB}\). All experiments fix a base random seed unless otherwise stated; key findings are validated by repeating with multiple seeds to estimate mean and variance.
+Training uses mini-batch stochastic optimization with standard regularization. Metrics on the validation set include accuracy, precision, recall, and macro-F1. Confusion matrices are reported to analyze class-wise separability. Robustness is further assessed on noisy test sets created by offline mixing of \(x[n]\) with held-out noise at specified SNRs \(\in \{0,5,10,20\}\,\mathrm{dB}\). All experiments fix a base random seed 42 unless otherwise stated.
 
 \subsection{Noise augmentation policy}
 When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}}\), we sample a noise type (white or ESC-50 subsets), sample SNR from \(\{0,5,10,20\}\,\mathrm{dB}\), time-align noise to the utterance, compute gain \(g\) via RMS matching to satisfy the target SNR, form \(x_{\mathrm{mix}}[n]\), apply peak limiting at \(-1\,\mathrm{dBFS}\), and optionally mean–variance normalize prior to feature extraction.
@@ -26,7 +26,49 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
 
 \textbf{Evaluation.} Report accuracy, precision, recall, macro-F1 on validation and clean test sets. Provide confusion matrices to examine class confusability. Analyze overfitting by comparing training vs. validation curves.
 
-\textbf{Expected analysis.} Identify baseline strengths and failure modes (e.g., emotions with overlapping prosody). Quantify headroom for robustness improvements.
+\textbf{Results and analysis.} Identify baseline strengths and failure modes (e.g., emotions with overlapping prosody). Quantify headroom for robustness improvements.
+
+\subsection*{Result Tables (Placeholders)}
+The following tables are placeholders for two datasets. Values will be filled after experiments. Metrics reported are Accuracy, Precision, Recall, and Macro-F1 for four models (MLP, Shallow CNN, ResNet-18, AST Base).
+
+Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravdess_results} and Table \ref{tab:iemocap_results} respectively.
+
+\begin{table}[htbp]
+    \centering
+    \caption{ Results of Experiment A on RAVDESS}
+    \label{tab:ravdess_results}
+    \begin{tabular}{lcccc}
+        \hline
+        Model & Accuracy & Precision & Recall & Macro-F1 \\
+        \hline
+        MLP & 0.451 & 0.412 & 0.431 & 0.402 \\
+        Shallow CNN & 0.208 & 0.141 & 0.192 & 0.127 \\
+        ResNet-18 & 0.687 & 0.694 & 0.697 & 0.682 \\
+        AST Base &  0.378 &  0.327 & 0.353 & 0.326 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \caption{ Results of Experiment A on IEMOCAP}
+    \label{tab:iemocap_results}
+    \begin{tabular}{lcccc}
+        \hline
+        Model & Accuracy & Precision & Recall & Macro-F1 \\
+        \hline
+        MLP & 0.583 & 0.498 & 0.342 & 0.340 \\
+        Shallow CNN & 0.583 & 0.546 & 0.449 & 0.415 \\
+        ResNet-18 & 0.570 & 0.388 & 0.475 & 0.406 \\
+        AST Base & 0.615 & 0.682 & 0.413 &  0.448\\
+
+        \hline
+    \end{tabular}
+\end{table}
+
+
+
+
 
 \section{Experiment B: White-Noise Training at 20 dB}
 \textbf{Objective.} Assess whether training with mild additive white noise (\(\mathrm{SNR}=20\,\mathrm{dB}\)) improves robustness without harming clean-set performance.
@@ -35,7 +77,24 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
 
 \textbf{Evaluation.} Compare metrics to Experiment A on clean validation/test, and on the 20 dB noisy test. Include confusion matrices to visualize changes in class boundaries.
 
-\textbf{Expected analysis.} Determine whether small stochastic perturbations act as regularization that improves generalization. Inspect any trade-off on clean performance.
+\textbf{Results and analysis.} Determine whether small stochastic perturbations act as regularization that improves generalization. Inspect any trade-off on clean performance.
+
+\begin{table}[htbp]
+    \centering
+    \caption{ Results of Experiment B on two datasets }
+    \label{tab:white_noise_results}
+    \begin{tabular}{lcccccccc}
+        \hline
+         & \multicolumn{4}{c}{RAVDESS} & \multicolumn{4}{c}{IEMOCAP} \\
+        Model & Acc. & Prec. & Recall & Macro-F1 & Acc. & Prec. & Recall & Macro-F1 \\
+        \hline
+        ResNet-18 &  &  &  &  &  0.551 &  0.491 & 0.378 & 0.315 \\
+        AST Base &  &  &  &  & 0.615 & 0.682 & 0.413 & 0.448 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
 
 \section{Experiment C: ESC-50 Multi-Category, Multi-SNR}
 \textbf{Objective.} Measure the effect of realistic environmental noise on SER across a range of SNRs and categories (natural soundscapes and human non-speech).
