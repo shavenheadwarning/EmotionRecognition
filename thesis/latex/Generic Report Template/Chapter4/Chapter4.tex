@@ -88,8 +88,8 @@ Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravde
          & \multicolumn{4}{c}{RAVDESS} & \multicolumn{4}{c}{IEMOCAP} \\
         Model & Acc. & Prec. & Recall & Macro-F1 & Acc. & Prec. & Recall & Macro-F1 \\
         \hline
-        ResNet-18 &  &  &  &  &  0.551 &  0.491 & 0.378 & 0.315 \\
-        AST Base &  &  &  &  & 0.615 & 0.682 & 0.413 & 0.448 \\
+        ResNet-18 & 0.677 & 0.674 & 0.680 & 0.674 &  0.551 &  0.491 & 0.378 & 0.315 \\
+        AST Base &  &  &  &  & 0.583 & 0.565 & 0.4713 & 0.472 \\
         \hline
     \end{tabular}
 \end{table}
@@ -103,7 +103,25 @@ Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravde
 
 \textbf{Evaluation.} On the clean validation/test sets (unaugmented) and on noisy test sets stratified by noise category and SNR. Report per-SNR metrics and class-wise performance; provide heatmaps summarizing model × noise × SNR.
 
-\textbf{Expected analysis.} Identify which noise categories and SNR regimes most strongly impact recognition. Examine whether models learn noise-invariant features.
+\textbf{Results and analysis.} Identify which noise categories and SNR regimes most strongly impact recognition. Examine whether models learn noise-invariant features.
+
+
+\begin
+    \centering
+    \caption{ Results of Experiment C on two datasets }
+    \label{tab:esc_noise_results}
+    \begin{tabular}{lcccccccc}
+        \hline
+        Model & Acc. & Prec. & Recall & Macro-F1 \\
+        \hline
+        & \multicolumn{4}{c}{RAVDESS} & \multicolumn{4}{c}{IEMOCAP} \\
+        Model & Acc. & Prec. & Recall & Macro-F1 & Acc. & Prec. & Recall & Macro-F1 \\
+        \hline
+        ResNet-18 & 0.548 & 0.541 &  0.546 & 0.527 &  0.554 &  0.519  &  0.327 &0.323  \\
+        AST Base &  &  &  &  &  &  &  &  \\
+        \hline
+    \end{tabular}
+\end{table}
 
 \section{Experiment D: SNR Ablation (Natural Soundscapes)}
 \textbf{Objective.} Characterize performance sensitivity to SNR under a fixed noise category to locate robustness breakpoints.

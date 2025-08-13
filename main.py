@@ -221,6 +221,22 @@ def main():
         model = create_model(config)
         print_model_info(model, config)
 
+        # Adjust training hyperparameters for AST models for stability
+        try:
+            model_type = config['models'][config['training']['model_name']]['type']
+            if model_type == 'AST':
+                lr = float(config['training']['learning_rate'])
+                if lr >= 5e-4:
+                    logging.warning(f"AST detected with lr={lr}. Setting a safer learning rate 1e-4 for stability.")
+                    config['training']['learning_rate'] = 1e-4
+                # Slightly reduce weight decay if very large
+                wd = float(config['training']['weight_decay'])
+                if wd > 1e-3:
+                    logging.warning(f"AST detected with weight_decay={wd}. Setting weight_decay to 1e-4 for stability.")
+                    config['training']['weight_decay'] = 1e-4
+        except Exception:
+            pass
+
         # Create data loaders
         logging.info("Creating data loaders...")
         train_loader, val_loader = create_feature_data_loaders(config)

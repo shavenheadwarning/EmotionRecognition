@@ -1,7 +1,12 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The architecture of MLP }}{12}{}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The MFCC of a sample in IEMOCAP}}{11}{}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces The MFCC of a sample in RAVDESS}}{11}{}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The Mel-spectrogram of a sample in RAVDESS}}{12}{}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces The Mel-spectrogram of a sample in IEMOCAP}}{13}{}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces The architecture of MLP }}{14}{}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces The architecture of shallow CNN }}{15}{}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

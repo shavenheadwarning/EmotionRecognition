@@ -6,7 +6,6 @@ Adapted from the original AST implementation: https://github.com/YuanGongND/ast
 
 import torch
 import torch.nn as nn
-from torch.cuda.amp import autocast
 import os
 import timm
 from timm.models.layers import to_2tuple, trunc_normal_
@@ -201,7 +200,6 @@ class ASTModel(nn.Module):
         t_dim = test_out.shape[3]
         return f_dim, t_dim
     
-    @autocast()
     def forward(self, x):
         """
         Forward pass
@@ -263,17 +261,18 @@ class RAVDESSASTModel(nn.Module):
         imagenet_pretrain = config.get('imagenet_pretrain', True)
         audioset_pretrain = config.get('audioset_pretrain', False)
         
-        # Calculate input time dimension based on audio length
-        sample_rate = 22050  # Standard sample rate
-        audio_length = 3.0   # 3 seconds
-        frame_shift = 10     # 10ms frame shift
-        input_tdim = int(audio_length * 1000 / frame_shift)  # ~300 frames for 3s
+        # Calculate input time dimension based on dataset config
+        sample_rate = float(config.get('features', {}).get('sample_rate', 22050))
+        audio_length = float(config.get('features', {}).get('max_length', 3.0))
+        frame_shift = 10  # 10ms frame shift
+        input_tdim = int(round(audio_length * 1000.0 / frame_shift))
         
         self.ast_model = ASTModel(
             label_dim=self.num_classes,
             fstride=10,
             tstride=10,
-            input_fdim=128,  # 128 mel bins
+            # Use 128 mel bins by default; align with feature extractor if provided
+            input_fdim=int(config.get('features', {}).get('mel_spectrogram', {}).get('n_mels', 128)) or 128,
             input_tdim=input_tdim,
             imagenet_pretrain=imagenet_pretrain,
             audioset_pretrain=audioset_pretrain,

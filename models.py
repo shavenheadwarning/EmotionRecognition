@@ -278,18 +278,19 @@ if __name__ == "__main__":
     # Test models
     from data_processing.data_loader import load_config
 
-    config = load_config()
+    config = load_config(config_path="config/config.yaml")
 
     # Test MLP
-    config['training']['model_name'] = 'mlp'
-    mlp_model = create_model(config)
-    test_mfcc = torch.randn(4, 26)  # batch_size=4, features=13*2
-    output = mlp_model(test_mfcc)
-    print(f"MLP output shape: {output.shape}")
+    # config['training']['model_name'] = 'mlp'
+    # mlp_model = create_model(config)
+    # test_mfcc = torch.randn(4, 26)  # batch_size=4, features=13*2
+    # output = mlp_model(test_mfcc)
+    # print(f"MLP output shape: {output.shape}")
 
     # Test ShallowCNN
     config['training']['model_name'] = 'shallow_cnn'
     cnn_model = create_model(config)
+    print(cnn_model)
     test_mel = torch.randn(4, 1, 128, 130)  # batch_size=4, channels=1, n_mels=128, time_frames=130
     output = cnn_model(test_mel)
     print(f"ShallowCNN output shape: {output.shape}")
@@ -297,5 +298,6 @@ if __name__ == "__main__":
     # Test ResNet18
     config['training']['model_name'] = 'resnet18'
     resnet_model = create_model(config)
+    print(resnet_model)
     output = resnet_model(test_mel)
     print(f"ResNet18 output shape: {output.shape}")

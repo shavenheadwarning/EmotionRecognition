@@ -389,6 +389,14 @@ class Trainer:
         except Exception:
             pass
         optimizer = self._create_optimizer(model)
+        scaler = None
+        # Enable AMP only if CUDA is available and configured to auto/cuda
+        try:
+            use_amp = (str(self.config.get('device', 'auto')).lower() != 'cpu') and torch.cuda.is_available()
+        except Exception:
+            use_amp = torch.cuda.is_available()
+        if use_amp:
+            scaler = torch.cuda.amp.GradScaler()
         scheduler = self._create_scheduler(optimizer)
 
         # Early stopping
@@ -406,7 +414,29 @@ class Trainer:
             epoch_start = time.time()
 
             # Train
-            train_metrics = self.train_epoch(model, train_loader, criterion, optimizer)
+            # Train epoch with optional AMP
+            model.train()
+            metrics_calc = MetricsCalculator(len(self.emotion_labels), self.emotion_labels)
+            progress_bar = tqdm(train_loader, desc="Training")
+            for batch_idx, (data, target) in enumerate(progress_bar):
+                data, target = data.to(self.device), target.to(self.device, dtype=torch.long)
+                optimizer.zero_grad()
+                if scaler is not None:
+                    with torch.cuda.amp.autocast():
+                        output = model(data)
+                        loss = criterion(output, target)
+                    scaler.scale(loss).backward()
+                    scaler.step(optimizer)
+                    scaler.update()
+                else:
+                    output = model(data)
+                    loss = criterion(output, target)
+                    loss.backward()
+                    optimizer.step()
+                metrics_calc.update(output, target, float(loss.item()))
+                if batch_idx % 10 == 0:
+                    progress_bar.set_postfix({'loss': f'{loss.item():.4f}'})
+            train_metrics = metrics_calc.compute()
 
             # Validate
             val_metrics, val_metrics_calc = self.validate_epoch(model, val_loader, criterion)

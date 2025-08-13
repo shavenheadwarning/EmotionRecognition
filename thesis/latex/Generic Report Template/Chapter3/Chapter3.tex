@@ -58,7 +58,24 @@ Temporal dynamics are often captured by regression-based derivatives using a sym
 \Delta c_q[m] = \frac{\sum_{r=1}^{R} r\, \big(c_q[m+r] - c_q[m-r]\big)}{2 \sum_{r=1}^{R} r^2}, \quad \Delta\!\Delta c_q[m] \text{ analogously.}
 \end{equation}
 
-Advantages: MFCCs are compact, relatively robust to slowly varying convolutive effects, and widely validated in speech tasks. Limitations: information loss due to coarse spectral integration and DCT decorrelation, frame-level stationarity assumptions, and sensitivity to noise and channel mismatch without appropriate normalization or enhancement.
+Advantages: MFCCs are compact, relatively robust to slowly varying convolutive effects, and widely validated in speech tasks. Figure \ref{fig:mfcc_vis_1} and Figure \ref{fig:mfcc_vis_2} show the MFCCs of a sample in IEMOCAP and RAVDESS. Limitations: information loss due to coarse spectral integration and DCT decorrelation, frame-level stationarity assumptions, and sensitivity to noise and channel mismatch without appropriate normalization or enhancement.
+
+\begin{figure}[htbp]
+    \centering
+    \caption{The MFCC of a sample in IEMOCAP}
+    \label{fig:mfcc_vis_1}
+    \includegraphics[width=.8\textwidth]{Figures/mfcc_vis/IEMOCAP_Ses01F_impro03.png}
+    % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+  \end{figure}
+
+  \begin{figure}[htbp]
+    \centering
+    \caption{The MFCC of a sample in RAVDESS}
+    \label{fig:mfcc_vis_2}
+    \includegraphics[width=.8\textwidth]
+    {Figures/mfcc_vis/RAVDESS_03-02-02-01-01-01-01.png}
+    % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+  \end{figure}
 
 \subsection{Mel-spectrogram}
 The Mel-spectrogram represents short-time spectral energy projected onto a perceptual frequency axis, typically used directly as a 2D input to convolutional or transformer models.
@@ -74,7 +91,27 @@ A log or power-law compression is commonly applied to stabilize training and app
 
 Design choices include the sample rate \(f_s\), frame length \(N\), hop size \(H\), window type \(w[n]\), number of Mel filters \(F\), lower/upper frequency bounds of the filterbank, and whether to use magnitude or power spectra. Per-utterance or global mean-variance normalization is often applied to reduce channel variability.
 
-Advantages: Mel-spectrograms preserve local time–frequency structure and are highly compatible with CNNs and attention-based encoders; they avoid the information loss introduced by the DCT in MFCC. Limitations: higher dimensionality increases memory and compute cost; the representation remains sensitive to additive noise and reverberation without enhancement or robust training; choices of \(F\), bounds, and \(f_s\) affect resolution and cross-dataset transferability.
+Advantages: Mel-spectrograms preserve local time–frequency structure and are highly compatible with CNNs and attention-based encoders; they avoid the information loss introduced by the DCT in MFCC. Figure \ref{fig:mel_vis_1} and Figure \ref{fig:mel_vis_2} show the Mel-spectrograms of a sample in RAVDESS and IEMOCAP. Limitations: higher dimensionality increases memory and compute cost; the representation remains sensitive to additive noise and reverberation without enhancement or robust training; choices of \(F\), bounds, and \(f_s\) affect resolution and cross-dataset transferability.
+
+
+\begin{figure}[htbp]
+  \centering
+  \caption{The Mel-spectrogram of a sample in RAVDESS}
+  \label{fig:mel_vis_1}
+  \includegraphics[width=.8\textwidth]
+  {Figures/mfcc_vis/RAVDESS_03-02-01-01-01-02-01_mel.png}
+  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \caption{The Mel-spectrogram of a sample in IEMOCAP}
+  \label{fig:mel_vis_2}
+  \includegraphics[width=.8\textwidth]
+  {Figures/mfcc_vis/IEMOCAP_Ses01F_impro05_mel.png}
+  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+\end{figure}
+
 
 \section{Model Developments}
 
@@ -86,7 +123,7 @@ optionally augmented with standard deviation pooling. Let \(\mathbf{y} \in \{0,1
 
 \subsection{Multi-layer Perceptron}
 
-We adopt a feed-forward multilayer perceptron (MLP, as shown in \ref{fig:mlp arch}) as a lightweight baseline operating on MFCC-based utterance vectors. Given input \(\bar{\mathbf{z}}\) from (\ref{eq:meanpool}), a depth-\(L\) MLP computes
+We adopt a feed-forward multilayer perceptron (MLP, as shown in Figure \ref{fig:mlp arch}) as a lightweight baseline operating on MFCC-based utterance vectors. Given input \(\bar{\mathbf{z}}\) from (\ref{eq:meanpool}), a depth-\(L\) MLP computes
 \begin{align}\label{eq:mlp}
 \mathbf{h}^{(1)} &= \sigma\!\big( \mathbf{W}^{(1)} \bar{\mathbf{z}} + \mathbf{b}^{(1)} \big),\\
 \mathbf{h}^{(\ell)} &= \sigma\!\big( \mathbf{W}^{(\ell)} \mathbf{h}^{(\ell-1)} + \mathbf{b}^{(\ell)} \big), \quad 2\le \ell \le L-1,\\
@@ -129,6 +166,14 @@ We then apply global average pooling over time and frequency and a linear classi
 Design: we use two convolutional blocks with moderate kernels (e.g., \(k_f\in\{3,5\}\), \(k_t\in\{3,5\}\)), stride \(1\), and max-pooling with small windows to preserve resolution. Regularization includes dropout and additive noise during training to improve robustness.
 
 Advantages: shallow CNNs are data-efficient and fast, capturing local spectro-temporal patterns. Limitations: weaker long-range modeling and limited receptive field without deeper stacks or dilations. In this thesis, the shallow CNN consumes log-Mel features to quantify the benefits of local 2D structure over MFCC-based MLPs.
+
+\begin{figure}[htbp]
+  \centering
+  \caption{The architecture of shallow CNN }
+  \label{fig:shallow_cnn_arch}
+  \includestandalone[mode=image,width=.8\textwidth]{Figures/tikz/shallow_cnn}
+  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+\end{figure}
 
 \subsection{ResNet-18}
 

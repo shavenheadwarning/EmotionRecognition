@@ -81,13 +81,24 @@ class ASTFeatureExtractor:
         except Exception as e:
             logging.warning(f"Kaldi fbank failed, using torchaudio MelSpectrogram: {e}")
             # Fallback to torchaudio MelSpectrogram
+            # Use STFT parameters consistent with dataset sample rate, 25ms window and 10ms hop
+            win_length = int(round(self.sample_rate * 0.025))
+            hop_length = int(round(self.sample_rate * self.frame_shift / 1000))
+            n_fft = 1
+            while n_fft < win_length:
+                n_fft <<= 1
             mel_transform = torchaudio.transforms.MelSpectrogram(
                 sample_rate=self.sample_rate,
-                n_fft=400,  # 25ms window at 16kHz
-                hop_length=int(self.sample_rate * self.frame_shift / 1000),  # 10ms hop
+                n_fft=n_fft,
+                hop_length=hop_length,
+                win_length=win_length,
                 n_mels=self.num_mel_bins,
-                f_min=0,
-                f_max=self.sample_rate // 2
+                f_min=0.0,
+                f_max=float(self.sample_rate) / 2.0,
+                center=False,
+                pad_mode="reflect",
+                power=2.0,
+                norm=None,
             )
             fbank = mel_transform(waveform).squeeze(0).transpose(0, 1)
             # Convert to log scale
@@ -127,8 +138,8 @@ class ASTFeatureExtractor:
         Returns:
             Normalized features
         """
-        # Normalize using dataset mean and std
-        fbank = (fbank - self.norm_mean) / (self.norm_std * 2)
+        # Normalize using dataset mean and std (avoid overly small gradients)
+        fbank = (fbank - self.norm_mean) / (self.norm_std + 1e-8)
         return fbank
 
     def apply_spec_augment(self, fbank: torch.Tensor, training: bool = True) -> torch.Tensor:

@@ -41,7 +41,13 @@ python main.py --config config/iemocap.yaml --model resnet18 --device cuda --bat
 # 可选：启用噪声增强（编辑 config/noise.yaml 将 enabled 设为 true）
 #   - 白噪声：type: white
 #   - ESC-50：type: esc50（见下方配置示例）
+
+# 可视化
+python visualization/vis_mfcc.py --max-per-dataset 6 --duration 5
 ```
+
+
+
 
 
 

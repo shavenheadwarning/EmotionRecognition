@@ -14,36 +14,36 @@
 \contentsline {chapter}{\numberline {3}Methodology}{9}{}%
 \contentsline {section}{\numberline {3.1}Feature Extraction}{9}{}%
 \contentsline {subsection}{\numberline {3.1.1}MFCC}{9}{}%
-\contentsline {subsection}{\numberline {3.1.2}Mel-spectrogram}{11}{}%
-\contentsline {section}{\numberline {3.2}Model Developments}{11}{}%
-\contentsline {subsection}{\numberline {3.2.1}Multi-layer Perceptron}{11}{}%
-\contentsline {subsection}{\numberline {3.2.2}Shallow CNN}{12}{}%
-\contentsline {subsection}{\numberline {3.2.3}ResNet-18}{13}{}%
-\contentsline {subsection}{\numberline {3.2.4}Audio Spectrogram Transformer}{13}{}%
-\contentsline {section}{\numberline {3.3}Data Augmentation}{14}{}%
-\contentsline {subsection}{\numberline {3.3.1}Noise sources and SNR set}{14}{}%
-\contentsline {subsection}{\numberline {3.3.2}On-the-fly sampling policy}{14}{}%
-\contentsline {subsection}{\numberline {3.3.3}Time alignment and preprocessing}{14}{}%
-\contentsline {subsection}{\numberline {3.3.4}RMS, target SNR, and gain computation}{15}{}%
-\contentsline {subsection}{\numberline {3.3.5}Peak limiting and re-normalization}{15}{}%
-\contentsline {subsection}{\numberline {3.3.6}Integration with the training pipeline}{15}{}%
-\contentsline {subsection}{\numberline {3.3.7}Evaluation protocol}{15}{}%
-\contentsline {chapter}{\numberline {4}Experiments}{17}{}%
-\contentsline {section}{\numberline {4.1}Common Settings}{17}{}%
-\contentsline {subsection}{\numberline {4.1.1}Datasets and splits}{17}{}%
-\contentsline {subsection}{\numberline {4.1.2}Models}{17}{}%
-\contentsline {subsection}{\numberline {4.1.3}Training and evaluation}{18}{}%
-\contentsline {subsection}{\numberline {4.1.4}Noise augmentation policy}{18}{}%
-\contentsline {section}{\numberline {4.2}Experiment A: Clean Baselines}{18}{}%
-\contentsline {section}{\numberline {4.3}Experiment B: White-Noise Training at 20 dB}{19}{}%
-\contentsline {section}{\numberline {4.4}Experiment C: ESC-50 Multi-Category, Multi-SNR}{19}{}%
-\contentsline {section}{\numberline {4.5}Experiment D: SNR Ablation (Natural Soundscapes)}{20}{}%
-\contentsline {section}{\numberline {4.6}Experiment E: Model Robustness Comparison (ResNet-18 vs AST)}{20}{}%
-\contentsline {section}{\numberline {4.7}Experiment F: Augmentation Intensity Ablation (\(p_{\mathrm {aug}}\))}{20}{}%
-\contentsline {section}{\numberline {4.8}Summary of Results and Visualization}{20}{}%
-\contentsline {chapter}{\numberline {5}Discussion}{22}{}%
-\contentsline {chapter}{\numberline {6}Conclusion}{23}{}%
-\contentsline {chapter}{\numberline {7}Chapter Title}{24}{}%
-\contentsline {chapter}{\numberline {8}Chapter Title}{25}{}%
-\contentsline {chapter}{\numberline {9}Chapter Title}{26}{}%
-\contentsline {chapter}{\numberline {10}Chapter Title}{27}{}%
+\contentsline {subsection}{\numberline {3.1.2}Mel-spectrogram}{12}{}%
+\contentsline {section}{\numberline {3.2}Model Developments}{12}{}%
+\contentsline {subsection}{\numberline {3.2.1}Multi-layer Perceptron}{13}{}%
+\contentsline {subsection}{\numberline {3.2.2}Shallow CNN}{14}{}%
+\contentsline {subsection}{\numberline {3.2.3}ResNet-18}{14}{}%
+\contentsline {subsection}{\numberline {3.2.4}Audio Spectrogram Transformer}{15}{}%
+\contentsline {section}{\numberline {3.3}Data Augmentation}{16}{}%
+\contentsline {subsection}{\numberline {3.3.1}Noise sources and SNR set}{16}{}%
+\contentsline {subsection}{\numberline {3.3.2}On-the-fly sampling policy}{16}{}%
+\contentsline {subsection}{\numberline {3.3.3}Time alignment and preprocessing}{16}{}%
+\contentsline {subsection}{\numberline {3.3.4}RMS, target SNR, and gain computation}{17}{}%
+\contentsline {subsection}{\numberline {3.3.5}Peak limiting and re-normalization}{17}{}%
+\contentsline {subsection}{\numberline {3.3.6}Integration with the training pipeline}{17}{}%
+\contentsline {subsection}{\numberline {3.3.7}Evaluation protocol}{18}{}%
+\contentsline {chapter}{\numberline {4}Experiments}{19}{}%
+\contentsline {section}{\numberline {4.1}Common Settings}{19}{}%
+\contentsline {subsection}{\numberline {4.1.1}Datasets and splits}{19}{}%
+\contentsline {subsection}{\numberline {4.1.2}Models}{19}{}%
+\contentsline {subsection}{\numberline {4.1.3}Training and evaluation}{20}{}%
+\contentsline {subsection}{\numberline {4.1.4}Noise augmentation policy}{20}{}%
+\contentsline {section}{\numberline {4.2}Experiment A: Clean Baselines}{20}{}%
+\contentsline {section}{\numberline {4.3}Experiment B: White-Noise Training at 20 dB}{21}{}%
+\contentsline {section}{\numberline {4.4}Experiment C: ESC-50 Multi-Category, Multi-SNR}{21}{}%
+\contentsline {section}{\numberline {4.5}Experiment D: SNR Ablation (Natural Soundscapes)}{22}{}%
+\contentsline {section}{\numberline {4.6}Experiment E: Model Robustness Comparison (ResNet-18 vs AST)}{22}{}%
+\contentsline {section}{\numberline {4.7}Experiment F: Augmentation Intensity Ablation (\(p_{\mathrm {aug}}\))}{22}{}%
+\contentsline {section}{\numberline {4.8}Summary of Results and Visualization}{22}{}%
+\contentsline {chapter}{\numberline {5}Discussion}{24}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{25}{}%
+\contentsline {chapter}{\numberline {7}Chapter Title}{26}{}%
+\contentsline {chapter}{\numberline {8}Chapter Title}{27}{}%
+\contentsline {chapter}{\numberline {9}Chapter Title}{28}{}%
+\contentsline {chapter}{\numberline {10}Chapter Title}{29}{}%
