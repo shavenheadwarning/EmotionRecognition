@@ -148,19 +148,19 @@ def plot_wave_and_mel(
 
     # Waveforms
     axes[0, 0].plot(t.numpy(), speech.detach().cpu().numpy(), color='#1f77b4')
-    axes[0, 0].set_title('原始语音 波形')
-    axes[0, 0].set_xlabel('时间 (s)')
-    axes[0, 0].set_ylabel('幅度')
+    axes[0, 0].set_title('Original Speech Waveform')
+    axes[0, 0].set_xlabel('Time (s)')
+    axes[0, 0].set_ylabel('Amplitude')
 
     axes[1, 0].plot(t.numpy(), noise.detach().cpu().numpy(), color='#ff7f0e')
-    axes[1, 0].set_title('噪声 波形')
-    axes[1, 0].set_xlabel('时间 (s)')
-    axes[1, 0].set_ylabel('幅度')
+    axes[1, 0].set_title('Noise Waveform')
+    axes[1, 0].set_xlabel('Time (s)')
+    axes[1, 0].set_ylabel('Amplitude')
 
     axes[2, 0].plot(t.numpy(), mixed.detach().cpu().numpy(), color='#2ca02c')
-    axes[2, 0].set_title('加噪后 波形')
-    axes[2, 0].set_xlabel('时间 (s)')
-    axes[2, 0].set_ylabel('幅度')
+    axes[2, 0].set_title('Mixed Waveform')
+    axes[2, 0].set_xlabel('Time (s)')
+    axes[2, 0].set_ylabel('Amplitude')
 
     # Mels (in dB)
     im0 = axes[0, 1].imshow(
@@ -170,8 +170,8 @@ def plot_wave_and_mel(
         interpolation='nearest',
         cmap='magma',
     )
-    axes[0, 1].set_title('原始语音 Mel 频谱 (dB)')
-    axes[0, 1].set_xlabel('帧')
+    axes[0, 1].set_title('Original Speech Mel Spectrogram (dB)')
+    axes[0, 1].set_xlabel('Frames')
     axes[0, 1].set_ylabel('Mel bin')
 
     im1 = axes[1, 1].imshow(
@@ -181,8 +181,8 @@ def plot_wave_and_mel(
         interpolation='nearest',
         cmap='magma',
     )
-    axes[1, 1].set_title('噪声 Mel 频谱 (dB)')
-    axes[1, 1].set_xlabel('帧')
+    axes[1, 1].set_title('Noise Mel Spectrogram (dB)')
+    axes[1, 1].set_xlabel('Frames')
     axes[1, 1].set_ylabel('Mel bin')
 
     im2 = axes[2, 1].imshow(
@@ -192,8 +192,8 @@ def plot_wave_and_mel(
         interpolation='nearest',
         cmap='magma',
     )
-    axes[2, 1].set_title('加噪后 Mel 频谱 (dB)')
-    axes[2, 1].set_xlabel('帧')
+    axes[2, 1].set_title('Mixed Mel Spectrogram (dB)')
+    axes[2, 1].set_xlabel('Frames')
     axes[2, 1].set_ylabel('Mel bin')
 
     fig.suptitle(info_text)
@@ -203,14 +203,14 @@ def plot_wave_and_mel(
 
 
 def main():
-    parser = argparse.ArgumentParser(description='可视化语音加噪过程（白噪声 / ESC-50）')
-    parser.add_argument('--audio', type=str, required=True, help='输入语音 wav 文件路径')
-    parser.add_argument('--config', type=str, default=str(Path('config') / 'noise.yaml'), help='噪声配置 YAML')
-    parser.add_argument('--type', type=str, choices=['white', 'esc50'], default=None, help='覆盖配置中的噪声类型')
-    parser.add_argument('--out', type=str, default=None, help='输出可视化图片路径 (默认保存到 visualization/vis_results/)')
-    parser.add_argument('--seed', type=int, default=0, help='随机种子')
-    parser.add_argument('--force-apply', action='store_true', help='无视 p，强制加噪')
-    parser.add_argument('--snr', type=float, default=None, help='覆盖 SNR(dB)')
+    parser = argparse.ArgumentParser(description='Visualize speech noise augmentation (white / ESC-50)')
+    parser.add_argument('--audio', type=str, required=True, help='Input speech WAV file path')
+    parser.add_argument('--config', type=str, default=str(Path('config') / 'noise.yaml'), help='Noise config YAML')
+    parser.add_argument('--type', type=str, choices=['white', 'esc50'], default=None, help='Override noise type from config')
+    parser.add_argument('--out', type=str, default=None, help='Output image path (default: visualization/vis_results/)')
+    parser.add_argument('--seed', type=int, default=0, help='Random seed')
+    parser.add_argument('--force-apply', action='store_true', help='Ignore p and force apply noise')
+    parser.add_argument('--snr', type=float, default=None, help='Override SNR (dB)')
     args = parser.parse_args()
 
     set_seed(args.seed)
@@ -219,7 +219,7 @@ def main():
     na = cfg_all.get('noise_augmentation', {})
     enabled = bool(na.get('enabled', True))
     if not enabled:
-        print('noise_augmentation.enabled = false，仍将进行可视化但不会应用噪声（除非 --force-apply）')
+        print('noise_augmentation.enabled = false; will still visualize but will not apply noise (unless --force-apply)')
 
     aug_type = (args.type or na.get('type', 'white')).strip().lower()
     p_apply = float(na.get('p_apply', 0.7))
@@ -269,7 +269,7 @@ def main():
     # Info text for title
     info_text = (
         f"type={aug_type}({noise_type_desc}) | p={p_apply:.2f}, u={u:.3f}, apply={'yes' if will_apply else 'no'} | "
-        f"snr={picked_snr:.1f} dB | target_peak={target_peak_dbfs:.1f} dBFS | sr={sr} | seed={args.seed}"
+        f"snr={picked_snr:.1f} dB | target_peak={target_peak_dbfs:.1f} dBFS | sr={sr} Hz | seed={args.seed}"
     )
 
     # Output path

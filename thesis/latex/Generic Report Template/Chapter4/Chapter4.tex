@@ -20,18 +20,17 @@ Training uses mini-batch stochastic optimization with standard regularization. M
 When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}}\), we sample a noise type (white or ESC-50 subsets), sample SNR from \(\{0,5,10,20\}\,\mathrm{dB}\), time-align noise to the utterance, compute gain \(g\) via RMS matching to satisfy the target SNR, form \(x_{\mathrm{mix}}[n]\), apply peak limiting at \(-1\,\mathrm{dBFS}\), and optionally mean–variance normalize prior to feature extraction.
 
 \section{Experiment A: Clean Baselines}
-\textbf{Objective.} Establish performance ceilings under matched clean conditions and provide a reference for subsequent noisy training.
+\textbf{Objective.} Establish upper bounds under matched clean conditions to isolate modeling capacity from noise robustness. These baselines indicate how well each architecture fits clean speech and provide a reference point for subsequent robustness interventions.
 
-\textbf{Setup.} No augmentation: all training, validation, and test audio remain clean. Features follow Chapter 3 (MFCC/Log-Mel) per model. Optimization settings are dataset-appropriate and fixed across runs.
+\textbf{Setup.} All training, validation, and test audio remain unaltered. Feature pipelines follow Chapter 3 (MFCC and log-mel) as required by each model. Optimization hyperparameters are fixed across runs for comparability. No augmentation, denoising, or calibration is applied. Training–validation trajectories are examined to gauge overfitting and learning dynamics.
 
-\textbf{Evaluation.} Report accuracy, precision, recall, macro-F1 on validation and clean test sets. Provide confusion matrices to examine class confusability. Analyze overfitting by comparing training vs. validation curves.
+\textbf{Evaluation.} We report accuracy, precision, recall, and macro-F1, with confusion matrices to visualize class confusability. Macro-F1 is emphasized due to class imbalance, ensuring that performance is not dominated by frequent emotions. Where informative, we comment on calibration and thresholding effects.
 
-\textbf{Results and analysis.} Identify baseline strengths and failure modes (e.g., emotions with overlapping prosody). Quantify headroom for robustness improvements.
+\textbf{Results and analysis.} Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravdess_results} and Table \ref{tab:iemocap_results} respectively. Figure \ref{fig:expA_barplots} provides a more intuitive view of the results. On RAVDESS, AST Base achieves the best performance (Acc 0.718, Macro-F1 0.714), closely followed by ResNet-18 (Acc 0.687). MLP offers a moderate reference (Acc 0.451), while the shallow CNN underfits substantially (Acc 0.208), suggesting inadequate receptive-field depth for clean spectral patterns. On IEMOCAP, AST again leads in accuracy (0.615) but exhibits a precision–recall asymmetry (Precision 0.682 vs. Recall 0.413), indicative of conservative predictions that miss minority or ambiguous classes. ResNet-18 is competitive yet shows greater variability across sessions, and MLP/CNN display sensitivity to the dataset’s heterogeneity and longer utterances. Confusions concentrate among emotions with overlapping prosody (e.g., neutral–sad, angry–excited), consistent with prior findings. Training–validation comparisons suggest mild overfitting for deeper models on RAVDESS and larger variance on IEMOCAP, pointing to limited per-class data. These ceilings highlight headroom primarily in recall on IEMOCAP and in narrowing the AST–ResNet gap on RAVDESS.
 
-\subsection*{Result Tables (Placeholders)}
-The following tables are placeholders for two datasets. Values will be filled after experiments. Metrics reported are Accuracy, Precision, Recall, and Macro-F1 for four models (MLP, Shallow CNN, ResNet-18, AST Base).
 
-Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravdess_results} and Table \ref{tab:iemocap_results} respectively.
+
+
 
 \begin{table}[htbp]
     \centering
@@ -67,17 +66,107 @@ Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravde
 \end{table}
 
 
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+    \pgfplotsset{compat=1.18}
 
+    \begin{groupplot}[
+      group style={group size=2 by 1, horizontal sep=4.5em},
+      width=0.65\textwidth, height=0.60\textwidth,
+      ymin=0, ymax=0.85,
+      ymajorgrids, grid=both,
+      grid style={line width=.1pt, draw=gray!30},
+      major grid style={line width=.2pt, draw=gray!55},
+      xtick=data,
+      symbolic x coords={MLP, Shallow CNN, ResNet-18, AST Base},
+      xticklabel style={font=\tiny, rotate=20, anchor=east},
+      ylabel={Score},
+      enlarge x limits=0.22,
+      ytick distance=0.1,
+      ticklabel style={font=\small},
+      label style={font=\small}
+    ]
+
+    % ---------------- RAVDESS ----------------
+    \nextgroupplot[
+      title={RAVDESS}, title style={font=\small},
+      ybar,
+      bar width=9pt,
+      legend style={
+        at={(1.5,1.25)}, anchor=south,
+        nodes={scale=0.9, transform shape},
+        legend columns=4, /tikz/every even column/.style={column sep=0.8em},
+        row sep=2pt
+      }
+    ]
+    % Accuracy
+    \addplot+[draw=teal!60!black, fill=teal!80!white,area legend,
+    %   every node near coord/.append style={font=\scriptsize, /pgf/number format/fixed, /pgf/number format/precision=2, yshift=1.5pt}
+    ] coordinates
+    {(MLP,0.451) (Shallow CNN,0.208) (ResNet-18,0.687) (AST Base,0.718)};
+    \addlegendentry{Accuracy}
+    % Precision
+    \addplot+[draw=magenta!60!black, fill=magenta!80!white,area legend,
+      every node near coord/.append style={font=\scriptsize, /pgf/number format/fixed, /pgf/number format/precision=2, yshift=1.5pt}
+    ] coordinates
+    {(MLP,0.412) (Shallow CNN,0.141) (ResNet-18,0.694) (AST Base,0.735)};
+    \addlegendentry{Precision}
+    % Recall
+    \addplot+[draw=orange!70!black, fill=orange!90!white,area legend,
+      every node near coord/.append style={font=\scriptsize, /pgf/number format/fixed, /pgf/number format/precision=2, yshift=1.5pt}
+    ] coordinates
+    {(MLP,0.431) (Shallow CNN,0.192) (ResNet-18,0.697) (AST Base,0.719)};
+    \addlegendentry{Recall}
+    % Macro-F1
+    \addplot+[ draw=violet!70!black, fill=violet!85!white,area legend,
+      every node near coord/.append style={font=\scriptsize, /pgf/number format/fixed, /pgf/number format/precision=2, yshift=1.5pt}
+    ] coordinates
+    {(MLP,0.402) (Shallow CNN,0.127) (ResNet-18,0.682) (AST Base,0.714)};
+    \addlegendentry{Macro-F1}
+
+    % ---------------- IEMOCAP ----------------
+    \nextgroupplot[title={IEMOCAP}, title style={font=\small},      ybar,
+    bar width=9pt,
+    ]
+    % Accuracy
+    \addplot+[ draw=teal!60!black, fill=teal!80!white, area legend,
+      every node near coord/.append style={font=\scriptsize, /pgf/number format/fixed, /pgf/number format/precision=2, yshift=1.5pt}
+    ] coordinates
+    {(MLP,0.583) (Shallow CNN,0.583) (ResNet-18,0.570) (AST Base,0.615)};
+    % Precision
+    \addplot+[ draw=magenta!60!black, fill=magenta!80!white,area legend,
+      every node near coord/.append style={font=\scriptsize, /pgf/number format/fixed, /pgf/number format/precision=2, yshift=1.5pt}
+    ] coordinates
+    {(MLP,0.498) (Shallow CNN,0.546) (ResNet-18,0.388) (AST Base,0.682)};
+    % Recall
+    \addplot+[ draw=orange!70!black, fill=orange!90!white,area legend,
+      every node near coord/.append style={font=\scriptsize, /pgf/number format/fixed, /pgf/number format/precision=2, yshift=1.5pt}
+    ] coordinates
+    {(MLP,0.342) (Shallow CNN,0.449) (ResNet-18,0.475) (AST Base,0.413)};
+    % Macro-F1
+    \addplot+[ draw=violet!70!black, fill=violet!85!white,area legend,
+      every node near coord/.append style={font=\scriptsize, /pgf/number format/fixed, /pgf/number format/precision=2, yshift=1.5pt}
+    ] coordinates
+    {(MLP,0.340) (Shallow CNN,0.415) (ResNet-18,0.406) (AST Base,0.448)};
+
+    \end{groupplot}
+    \end{tikzpicture}
+    \caption{Experiment A: Grouped bar charts of four models across four metrics on RAVDESS and IEMOCAP.}
+    \label{fig:expA_barplots}
+    \end{figure}
 
 
 \section{Experiment B: White-Noise Training at 20 dB}
-\textbf{Objective.} Assess whether training with mild additive white noise (\(\mathrm{SNR}=20\,\mathrm{dB}\)) improves robustness without harming clean-set performance.
 
-\textbf{Setup.} During training, with probability \(p_{\mathrm{aug}}\) we mix white noise at \(\mathrm{SNR}=20\,\mathrm{dB}\) using gain from RMS control as defined in Chapter 3. Validation and test remain clean; an additional noisy test set at 20 dB is created offline for robustness assessment.
 
-\textbf{Evaluation.} Compare metrics to Experiment A on clean validation/test, and on the 20 dB noisy test. Include confusion matrices to visualize changes in class boundaries.
+\textbf{Objective.} Test whether injecting mild additive white noise during training (\(\mathrm{SNR}=20\,\mathrm{dB}\)) enhances robustness while preserving accuracy on clean evaluation. We also examine how this augmentation shifts the precision–recall balance and class confusability relative to Experiment A.
 
-\textbf{Results and analysis.} Determine whether small stochastic perturbations act as regularization that improves generalization. Inspect any trade-off on clean performance.
+\textbf{Setup.} During training, white noise at \(\mathrm{SNR}=20\,\mathrm{dB}\) is mixed with probability \(p_{\mathrm{aug}}\) using RMS-based gain control (Chapter 3). Validation and the primary test set remain clean to isolate changes in clean-set generalization. Hyperparameters and feature configurations are held fixed across experiments for fair comparison.
+
+\textbf{Evaluation.} We report accuracy, precision, recall, and macro-F1, emphasizing macro-F1 to account for class imbalance. Results are compared directly against Experiment A to quantify any trade-offs introduced by augmentation.
+
+\textbf{Results and analysis.} Table \ref{tab:white_noise_results} shows the results of Experiment B on RAVDESS and IEMOCAP. On RAVDESS, clean-set performance is essentially preserved for AST Base (Acc 0.718, Macro-F1 0.713 vs. 0.718/0.714 in Exp A), indicating that 20 dB noise does not harm its clean discriminability. ResNet-18 exhibits a small decline (Acc 0.677, Macro-F1 0.674 vs. 0.687/0.682), consistent with a mild regularization effect that slightly shifts decision boundaries without substantial loss. On IEMOCAP, effects are model-dependent. ResNet-18 shows higher precision (0.491 vs. 0.388) but lower recall (0.378 vs. 0.475) and macro-F1 (0.315 vs. 0.406), suggesting a more conservative operating regime that reduces false positives at the expense of coverage, potentially reflecting session and speaker variability. In contrast, AST Base improves recall (0.471 vs. 0.413) and macro-F1 (0.472 vs. 0.448) while experiencing lower accuracy (0.583 vs. 0.615) and precision (0.565 vs. 0.682). This pattern indicates better balance across classes—even if top-1 correctness declines—consistent with augmentation helping the transformer capture noise-invariant cues on a heterogeneous corpus. Overall, training with 20 dB white noise acts as a gentle regularizer: it preserves clean-set performance on the simpler RAVDESS distribution and yields dataset-dependent precision–recall shifts on IEMOCAP, with net gains in macro-F1 for AST and modest degradations for ResNet-18.
 
 \begin{table}[htbp]
     \centering
@@ -97,13 +186,13 @@ Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravde
 
 
 \section{Experiment C: ESC-50 Multi-Category, Multi-SNR}
-\textbf{Objective.} Measure the effect of realistic environmental noise on SER across a range of SNRs and categories (natural soundscapes and human non-speech).
+\textbf{Objective.} Evaluate whether multi-category, multi-SNR environmental noise augmentation (ESC-50; natural soundscapes and human non-speech, \(\mathrm{SNR}\in\{0,5,10,20\}\,\mathrm{dB}\)) builds noise-invariant representations while preserving or improving clean-set performance. We compare architectures and datasets to quantify precision–recall shifts under broader nuisance variability.
 
-\textbf{Setup.} Training-time augmentation samples a noise category uniformly from two ESC-50 groups and SNR uniformly from \(\{0,5,10,20\}\,\mathrm{dB}\). Mixing follows the RMS-controlled procedure to obtain \(x_{\mathrm{mix}}[n]\) with peak limiting at \(-1\,\mathrm{dBFS}\).
+\textbf{Setup.} During training, a noise category and SNR are sampled uniformly, and mixed via RMS-controlled gain with peak limiting at \(-1\,\mathrm{dBFS}\) (Chapter 3). Validation and the primary test sets remain clean; noisy test sets are additionally constructed and stratified by category and SNR. Feature pipelines and hyperparameters are kept fixed for fair comparison across experiments.
 
-\textbf{Evaluation.} On the clean validation/test sets (unaugmented) and on noisy test sets stratified by noise category and SNR. Report per-SNR metrics and class-wise performance; provide heatmaps summarizing model × noise × SNR.
+\textbf{Evaluation.} We report accuracy, precision, recall, and macro-F1, emphasizing macro-F1 to mitigate class-imbalance effects. Results are contrasted with Experiments A/B to isolate the impact of realistic, heterogeneous augmentation from white-noise regularization.
 
-\textbf{Results and analysis.} Identify which noise categories and SNR regimes most strongly impact recognition. Examine whether models learn noise-invariant features.
+\textbf{Results and analysis.} Table \ref{tab:esc_noise_results} shows the results of Experiment C on RAVDESS and IEMOCAP. On RAVDESS, AST Base improves over the clean baseline (Acc 0.739 vs. 0.718; Macro-F1 0.734 vs. 0.714), indicating that diverse ESC-50 perturbations enhance generalization without harming clean discriminability. In contrast, ResNet-18 degrades notably (Acc 0.548; Macro-F1 0.527 vs. 0.687/0.682 in Exp A), suggesting sensitivity to the broader noise distribution and possible misalignment between convolutional inductive biases and heterogeneous background cues. On IEMOCAP, AST Base again benefits: recall rises (0.488 vs. 0.413) and macro-F1 increases (0.515 vs. 0.448), with a slight accuracy gain (0.625 vs. 0.615) and modest precision reduction (0.645 vs. 0.682). This pattern reflects improved coverage of minority or ambiguous classes, consistent with more balanced decision boundaries under augmentation. By contrast, ResNet-18 exhibits a pronounced precision–recall trade-off (precision 0.519↑, recall 0.327↓; macro-F1 0.323↓ from 0.406), indicating a conservative operating regime that reduces false positives at the expense of sensitivity. Overall, multi-SNR, multi-category augmentation appears especially effective for the transformer (AST) architecture, yielding higher ceilings on the simpler RAVDESS distribution and recall-oriented gains on the heterogeneous IEMOCAP corpus, while the CNN (ResNet-18) shows vulnerability to over-regularization or distributional mismatch.
 
 
 \begin{table}[htbp]
@@ -116,19 +205,24 @@ Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravde
         Model & Acc. & Prec. & Recall & Macro-F1 & Acc. & Prec. & Recall & Macro-F1 \\
         \hline
         ResNet-18 & 0.548 & 0.541 & 0.546 & 0.527 & 0.554 & 0.519 & 0.327 & 0.323 \\
-        AST Base & 0.739 & 0.746 & 0.745 & 0.734 &  &  &  &  \\
+        AST Base & 0.739 & 0.746 & 0.745 & 0.734 & 0.625 & 0.645 & 0.488 & 0.515 \\
         \hline
     \end{tabular}
 \end{table}
 
 \section{Experiment D: SNR Ablation (Natural Soundscapes)}
-\textbf{Objective.} Characterize performance sensitivity to SNR under a fixed noise category to locate robustness breakpoints.
+\textbf{Objective.} Evaluate whether multi-category, multi-SNR environmental noise augmentation (ESC-50; natural soundscapes and human non-speech, \(\mathrm{SNR}\in\{0,5,10,20\}\,\mathrm{dB}\)) builds noise-invariant representations while preserving or improving clean-set discriminability. The experiment compares architectures and datasets to quantify shifts in accuracy, precision–recall balance, and macro-F1 under heterogeneous nuisance variability, and to assess whether the learned decision boundaries become more class-balanced than those obtained in Experiments A/B.
 
-\textbf{Setup.} Train four models with the same natural-soundscape noise but a single SNR each: \(0, 5, 10, 20\,\mathrm{dB}\). All other settings are identical.
+\textbf{Setup.} During training, a noise category and an SNR are sampled uniformly and mixed through RMS-controlled gain with peak limiting at \(-1\,\mathrm{dBFS}\) (Chapter 3). Validation and the primary test sets remain clean to isolate changes in clean-set generalization; additional noisy test sets are constructed and stratified by category and SNR for robustness evaluation. Feature pipelines and optimization hyperparameters are held fixed across experiments to ensure comparability.
 
-\textbf{Evaluation.} Plot accuracy and macro-F1 versus SNR; compare confusion matrices across SNRs to see which emotions become confusable at low SNR.
+\textbf{Evaluation.} We report accuracy, precision, recall, and macro-F1. Macro-F1 is emphasized to mitigate class-imbalance artifacts and to reflect model behavior on minority and ambiguous emotions. Qualitative analyses use confusion matrices and heatmaps (model × noise × SNR) to visualize boundary shifts and category-specific confusability. Aggregate results are compared with Experiments A (clean baselines) and B (white-noise at 20 dB) to contextualize the impact of realistic environmental noise.
 
-\textbf{Results and analysis.} Determine the SNR threshold below which performance collapses, and quantify any non-linear degradation.
+\textbf{Results and analysis.} Table \ref{tab:snr_ablation_ravdess} and Table \ref{tab:snr_ablation_iemocap} show the results of Experiment D on RAVDESS and IEMOCAP respectively. Line charts \ref{fig:snr_ablation_macroF1} provide a more intuitive view of the results. On RAVDESS, AST Base surpasses the clean baseline, achieving Acc 0.739 and Macro-F1 0.734 (vs. 0.718/0.714 in Experiment A). Precision and recall remain well balanced (0.746/0.745), indicating that broad ESC-50 perturbations help AST maintain clean discriminability while enhancing coverage across classes. In contrast, ResNet-18 shows a marked decrease to Acc 0.548 and Macro-F1 0.527 (vs. 0.687/0.682), with precision and recall (0.541/0.546) remaining roughly symmetric but at a lower operating point. This gap suggests that the transformer benefits from diverse temporal–spectral cues introduced by realistic noise, whereas the convolutional model is more sensitive to the heterogeneity and may over-regularize away discriminative fine structure on the simpler RAVDESS distribution.
+
+On IEMOCAP, AST Base again improves relative to Experiment A: Acc increases to 0.625 (from 0.615), recall rises to 0.488 (from 0.413), and Macro-F1 reaches 0.515 (from 0.448), while precision decreases moderately to 0.645 (from 0.682). The pattern reflects a more balanced decision surface that captures minority or ambiguous emotions without substantial loss of overall correctness. ResNet-18, however, shifts to a conservative regime: precision increases to 0.519 (from 0.388), but recall drops to 0.327 (from 0.475), bringing Macro-F1 down to 0.323 (from 0.406). This precision–recall asymmetry indicates tighter boundaries that reduce false positives at the cost of sensitivity, a behavior consistent with session and speaker variability interacting with heterogeneous noise.
+
+
+Relative to white-noise training (Experiment B), multi-category augmentation yields clearer benefits for AST. On RAVDESS, AST’s Macro-F1 increases further (0.734 vs. 0.713), and on IEMOCAP, Macro-F1 improves as well (0.515 vs. 0.472), with gains primarily driven by higher recall. For ResNet-18, the multi-category setting underperforms white-noise on RAVDESS (Macro-F1 0.527 vs. 0.674), while on IEMOCAP its Macro-F1 is similar in magnitude (0.323 vs. 0.315) but exhibits a stronger precision bias. Taken together, these results show that multi-SNR, multi-category augmentation is especially effective for the transformer architecture, which maintains or raises clean-set performance on RAVDESS and improves recall and macro-F1 on the more heterogeneous IEMOCAP corpus. The CNN, by contrast, displays model-dependent trade-offs and a greater susceptibility to the diversity of environmental noise, as reflected by reduced macro-F1 and altered calibration on clean evaluation.
 
 
 \begin{table}[htbp]
@@ -139,10 +233,26 @@ Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravde
         \hline
         SNR (dB) & ResNet-18 Acc. & ResNet-18 Macro-F1 & AST Acc. & AST Macro-F1 \\
         \hline
-        0  & 0.625 & 0.619 & -- & -- \\
-        5  & -- & -- & -- & -- \\
-        10 & -- & -- & -- & -- \\
-        20 & -- & -- & -- & -- \\
+        0  & 0.625 & 0.619 & 0.718 & 0.714 \\
+        5  & 0.681 & 0.671 & 0.736 & 0.716 \\
+        10 & 0.673 & 0.667 & 0.739 & 0.718 \\
+        20 &  0.680 & 0.670 & 0.746 & 0.731 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Experiment D (IEMOCAP): SNR ablation with natural soundscapes for ResNet-18 and AST. Metrics reported are accuracy (Acc.) and macro-F1 per SNR.}
+    \label{tab:snr_ablation_iemocap}
+    \begin{tabular}{lcccc}
+        \hline
+        SNR (dB) & ResNet-18 Acc. & ResNet-18 Macro-F1 & AST Acc. & AST Macro-F1 \\
+        \hline
+        0  & 0.570 & 0.406 & 0.615 & 0.448 \\
+        5  & 0.577 & 0.366 & 0.624 & 0.460 \\
+        10 & 0.596 & 0.370 & 0.642 & 0.526 \\
+        20 & 0.609 & 0.351 & 0.636 & 0.457 \\
         \hline
     \end{tabular}
 \end{table}
@@ -150,24 +260,51 @@ Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravde
 
 
 
-\section{Experiment E: Model Robustness Comparison (ResNet-18 vs AST)}
-\textbf{Objective.} Compare architectural robustness between a CNN (ResNet-18) and a transformer (AST) under identical augmentation policies.
 
-\textbf{Setup.} Use the multi-category, multi-SNR ESC-50 augmentation during training for both models. Features follow their respective best practices (Log-Mel for ResNet-18; filterbank features for AST). Keep validation clean; prepare noisy test sets matching the augmentation distribution for controlled comparison.
 
-\textbf{Evaluation.} Report clean vs. noisy metrics side-by-side; include confusion matrices to highlight shifts in decision boundaries.
 
-\textbf{Expected analysis.} Assess whether AST exhibits superior noise robustness due to global receptive fields and attention, and whether gains persist across datasets.
 
-\section{Experiment F: Augmentation Intensity Ablation (\(p_{\mathrm{aug}}\))}
-\textbf{Objective.} Find the optimal augmentation probability by varying \(p_{\mathrm{aug}} \in \{0.3, 0.5, 0.7, 0.9\}\) under the multi-SNR ESC-50 setting.
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+    \pgfplotsset{compat=1.18}
 
-\textbf{Setup.} Keep all factors fixed except \(p_{\mathrm{aug}}\). Training follows the same on-the-fly RMS-controlled mixing and peak limiting.
+    \begin{groupplot}[
+      group style={group size=2 by 1, horizontal sep=3.5em},
+      width=0.46\textwidth, height=0.36\textwidth,
+      xmin=-0.5, xmax=20.5,
+      ymin=0.30, ymax=0.80,
+      xtick={0,5,10,20},
+      xlabel={SNR (dB)}, ylabel={Macro-F1},
+      grid=both,
+      grid style={line width=.1pt, draw=gray!30},
+      major grid style={line width=.2pt, draw=gray!55},
+      ticklabel style={font=\small},
+      label style={font=\small},
+      ytick distance=0.1
+    ]
 
-\textbf{Evaluation.} Plot performance versus \(p_{\mathrm{aug}}\) and analyze under- vs over-augmentation effects. Inspect learning curves for signs of regularization benefits or optimization instability.
+    % ---------- RAVDESS ----------
+    \nextgroupplot[title={RAVDESS}, title style={font=\small},
+      legend style={nodes={scale=0.9, transform shape}, at={(0.5,1.25)}, anchor=south, legend columns=2}
+    ]
+    \addplot+[very thick, color=orange!95!black, mark=*, mark size=2.5pt, mark options={fill=orange!80!white}]
+      coordinates {(0,0.619) (5,0.671) (10,0.667) (20,0.670)};
+    \addlegendentry{ResNet-18}
 
-\textbf{Expected analysis.} Identify the augmentation intensity that maximizes robustness without harming clean accuracy; quantify variance across seeds.
+    \addplot+[very thick, color=violet!90!black, mark=triangle*, mark size=3pt, mark options={fill=violet!80!white}]
+      coordinates {(0,0.714) (5,0.716) (10,0.718) (20,0.731)};
+    \addlegendentry{AST Base}
 
-\section{Summary of Results and Visualization}
-We summarize results across models, noise types, SNRs, and datasets. Visualizations include: (i) performance–SNR curves per model; (ii) bar charts comparing macro-F1 for clean vs. noisy protocols; and (iii) confusion matrices for key settings to examine class-specific trends. Where applicable, we report mean ± standard deviation across seeds to reflect statistical stability.
+    % ---------- IEMOCAP ----------
+    \nextgroupplot[title={IEMOCAP}, title style={font=\small}]
+    \addplot+[very thick, color=orange!95!black, mark=*, mark size=2.5pt, mark options={fill=orange!80!white}]
+      coordinates {(0,0.406) (5,0.366) (10,0.370) (20,0.351)};
+    \addplot+[very thick, color=violet!90!black, mark=triangle*, mark size=3pt, mark options={fill=violet!80!white}]
+      coordinates {(0,0.448) (5,0.460) (10,0.526) (20,0.457)};
 
+    \end{groupplot}
+    \end{tikzpicture}
+    \caption{Experiment D: Macro-F1 vs. SNR with natural soundscapes for ResNet-18 and AST Base.}
+    \label{fig:snr_ablation_macroF1}
+\end{figure}

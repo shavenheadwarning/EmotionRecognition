@@ -43,11 +43,11 @@ python main.py --config config/iemocap.yaml --model resnet18 --device cuda --bat
 #   - ESC-50：type: esc50（见下方配置示例）
 
 # 可视化
-python visualization/vis_mfcc.py --max-per-dataset 6 --duration 5
+python visualization/vis_mfcc.py --max-per-dataset 6 --duration 20
 
 python visualization/vis_add_noise.py --audio "D:\path\to\your.wav" --type white --snr 20 --force-apply
 python visualization/vis_add_noise.py --audio "D:\path\to\your.wav" --type esc50 --config "config/noise.yaml" --force-apply
-python visualization/vis_add_noise.py --audio "D:\PTProjects\EmotionRecognition\data\IEMOCAP\Session1\Session1\dialog\Ses01M_impro03.wav" --config "config/noise.yaml"
+python visualization/vis_add_noise.py --audio "D:\PTProjects\EmotionRecognition\data\IEMOCAP\Session1\Session1\dialog\wav\Ses01M_impro03.wav" --config "config/noise.yaml"
 
 
 ```
@@ -344,5 +344,8 @@ cp D:\PTProjects\EmotionRecognition\data\Session2.zip oss://IEMOCAP/
 cp D:\PTProjects\EmotionRecognition\data\Session3.zip oss://IEMOCAP/
 cp D:\PTProjects\EmotionRecognition\data\Session4.zip oss://IEMOCAP/
 cp D:\PTProjects\EmotionRecognition\data\Session5.zip oss://IEMOCAP/
+
+
+cp D:\PTProjects\EmotionRecognition\data\ESC-50-master.zip oss://
 
 ```
