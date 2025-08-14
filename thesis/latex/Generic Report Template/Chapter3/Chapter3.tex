@@ -80,7 +80,7 @@ Advantages: MFCCs are compact, relatively robust to slowly varying convolutive e
 \subsection{Mel-spectrogram}
 The Mel-spectrogram represents short-time spectral energy projected onto a perceptual frequency axis, typically used directly as a 2D input to convolutional or transformer models.
 
-Given the short-time spectrum in (\ref{eq:stft}) and power spectrum in (\ref{eq:power}), the Mel-spectrogram is
+Given the short-time spectrum in (Equation \ref{eq:stft}) and power spectrum in (Equation \ref{eq:power}), the Mel-spectrogram is
 \begin{equation}\label{eq:melspec}
 \mathrm{MelSpec}[f,m] = \sum_{k=0}^{K-1} B[f,k] \, P[k,m], \quad 1 \le f \le F.
 \end{equation}
@@ -115,7 +115,7 @@ Advantages: Mel-spectrograms preserve local time–frequency structure and are h
 
 \section{Model Developments}
 
-We consider a label set \(\mathcal{C}\) with \(|\mathcal{C}|=C\) emotion classes. For utterance-level classification, we denote the per-frame MFCC feature as \(\mathbf{z}_m \in \mathbb{R}^{Q}\) from (\ref{eq:dct}) (optionally concatenated with \(\Delta\) and \(\Delta\!\Delta\) features from (\ref{eq:delta})). A fixed-dimensional utterance representation is obtained by temporal mean pooling
+We consider a label set \(\mathcal{C}\) with \(|\mathcal{C}|=C\) emotion classes. For utterance-level classification, we denote the per-frame MFCC feature as \(\mathbf{z}_m \in \mathbb{R}^{Q}\) from (Equation \ref{eq:dct}) (optionally concatenated with \(\Delta\) and \(\Delta\!\Delta\) features from (Equation \ref{eq:delta})). A fixed-dimensional utterance representation is obtained by temporal mean pooling
 \begin{equation}\label{eq:meanpool}
 \bar{\mathbf{z}} = \frac{1}{T} \sum_{m=1}^{T} \mathbf{z}_m \in \mathbb{R}^{D}, \quad (D=Q \text{ or } 3Q),
 \end{equation}
@@ -123,7 +123,7 @@ optionally augmented with standard deviation pooling. Let \(\mathbf{y} \in \{0,1
 
 \subsection{Multi-layer Perceptron}
 
-We adopt a feed-forward multilayer perceptron (MLP, as shown in Figure \ref{fig:mlp arch}) as a lightweight baseline operating on MFCC-based utterance vectors. Given input \(\bar{\mathbf{z}}\) from (\ref{eq:meanpool}), a depth-\(L\) MLP computes
+We adopt a feed-forward multilayer perceptron (MLP, as shown in Figure \ref{fig:mlp arch}) as a lightweight baseline operating on MFCC-based utterance vectors. Given input \(\bar{\mathbf{z}}\) from (Equation \ref{eq:meanpool}), a depth-\(L\) MLP computes
 \begin{align}\label{eq:mlp}
 \mathbf{h}^{(1)} &= \sigma\!\big( \mathbf{W}^{(1)} \bar{\mathbf{z}} + \mathbf{b}^{(1)} \big),\\
 \mathbf{h}^{(\ell)} &= \sigma\!\big( \mathbf{W}^{(\ell)} \mathbf{h}^{(\ell-1)} + \mathbf{b}^{(\ell)} \big), \quad 2\le \ell \le L-1,\\
@@ -152,7 +152,7 @@ Role in this thesis: the MLP serves as a parameter-efficient baseline with MFCC 
 
 \subsection{Shallow CNN}
 
-For time–frequency inputs we use the log-Mel representation \(\mathrm{LogMel} \in \mathbb{R}^{F\times T}\) from (\ref{eq:logmelspec}). A shallow 2D CNN treats \(\mathrm{LogMel}\) as a single-channel image: \(\mathbf{X} \in \mathbb{R}^{1\times F\times T}\). Let a 2D convolution with kernel \(\mathbf{W} \in \mathbb{R}^{C_{\text{out}} \times C_{\text{in}} \times k_f \times k_t}\), stride \((s_f,s_t)\), and padding \((p_f,p_t)\) be
+For time–frequency inputs we use the log-Mel representation \(\mathrm{LogMel} \in \mathbb{R}^{F\times T}\) from (Equation \ref{eq:logmelspec}). A shallow 2D CNN treats \(\mathrm{LogMel}\) as a single-channel image: \(\mathbf{X} \in \mathbb{R}^{1\times F\times T}\). Let a 2D convolution with kernel \(\mathbf{W} \in \mathbb{R}^{C_{\text{out}} \times C_{\text{in}} \times k_f \times k_t}\), stride \((s_f,s_t)\), and padding \((p_f,p_t)\) be
 \begin{equation}\label{eq:cnnconv}
 (\mathbf{W} * \mathbf{X})[c,f,t] = \sum_{c'=1}^{C_{\text{in}}} \sum_{i=0}^{k_f-1} \sum_{j=0}^{k_t-1} \mathbf{W}[c,c',i,j] \, \mathbf{X}[c', f+i-p_f,\, t+j-p_t].
 \end{equation}
@@ -161,7 +161,7 @@ Each convolutional block applies convolution, batch normalization, ReLU, and poo
 \mathbf{U}_1 &= \mathrm{ReLU}\big(\mathrm{BN}(\mathbf{W}_1 * \mathbf{X})\big), & \mathbf{V}_1 &= \mathrm{Pool}(\mathbf{U}_1),\\
 \mathbf{U}_2 &= \mathrm{ReLU}\big(\mathrm{BN}(\mathbf{W}_2 * \mathbf{V}_1)\big), & \mathbf{V}_2 &= \mathrm{Pool}(\mathbf{U}_2).
 \end{align}
-We then apply global average pooling over time and frequency and a linear classifier to obtain logits \(\mathbf{o}\) followed by (\ref{eq:softmax}).
+We then apply global average pooling over time and frequency and a linear classifier to obtain logits \(\mathbf{o}\) followed by (Equation \ref{eq:softmax}).
 
 Design: we use two convolutional blocks with moderate kernels (e.g., \(k_f\in\{3,5\}\), \(k_t\in\{3,5\}\)), stride \(1\), and max-pooling with small windows to preserve resolution. Regularization includes dropout and additive noise during training to improve robustness.
 
@@ -181,7 +181,7 @@ We adopt ResNet-18 as a deeper convolutional baseline to enhance receptive field
 \begin{equation}\label{eq:residual}
 \mathbf{y} = \mathcal{F}(\mathbf{x};\, \{\mathbf{W}_i\}) + \mathcal{S}(\mathbf{x}),
 \end{equation}
-where \(\mathcal{F}\) is a stack of \(\mathrm{Conv}{\to}\mathrm{BN}{\to}\mathrm{ReLU}{\to}\mathrm{Conv}{\to}\mathrm{BN}\), and \(\mathcal{S}\) is either identity or a \(1\!\times\!1\) projection to match shape when stride/downsampling is used. The network stacks such blocks with increasing channels and occasional stride-2 to downsample along time and frequency. After global average pooling, a linear classifier produces logits \(\mathbf{o}\) and probabilities via (\ref{eq:softmax}).
+where \(\mathcal{F}\) is a stack of \(\mathrm{Conv}{\to}\mathrm{BN}{\to}\mathrm{ReLU}{\to}\mathrm{Conv}{\to}\mathrm{BN}\), and \(\mathcal{S}\) is either identity or a \(1\!\times\!1\) projection to match shape when stride/downsampling is used. The network stacks such blocks with increasing channels and occasional stride-2 to downsample along time and frequency. After global average pooling, a linear classifier produces logits \(\mathbf{o}\) and probabilities via (Equation \ref{eq:softmax}).
 
 For spectrogram inputs, the first convolution is adapted to single-channel input (\(C_{\text{in}}=1\)) with kernel size \(7\!\times\!7\) and stride 2, followed by batch normalization and ReLU. Weight decay and label smoothing may be applied to improve generalization.
 
@@ -207,7 +207,7 @@ A learnable classification token \(\mathbf{z}_{\mathrm{cls}}\) is prepended and 
 \begin{equation}\label{eq:attn}
 \mathrm{Attn}(\mathbf{Q},\mathbf{K},\mathbf{V}) = \mathrm{softmax}\!\left( \frac{\mathbf{Q}\mathbf{K}^\top}{\sqrt{d_k}} \right) \mathbf{V},
 \end{equation}
-with queries \(\mathbf{Q}=\mathbf{Z}\mathbf{W}^Q\), keys \(\mathbf{K}=\mathbf{Z}\mathbf{W}^K\), values \(\mathbf{V}=\mathbf{Z}\mathbf{W}^V\), and \(\mathbf{Z}\) the input token matrix; MHSA concatenates multiple heads. The FFN uses two linear layers and a nonlinearity (e.g., GELU). The classification head reads the \([\mathrm{CLS}]\) token to produce logits \(\mathbf{o}\) and probabilities via (\ref{eq:softmax}).
+with queries \(\mathbf{Q}=\mathbf{Z}\mathbf{W}^Q\), keys \(\mathbf{K}=\mathbf{Z}\mathbf{W}^K\), values \(\mathbf{V}=\mathbf{Z}\mathbf{W}^V\), and \(\mathbf{Z}\) the input token matrix; MHSA concatenates multiple heads. The FFN uses two linear layers and a nonlinearity (e.g., GELU). The classification head reads the \([\mathrm{CLS}]\) token to produce logits \(\mathbf{o}\) and probabilities via (Equation \ref{eq:softmax}).
 
 Design: patch sizes \((P_f,P_t)\) balance spectral and temporal resolution; smaller patches increase sequence length and cost but improve detail. Regularization includes dropout and stochastic depth; data augmentation includes time/frequency masking and additive noise.
 
