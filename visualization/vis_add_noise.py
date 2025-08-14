@@ -3,6 +3,7 @@ import os
 import random
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
+import csv
 
 import yaml
 import torch
@@ -30,6 +31,28 @@ def set_seed(seed: int) -> None:
 def load_yaml(path: str) -> Dict:
     with open(path, 'r', encoding='utf-8') as f:
         return yaml.safe_load(f)
+
+
+def load_esc50_filename_to_category(meta_csv_path: Optional[str]) -> Dict[str, str]:
+    """Build filename -> category mapping from ESC-50 meta CSV.
+
+    Returns lowercase category names keyed by filename (e.g., '1-12345-A-0.wav').
+    """
+    mapping: Dict[str, str] = {}
+    if not meta_csv_path:
+        return mapping
+    try:
+        with open(meta_csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                fname = (row.get('filename') or row.get('file') or '').strip()
+                category = (row.get('category') or '').strip().lower()
+                if fname and category:
+                    mapping[fname] = category
+    except Exception:
+        # Silently ignore; fall back to group names later
+        return {}
+    return mapping
 
 
 def load_audio_mono(path: str, target_sr: Optional[int] = None) -> Tuple[torch.Tensor, int]:
@@ -73,6 +96,7 @@ def sample_white_noise(length: int) -> torch.Tensor:
 def sample_esc50_noise(
     esc_aug: ESC50NoiseAugmentor,
     num_samples: int,
+    filename_to_category: Optional[Dict[str, str]] = None,
 ) -> Tuple[torch.Tensor, str]:
     # Prefer pools (explicit directories); otherwise sample from filelists (meta mode)
     if getattr(esc_aug, 'pools', None):
@@ -84,7 +108,7 @@ def sample_esc50_noise(
     if getattr(esc_aug, 'filelists', None):
         files_idx = int(torch.randint(0, len(esc_aug.filelists), (1,)).item())
         files: List[Path] = esc_aug.filelists[files_idx]
-        name = esc_aug.category_names[files_idx] if esc_aug.category_names else 'group'
+        default_group_name = esc_aug.category_names[files_idx] if esc_aug.category_names else 'group'
         # Inline implementation similar to _get_segment_from_files
         for _ in range(3):
             p = files[int(torch.randint(0, len(files), (1,)).item())]
@@ -95,14 +119,15 @@ def sample_esc50_noise(
                 if sr != esc_aug.resample_sr:
                     wav = torchaudio.transforms.Resample(orig_freq=sr, new_freq=esc_aug.resample_sr)(wav)
                 wav = wav.squeeze(0)
+                cat_name = (filename_to_category or {}).get(p.name, default_group_name)
                 if wav.numel() >= num_samples:
                     start = int(torch.randint(0, wav.numel() - num_samples + 1, (1,)).item())
-                    return wav[start:start + num_samples], name
+                    return wav[start:start + num_samples], cat_name
                 reps = (num_samples + wav.numel() - 1) // wav.numel()
-                return wav.repeat(reps)[:num_samples], name
+                return wav.repeat(reps)[:num_samples], cat_name
             except Exception:
                 continue
-        return torch.zeros(num_samples), name
+        return torch.zeros(num_samples), default_group_name
     return torch.zeros(num_samples), 'none'
 
 
@@ -245,6 +270,7 @@ def main():
         noise_type_desc = 'white'
         noise_cat = 'white'
     else:
+        filename_to_category = load_esc50_filename_to_category(esc_cfg.get('meta_csv', None))
         esc_aug = ESC50NoiseAugmentor(
             categories=esc_cfg.get('categories', None),
             p_apply=p_apply,
@@ -255,7 +281,7 @@ def main():
             meta_csv=esc_cfg.get('meta_csv', None),
             groups=esc_cfg.get('groups', None),
         )
-        noise, noise_cat = sample_esc50_noise(esc_aug, speech.numel())
+        noise, noise_cat = sample_esc50_noise(esc_aug, speech.numel(), filename_to_category=filename_to_category)
         noise_type_desc = f'esc50::{noise_cat}'
 
     if not will_apply:
@@ -277,7 +303,8 @@ def main():
         base = Path(args.audio).stem
         out_dir = Path('visualization') / 'vis_results'
         out_dir.mkdir(parents=True, exist_ok=True)
-        out_name = f"{base}_{aug_type}_p{p_apply:.2f}_snr{picked_snr:.1f}_seed{args.seed}.png"
+        noise_token = str(noise_cat).replace(' ', '_').lower()
+        out_name = f"{base}_{aug_type}-{noise_token}_p{p_apply:.2f}_snr{picked_snr:.1f}_seed{args.seed}.png"
         out_path = str(out_dir / out_name)
     else:
         out_path = args.out

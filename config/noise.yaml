@@ -1,6 +1,6 @@
 noise_augmentation:
   enabled: true
-  type: white  # white | esc50
+  type: esc50  # white | esc50
   p_apply: 0.7
   snr_db_choices: [5.0] # [0.0, 5.0, 10.0, 20.0]
   target_peak_dbfs: -1.0
@@ -19,6 +19,6 @@ noise_augmentation:
     groups:
       - name: "natural_soundscapes"
         categories: ["rain", "sea_waves", "crickets", "chirping_birds", "wind", "frog", "thunderstorm", "water_drops", "crackling_fire", "insects"]
-      - name: "human_non_speech"
-        categories: ["coughing", "sneezing", "breathing", "laughing", "footsteps", "clapping"]
+      # - name: "human_non_speech"
+      #   categories: ["coughing", "sneezing", "breathing", "laughing", "footsteps", "clapping"]
 
