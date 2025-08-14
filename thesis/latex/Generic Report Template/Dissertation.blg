@@ -21,22 +21,18 @@ A level-1 auxiliary file: Chapter10/Chapter10.aux
 The style file: abbrv.bst
 A level-1 auxiliary file: Appendices/Appendices.aux
 Database file #1: bibliography.bib
-Repeated entry---line 689 of file bibliography.bib
- : @inproceedings{trigeorgis2016adieu
- :                                   ,
-I'm skipping whatever remains of this entry
 You've used 51 entries,
             2118 wiz_defined-function locations,
-            814 strings with 15424 characters,
-and the built_in function-call counts, 22664 in all, are:
-= -- 2251
+            814 strings with 15427 characters,
+and the built_in function-call counts, 22688 in all, are:
+= -- 2259
 > -- 1227
 < -- 22
 + -- 486
 - -- 430
-* -- 1701
-:= -- 3609
-add.period$ -- 164
+* -- 1703
+:= -- 3613
+add.period$ -- 165
 call.type$ -- 51
 change.case$ -- 360
 chr.to.int$ -- 0
@@ -44,7 +40,7 @@ cite$ -- 51
 duplicate$ -- 805
 empty$ -- 1617
 format.name$ -- 430
-if$ -- 4790
+if$ -- 4795
 int.to.chr$ -- 0
 int.to.str$ -- 51
 missing$ -- 51
@@ -54,16 +50,15 @@ pop$ -- 366
 preamble$ -- 1
 purify$ -- 309
 quote$ -- 0
-skip$ -- 633
+skip$ -- 631
 stack$ -- 0
-substring$ -- 1582
+substring$ -- 1586
 swap$ -- 265
 text.length$ -- 22
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 204
 warning$ -- 0
-while$ -- 202
+while$ -- 203
 width$ -- 53
-write$ -- 571
-(There was 1 error message)
+write$ -- 572

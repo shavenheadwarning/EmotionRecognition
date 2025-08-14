@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.10)  13 AUG 2025 21:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.10)  14 AUG 2025 09:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -641,24 +641,35 @@ Package pdftex.def Info: Figures/tikz/shallow_cnn.pdf  used on input line 174.
 
 
 [14 <./Figures/tikz/mlp.pdf>]
+<Figures/tikz/resnet18.pdf, id=109, 350.68718pt x 151.50702pt>
+File: Figures/tikz/resnet18.pdf Graphic file (type pdf)
+<use Figures/tikz/resnet18.pdf>
+Package pdftex.def Info: Figures/tikz/resnet18.pdf  used on input line 196.
+(pdftex.def)             Requested size: 276.00105pt x 119.24997pt.
 
-[15 <./Figures/tikz/shallow_cnn.pdf>]
-Overfull \hbox (0.83272pt too wide) in paragraph at lines 202--203
+
+[15 <./Figures/tikz/shallow_cnn.pdf> <./Figures/tikz/resnet18.pdf>]
+Overfull \hbox (0.83272pt too wide) in paragraph at lines 212--213
 []\OT1/cmr/m/n/10 Design: patch sizes $(\OML/cmm/m/it/10 P[]; P[]\OT1/cmr/m/n/1
 0 )$ bal-ance spec-tral and tem-po-ral res-o-lu-tion; smaller
  []
 
 
-Overfull \hbox (2.03773pt too wide) in paragraph at lines 202--203
+Overfull \hbox (2.03773pt too wide) in paragraph at lines 212--213
 \OT1/cmr/m/n/10 cludes dropout and stochas-tic depth; data aug-men-ta-tion in-c
 ludes time/frequency
  []
 
+<Figures/arch of AST.jpg, id=152, 1355.0625pt x 1048.91875pt>
+File: Figures/arch of AST.jpg Graphic file (type jpg)
+<use Figures/arch of AST.jpg>
+Package pdftex.def Info: Figures/arch of AST.jpg  used on input line 223.
+(pdftex.def)             Requested size: 276.00105pt x 213.63728pt.
 
 
-[16])
+[16]
 
-[17]
+[17 <./Figures/arch of AST.jpg>])
 
 [18]
 \openout2 = `Chapter4/Chapter4.aux'.
@@ -675,7 +686,7 @@ Chapter 4.
 ]
 
 [20]
-Overfull \hbox (34.38956pt too wide) in paragraph at lines 86--95
+Overfull \hbox (37.41737pt too wide) in paragraph at lines 86--95
  [][] 
  []
 
@@ -685,15 +696,26 @@ Overfull \hbox (16.59288pt too wide) in paragraph at lines 99--99
  []
 
 
-Overfull \hbox (15.58948pt too wide) in paragraph at lines 108--108
+Overfull \hbox (1.24144pt too wide) in paragraph at lines 106--107
+\OT1/cmr/m/n/10 most strongly im-pact recog-ni-tion. Ex-am-ine whether mod-els 
+learn noise-invariant
+ []
+
+
+Overfull \hbox (37.41737pt too wide) in paragraph at lines 113--122
+ [][] 
+ []
+
+
+Overfull \hbox (15.58948pt too wide) in paragraph at lines 124--124
 []\OT1/cmr/bx/n/14.4 Experiment D: SNR Ab-la-tion (Nat-u-ral Sound-
  []
 
 
 
-[21{g:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}])
+[21{g:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
-[22]
+[22])
 
 [23]
 \openout2 = `Chapter5/Chapter5.aux'.
@@ -798,10 +820,10 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 6754 strings out of 473189
- 122728 string characters out of 5719958
- 594081 words of memory out of 5000000
- 29714 multiletter control sequences out of 15000+600000
+ 6771 strings out of 473189
+ 123238 string characters out of 5719958
+ 594161 words of memory out of 5000000
+ 29731 multiletter control sequences out of 15000+600000
  565513 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  95i,13n,93p,1300b,416s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -812,24 +834,26 @@ st/fonts/type1/public/amsfonts/cm/cmmi10.pfb><g:/texlive/2025/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmmi12.pfb><g:/texlive/2025/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmmi5.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmmi7.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-8.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><g:/
-texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><g:/texlive/20
-25/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><g:/texlive/2025/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr7.pfb><g:/texlive/2025/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr8.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr9.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmss12.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.p
-fb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><g:/te
-xlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><g:/texlive/2025
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><g:/texlive/2025/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy8.pfb><g:/texlive/2025/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti10.pfb><g:/texlive/2025/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msbm10.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/cm
--super/sfrm1000.pfb>
-Output written on Dissertation.pdf (42 pages, 2684301 bytes).
+8.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><g:/
+texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><g:/texlive/20
+25/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><g:/texlive/2025/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr5.pfb><g:/texlive/2025/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr8.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr9.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pf
+b><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb><g:/tex
+live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><g:/texlive/2025
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><g:/texlive/2025/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy7.pfb><g:/texlive/2025/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy9.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmti10.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sbm10.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+
+Output written on Dissertation.pdf (42 pages, 2879834 bytes).
 PDF statistics:
- 284 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
+ 306 PDF objects out of 1000 (max. 8388607)
+ 193 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

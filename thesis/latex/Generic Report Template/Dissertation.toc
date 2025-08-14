@@ -19,14 +19,14 @@
 \contentsline {subsection}{\numberline {3.2.1}Multi-layer Perceptron}{13}{}%
 \contentsline {subsection}{\numberline {3.2.2}Shallow CNN}{14}{}%
 \contentsline {subsection}{\numberline {3.2.3}ResNet-18}{14}{}%
-\contentsline {subsection}{\numberline {3.2.4}Audio Spectrogram Transformer}{15}{}%
+\contentsline {subsection}{\numberline {3.2.4}Audio Spectrogram Transformer}{16}{}%
 \contentsline {section}{\numberline {3.3}Data Augmentation}{16}{}%
 \contentsline {subsection}{\numberline {3.3.1}Noise sources and SNR set}{16}{}%
-\contentsline {subsection}{\numberline {3.3.2}On-the-fly sampling policy}{16}{}%
-\contentsline {subsection}{\numberline {3.3.3}Time alignment and preprocessing}{16}{}%
+\contentsline {subsection}{\numberline {3.3.2}On-the-fly sampling policy}{17}{}%
+\contentsline {subsection}{\numberline {3.3.3}Time alignment and preprocessing}{17}{}%
 \contentsline {subsection}{\numberline {3.3.4}RMS, target SNR, and gain computation}{17}{}%
-\contentsline {subsection}{\numberline {3.3.5}Peak limiting and re-normalization}{17}{}%
-\contentsline {subsection}{\numberline {3.3.6}Integration with the training pipeline}{17}{}%
+\contentsline {subsection}{\numberline {3.3.5}Peak limiting and re-normalization}{18}{}%
+\contentsline {subsection}{\numberline {3.3.6}Integration with the training pipeline}{18}{}%
 \contentsline {subsection}{\numberline {3.3.7}Evaluation protocol}{18}{}%
 \contentsline {chapter}{\numberline {4}Experiments}{19}{}%
 \contentsline {section}{\numberline {4.1}Common Settings}{19}{}%
@@ -40,7 +40,7 @@
 \contentsline {section}{\numberline {4.5}Experiment D: SNR Ablation (Natural Soundscapes)}{22}{}%
 \contentsline {section}{\numberline {4.6}Experiment E: Model Robustness Comparison (ResNet-18 vs AST)}{22}{}%
 \contentsline {section}{\numberline {4.7}Experiment F: Augmentation Intensity Ablation (\(p_{\mathrm {aug}}\))}{22}{}%
-\contentsline {section}{\numberline {4.8}Summary of Results and Visualization}{22}{}%
+\contentsline {section}{\numberline {4.8}Summary of Results and Visualization}{23}{}%
 \contentsline {chapter}{\numberline {5}Discussion}{24}{}%
 \contentsline {chapter}{\numberline {6}Conclusion}{25}{}%
 \contentsline {chapter}{\numberline {7}Chapter Title}{26}{}%

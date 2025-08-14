@@ -187,6 +187,16 @@ For spectrogram inputs, the first convolution is adapted to single-channel input
 
 Advantages: ResNet-18 balances capacity and efficiency, modeling broader context and invariances. Limitations: increased compute relative to shallow CNNs and potential overfitting on small corpora without strong regularization. In this thesis, ResNet-18 processes \(\mathrm{LogMel}\) to assess the gains of residual learning.
 
+Figure \ref{fig:resnet_arch} shows the architecture of ResNet-18.
+
+\begin{figure}[htbp]
+  \centering
+  \caption{The architecture of ResNet-18 }
+  \label{fig:resnet_arch}
+  \includestandalone[mode=image,width=.8\textwidth]{Figures/tikz/resnet18}
+  % mode=image 仅用已编译图；buildmissing 若缺失则自动构建
+\end{figure}
+
 \subsection{Audio Spectrogram Transformer}
 
 The Audio Spectrogram Transformer (AST) adapts the Vision Transformer (ViT) to audio by treating the log-Mel spectrogram as a 2D patch sequence. Given \(\mathrm{LogMel} \in \mathbb{R}^{F\times T}\), we partition it into non-overlapping patches of size \(P_f\!\times\!P_t\), yielding \(N = \lfloor F/P_f \rfloor \cdot \lfloor T/P_t \rfloor\) patches. Each patch is flattened and linearly projected to a token embedding:
@@ -203,7 +213,16 @@ Design: patch sizes \((P_f,P_t)\) balance spectral and temporal resolution; smal
 
 Advantages: AST captures global dependencies and long-range context beyond CNN receptive fields. Limitations: higher computational cost and sensitivity to data scale; careful regularization and pretraining can be beneficial. In this thesis, AST consumes log-Mel inputs to examine the benefits of attention-based modeling.
 
+Figure \ref{fig:ast_arch} shows the architecture of AST.
 
+\begin{figure}[htbp]
+  \centering
+  \caption{The architecture of AST}
+  \label{fig:ast_arch}
+  \includegraphics[width=.8\textwidth]
+  {Figures/arch of AST.jpg}
+  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+\end{figure}
 
 
 \section{Data Augmentation}

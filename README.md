@@ -44,6 +44,12 @@ python main.py --config config/iemocap.yaml --model resnet18 --device cuda --bat
 
 # 可视化
 python visualization/vis_mfcc.py --max-per-dataset 6 --duration 5
+
+python visualization/vis_add_noise.py --audio "D:\path\to\your.wav" --type white --snr 20 --force-apply
+python visualization/vis_add_noise.py --audio "D:\path\to\your.wav" --type esc50 --config "config/noise.yaml" --force-apply
+python visualization/vis_add_noise.py --audio "D:\PTProjects\EmotionRecognition\data\IEMOCAP\Session1\Session1\dialog\Ses01M_impro03.wav" --config "config/noise.yaml"
+
+
 ```
 
 
@@ -326,3 +332,17 @@ noise_augmentation:
 - Park, D. S., et al. “SpecAugment: A Simple Data Augmentation Method for Automatic Speech Recognition.” Interspeech, 2019.
 - Hershey, S., et al. “CNN Architectures for Large-Scale Audio Classification.” ICASSP, 2017.（VGGish与AudioSet实践，64维log-Mel）
 - Gemmeke, J. F., et al. “Audio Set: An ontology and human-labeled dataset for audio events.” ICASSP, 2017.
+
+
+## upload data
+
+
+```cmd
+
+cp D:\PTProjects\EmotionRecognition\data\Session1.zip oss://IEMOCAP/
+cp D:\PTProjects\EmotionRecognition\data\Session2.zip oss://IEMOCAP/
+cp D:\PTProjects\EmotionRecognition\data\Session3.zip oss://IEMOCAP/
+cp D:\PTProjects\EmotionRecognition\data\Session4.zip oss://IEMOCAP/
+cp D:\PTProjects\EmotionRecognition\data\Session5.zip oss://IEMOCAP/
+
+```

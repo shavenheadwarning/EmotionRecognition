@@ -44,7 +44,7 @@ Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravde
         MLP & 0.451 & 0.412 & 0.431 & 0.402 \\
         Shallow CNN & 0.208 & 0.141 & 0.192 & 0.127 \\
         ResNet-18 & 0.687 & 0.694 & 0.697 & 0.682 \\
-        AST Base &  0.378 &  0.327 & 0.353 & 0.326 \\
+        AST Base &  0.718 &  0.735 & 0.719 & 0.714 \\
         \hline
     \end{tabular}
 \end{table}
@@ -89,7 +89,7 @@ Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravde
         Model & Acc. & Prec. & Recall & Macro-F1 & Acc. & Prec. & Recall & Macro-F1 \\
         \hline
         ResNet-18 & 0.677 & 0.674 & 0.680 & 0.674 &  0.551 &  0.491 & 0.378 & 0.315 \\
-        AST Base &  &  &  &  & 0.583 & 0.565 & 0.4713 & 0.472 \\
+        AST Base & 0.718 & 0.717 & 0.716 & 0.713 & 0.583 & 0.565 & 0.4713 & 0.472 \\
         \hline
     \end{tabular}
 \end{table}
@@ -106,19 +106,17 @@ Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravde
 \textbf{Results and analysis.} Identify which noise categories and SNR regimes most strongly impact recognition. Examine whether models learn noise-invariant features.
 
 
-\begin
+\begin{table}[htbp]
     \centering
     \caption{ Results of Experiment C on two datasets }
     \label{tab:esc_noise_results}
     \begin{tabular}{lcccccccc}
         \hline
-        Model & Acc. & Prec. & Recall & Macro-F1 \\
-        \hline
-        & \multicolumn{4}{c}{RAVDESS} & \multicolumn{4}{c}{IEMOCAP} \\
+         & \multicolumn{4}{c}{RAVDESS} & \multicolumn{4}{c}{IEMOCAP} \\
         Model & Acc. & Prec. & Recall & Macro-F1 & Acc. & Prec. & Recall & Macro-F1 \\
         \hline
-        ResNet-18 & 0.548 & 0.541 &  0.546 & 0.527 &  0.554 &  0.519  &  0.327 &0.323  \\
-        AST Base &  &  &  &  &  &  &  &  \\
+        ResNet-18 & 0.548 & 0.541 & 0.546 & 0.527 & 0.554 & 0.519 & 0.327 & 0.323 \\
+        AST Base & 0.739 & 0.746 & 0.745 & 0.734 &  &  &  &  \\
         \hline
     \end{tabular}
 \end{table}
@@ -130,7 +128,27 @@ Results of Experiment A on RAVDESS and IEMOCAP are shown in Table \ref{tab:ravde
 
 \textbf{Evaluation.} Plot accuracy and macro-F1 versus SNR; compare confusion matrices across SNRs to see which emotions become confusable at low SNR.
 
-\textbf{Expected analysis.} Determine the SNR threshold below which performance collapses, and quantify any non-linear degradation.
+\textbf{Results and analysis.} Determine the SNR threshold below which performance collapses, and quantify any non-linear degradation.
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{Experiment D (RAVDESS): SNR ablation with natural soundscapes for ResNet-18 and AST. Metrics reported are accuracy (Acc.) and macro-F1 per SNR.}
+    \label{tab:snr_ablation_ravdess}
+    \begin{tabular}{lcccc}
+        \hline
+        SNR (dB) & ResNet-18 Acc. & ResNet-18 Macro-F1 & AST Acc. & AST Macro-F1 \\
+        \hline
+        0  & 0.625 & 0.619 & -- & -- \\
+        5  & -- & -- & -- & -- \\
+        10 & -- & -- & -- & -- \\
+        20 & -- & -- & -- & -- \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
+
 
 \section{Experiment E: Model Robustness Comparison (ResNet-18 vs AST)}
 \textbf{Objective.} Compare architectural robustness between a CNN (ResNet-18) and a transformer (AST) under identical augmentation policies.
