@@ -1,1 +1,0 @@
-for %%f in (*.tex) do latexmk -pdf -interaction=nonstopmode -halt-on-error -file-line-error "%%f"
