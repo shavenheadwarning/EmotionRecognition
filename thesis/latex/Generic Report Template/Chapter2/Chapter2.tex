@@ -1,0 +1,94 @@
+% !TEX root =  ../Dissertation.tex
+
+\chapter{Literature Review}
+
+
+
+
+
+
+
+
+\section{Datasets for Speech Emotion Recognition}
+
+Datasets are foundational to empirical research in SER. They can be broadly categorized into acted corpora and spontaneous or in-the-wild corpora. Acted datasets are typically recorded in controlled laboratory environments with professional actors performing target emotions. While these corpora offer clean signals and clearer affective cues that facilitate modeling, they may over-represent exaggerated expressions and fail to capture the subtleties of everyday speech. By contrast, spontaneous corpora contain naturalistic affect produced in real interactions or semi-scripted dialogues. They better reflect practical deployment scenarios but introduce additional challenges such as background noise, speaker overlap, label ambiguity, and class imbalance. Below we summarize several widely used SER datasets.
+
+\textbf{RAVDESS.} The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS) \cite{livingstone2018ryerson} contains recordings from 24 professional actors (12 female, 12 male) producing two lexically matched statements across eight emotions (neutral, calm, happy, sad, angry, fearful, disgust, surprise) with normal and strong intensities (neutral has no intensity). The speech subset totals 1,440 audio files, recorded with consistent studio conditions, and is commonly used for speaker-independent evaluation. RAVDESS provides balanced classes and clear prosodic cues, making it suitable for benchmarking and ablation studies; however, its acted nature can limit ecological validity when models are deployed on spontaneous speech.
+
+\textbf{IEMOCAP.} Collected at the University of Southern California, IEMOCAP \cite{busso2008iemocap} is a multimodal corpus containing speech, video, facial motion capture, and transcripts over approximately 12 hours of dyadic interactions with 10 actors (five female, five male) arranged into five sessions (each session features one female–male pair). The corpus includes both scripted and improvised dialogues. Utterances are annotated by multiple raters for nine discrete emotions (anger, happiness, excitement, sadness, frustration, fear, surprise, neutral, and other) as well as three continuous dimensions (valence, arousal, dominance). In practice, many studies merge excitement into happiness, yielding a four-class set (neutral, angry, happy, sad) or a six-class set (neutral, angry, happy, sad, frustration, surprise). For comparability, this thesis adopts both the four-class and six-class protocols in line with prior work.
+
+\textbf{EmoDB.} The Berlin Database of Emotional Speech  \cite{burkhardt2005database} comprises recordings from 10 German actors (five female, five male) who produced 10 phonetically balanced sentences with seven target emotions: anger, sadness, happiness, fear, neutral, disgust, and boredom. After rigorous quality screening, around 500 utterances were retained. Audio was recorded in a studio at 48 kHz, 16-bit, and is often downsampled to 16 kHz for processing. Although acted, the dataset emphasizes natural-sounding realizations through actor induction techniques, providing strong, well-separated emotional prototypes.
+
+\textbf{MELD.} The Multimodal EmotionLines Dataset \cite{poria2018meld} extends EmotionLines by adding audio and video modalities to textual dialogues. Derived from the TV show “Friends,” MELD contains over 1,400 multi-speaker conversations and more than 13,000 utterances, annotated with seven emotions: anger, disgust, sadness, joy, neutral, surprise, and fear. Its multimodal, conversational structure enables the study of contextual emotion dynamics and speaker interactions beyond isolated utterances.
+
+\section{SER with Acoustic Features}
+Acoustic feature engineering plays a central role in early SER pipelines. It compresses raw waveforms into compact descriptors derived from time-domain and frequency-domain analyses, guided by speech science. Canonical categories include prosodic features (pitch, energy, duration), voice-quality features (jitter, shimmer, harmonicity), spectral features (formants, cepstral coefficients), and Teager Energy Operator (TEO) based features. These low-level descriptors (LLDs) capture frame-wise micro-variations in speech and can be summarized into high-level functional statistics (HSFs) such as means, first- and second-order derivatives, and other moments to encode utterance-level context.
+
+Empirical studies have shown that acoustic features carry substantial affective information, reflecting changes in emotion, speaker identity, speaking style, and tempo \cite{liu2014multimodal}.
+ Lee et al.  \cite{lee2002combining} and Schuller et al. \cite{schuller2004speech}  reported strong results using feature sets combining energy-, pitch-, and spectral-related cues, with pitch-related features often proving more discriminative than energy features.
+ Rao et al. \cite{rao2013emotion} compared LLDs  against HSFs (and their combination) and found that combining frame-level prosody (e.g., F0 trajectories, energy) with statistical summaries improves recognition performance. Lugger et al.  integrated prosodic and voice-quality features (e.g., glottal gradient, skewness gradient, closure rate gradient) within a two-stage classifier to reach 74.5\% accuracy.
+ Li et al. \cite{li2007stress} further augmented HSFs with jitter and shimmer to boost performance.
+ Zhang et al. \cite{zhang2016mechanics} combined prosodic with voice-quality features (including the first three formants), improving accuracy by about 10\% over prosody-only baselines.
+ Sato et al. \cite{sato2007emotion} used clustering to label frames and constructed a segmented MFCC feature set, outperforming K-nearest neighbors (KNN) on prosody and Hidden Markov Models (HMMs) on conventional MFCCs.
+ Bitouk et al. \cite{bitouk2010class} introduced new spectral features by computing MFCCs separately for stressed vowels, unstressed vowels, and consonants, concluding that consonants may carry richer affective cues than vowels.
+Zhou et al. \cite{zhou2002nonlinear} proposed three TEO variants—especially a standard-band TEO autocorrelation envelope—to study airflow energy changes under stress, achieving better results than pitch+MFCC combinations.
+
+After feature extraction, classifiers are typically used for final affect prediction. Traditional approaches include Gaussian Mixture Models (GMMs), Support Vector Machines (SVMs), and Decision Trees (DTs) . More recent methods employ deep learning to learn discriminative affect representations from acoustic features, such as 1D CNNs and RNNs, trained with task-appropriate loss functions.
+
+Overall, acoustic-feature-based SER offers two key advantages. First, it provides a degree of interpretability: models can assign higher weights to features with stronger affective discriminability, which often aids accuracy compared to purely black-box baselines. Second, system complexity can be relatively low: feature extraction is algorithmic with few learnable parameters, while deep architectures built on these features improve adaptability and reduce overfitting, enabling transfer across related affective tasks. Despite progress, several issues remain: (1) many features rely on the short-time Fourier transform (STFT), a global transform that may inadequately represent the inherently non-stationary, localized time–frequency patterns of affect; (2) attention mechanisms operating on handcrafted features may struggle to highlight truly salient regions, potentially discarding relevant emotional cues.
+
+\section{SER with Spectrogram-based Features}
+
+A central question in spectrogram-based SER is how to extract affectively discriminative representations from time–frequency images. Mel-spectrograms differ from classical handcrafted features (e.g., formants, jitter, MFCCs) in that they preserve localized time–frequency structure and delegate hierarchical feature learning to deep networks. Representing energy over time and frequency in a 2D grid enables learning of complex spectro-temporal patterns that are difficult to encode with fixed handcrafted descriptors \cite{nguyen2023wrist}. During training, networks can discover filter-like patterns akin to Mel filterbanks while also capturing long-range dependencies and contextual cues typically missed by shallow features.
+
+Since the 2012 deep learning breakthroughs on ImageNet, advances in model capacity and data processing have translated to SER. Compared with conventional machine learning, deep models  can learn affect representations without manual feature selection. Feed-forward deep neural networks (DNNs) comprise multiple hidden layers whose weights are optimized via gradient descent and backpropagation to minimize a task loss. Convolutional neural networks (CNNs) are particularly impactful in SER , as spectrograms exhibit strong local correlations along time and frequency; local receptive fields allow CNNs to extract progressively higher-level features from 2D inputs \cite{prakash2023novel}.
+Recurrent neural networks (RNNs)  and Long Short-Term Memory (LSTM) networks  are commonly stacked on top of CNN features to model temporal dependencies and can also operate directly on frame-level acoustic features to yield high-level affect representations \cite{baruah2022speech}. Attention mechanisms  \cite{vaswani2017attention} further refine these representations by emphasizing salient regions conducive to emotion discrimination.
+
+Rapid progress has been reported in recent years . Trigeorgis et al. \cite{trigeorgis2016adieu} and Lim et al. \cite{lim2016speech} proposed CNN–LSTM hybrids in which CNNs extract high-level spectrogram features and LSTMs capture sequence dynamics, outperforming traditional machine learning; similar architectures have been widely adopted \cite{sarma2018emotion,trigeorgis2016adieu}.
+To model spatial relationships in spectra, capsule networks based on CNNs have also been explored , achieving promising sentence-level affect modeling \cite{wu2019speech}. Representative spectrogram-based deep architectures for SER are summarized in \ref{tab:ser_spectrogram_related_work}.
+
+
+\begin{table}[htbp]
+    \centering
+    \caption{Related research on SER using spectrogram-based models}
+    \label{tab:ser_spectrogram_related_work}
+    \begin{tabular}{lll p{2.5cm} p{2.5cm}}
+    \hline
+    Study & Year & Method & Dataset & Result \\
+    \hline
+    Zou et al. \cite{cairong2016novel} & 2014 & DBN & ABC Corpus  & Accuracy: 52.2\% \\
+    Kim et al. \cite{kim2019dnn} & 2019 & DNN & IEMOCAP & UAR: 61.4\% \\
+    Aldeneh et al. \cite{aldeneh2017using} & 2017 & CNN & IEMOCAP; MSP-IMPROV  & UAR: 52.6\% \\
+    Lee et al. \cite{lee2015high} & 2015 & BiLSTM & IEMOCAP & UAR: 63.89\% \\
+    Latif et al. \cite{latif1904direct} & 2019 & CNN-LSTM & IEMOCAP; MSP-IMPROV & UAR: 60.23\%; 52.43\% \\
+    Bhosale et al. \cite{bhosale2020deep} & 2020 & ACNN & IEMOCAP & UAR: 63.15\% \\
+    Mustaqeem et al. \cite{sajjad2020clustering} & 2020 & CNN-LSTM & EMODB & Accuracy: 85.57\% \\
+    \hline
+    \end{tabular}
+\end{table}
+
+On top of high-capacity encoders, attention mechanisms have been extensively used to further improve accuracy , including self-attention \cite{vaswani2017attention}, local attention \cite{mirsamadi2017automatic}, hop-wise attention \cite{yoon2019speech}, and many other variants \cite{nediyanchath2020multi,yeh2019interaction}. These modules enhance weights of informative time–frequency regions while suppressing irrelevant ones, thereby focusing the network on discriminative patterns; see Table~\ref{tab:ser_attention_related_work} for recent studies leveraging attention to boost SER.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Related research on SER using attention-based mechanisms}
+    \label{tab:ser_attention_related_work}
+    \begin{tabular}{lll p{2.5cm} p{2.5cm}}
+    \hline
+    Study & Year & Method & Dataset & Result \\
+    \hline
+    Mirsamadi et al. \cite{mirsamadi2017automatic} & 2017 & Local Attention & IEMOCAP & UAR: 58.8\% \\
+    Li et al. \cite{li2019improved} & 2019 & Self Attention & IEMOCAP & UAR: 58.1\% \\
+    Yoon et al. \cite{yoon2019speech} & 2019 & Multi-Hop Attention & IEMOCAP & UAR: 65.2\% \\
+    Xie et al. \cite{xie2019speech} & 2019 & TF Attention & CASIA; eNTERFACE & UAR: 63.89\%; 89.6\% \\
+    Tarantino et al. \cite{tarantino2019self} & 2019 & Self Attention & IEMOCAP & UAR: 63.8\% \\
+    Xu et al. \cite{xu2019learning} & 2020 & Alignment Attention & IEMOCAP & UAR: 57.4\% \\
+    Li et al. \cite{li2021speech} & 2021 & Self BiAttention & EMODB & Accuracy: 85.95\% \\
+    \hline
+    \end{tabular}
+\end{table}
+
+
+
+
+Finally, learned affect representations are mapped to task outputs via suitable loss functions and evaluation metrics. For categorical SER, cross-entropy remains the dominant training objective, while mean squared error is often used for dimensional emotion regression. Historically, accuracy was the default metric; however, as datasets grew and class imbalance became prevalent, the Interspeech 2009 Emotion Challenge  popularized unweighted average recall (UAR), computed as the mean of per-class recalls, which is now widely adopted for imbalanced settings. For dimensional SER, the concordance correlation coefficient (CCC)  is commonly used. Steady gains from stronger encoders and attention, yet several challenges remain: (1) fixed-size convolutional kernels can restrict the effective receptive field over salient emotional regions, limiting global context capture; (2) attention layers may over-rely on fully connected heads and softmax, under-exploiting local, global, and positional cues; (3) cross-entropy is sensitive to label distributions and can struggle when class manifolds are close; (4) variable-length utterances complicate segment-level training and can misalign segment labels with utterance-level annotations.

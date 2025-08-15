@@ -1,0 +1,289 @@
+% !TEX root =  ../Dissertation.tex
+
+\chapter{Methodology}
+
+
+\section{Feature Extraction}
+Feature extraction plays a crucial role in speech emotion recognition. A variety of acoustic features can be derived from emotional speech to reflect characteristics of a speaker’s affective behavior. High‑quality and informative features have a significant impact on recognition accuracy. How to extract and select features that effectively capture emotional variation remains one of the most important problems in the current field of speech emotion recognition.
+
+This section details the feature extraction pipeline and unified notation used throughout the thesis. Let \(x[n]\) denote the discrete-time speech signal sampled at rate \(f_s\) (Hz). Frames are indexed by \(m\), frequency bins by \(k\), and Mel bands by \(f\). The frame length is \(N\) samples, hop size is \(H\) samples, the analysis window is \(w[n]\) (Hann unless otherwise stated), the discrete Fourier transform (DFT) length is \(K\), and the number of Mel filters is \(F\). We use \(X[k,m]\) for the short-time spectrum, \(P[k,m] = |X[k,m]|^2\) for the power spectrum, \(\mathbf{B} \in \mathbb{R}^{F\times K}\) for the Mel filterbank, and a small constant \(\varepsilon>0\) for numerical stability.
+
+
+
+\subsection{MFCC}
+
+Mel-frequency cepstral coefficients (MFCCs) \cite{davis1980comparison} are compact features that approximate human auditory perception by (i) warping frequency to the Mel scale, (ii) applying a band-pass filterbank to obtain perceptual energies, (iii) compressing the dynamic range, and (iv) decorrelating energies via a discrete cosine transform (DCT). The standard pipeline is as follows.
+
+1) Pre-emphasis (optional) enhances high-frequency components:
+\begin{equation}\label{eq:preemphasis}
+y[n] = x[n] - \alpha\, x[n-1], \quad \alpha \in [0.95, 0.99].
+\end{equation}
+
+2) Framing and windowing create approximately stationary short-time segments:
+\begin{equation}\label{eq:stft}
+X[k,m] = \sum_{n=0}^{N-1} x[n+mH]\, w[n] \; e^{-j 2\pi k n / K}, \quad 0 \le k < K.
+\end{equation}
+
+3) Power spectrum is computed as
+\begin{equation}\label{eq:power}
+P[k,m] = \frac{|X[k,m]|^2}{K}.
+\end{equation}
+
+4) Mel filterbank energies are obtained by triangular filters spaced on the Mel scale:
+\begin{equation}\label{eq:mel}
+S[f,m] = \sum_{k=0}^{K-1} B[f,k] \, P[k,m], \quad 1 \le f \le F.
+\end{equation}
+The Mel frequency mapping for a linear frequency \(\nu\) (in Hz) is
+\begin{equation}\label{eq:mel-scale}
+\mathrm{mel}(\nu) = 2595\, \log_{10}\!\bigg(1 + \frac{\nu}{700}\bigg),
+\end{equation}
+and the filterbank \(\mathbf{B}\) is formed by piecewise-linear triangular filters uniformly spaced on the Mel axis and then mapped back to linear frequency bins.
+
+5) Logarithmic compression reduces dynamic range and approximates loudness perception:
+\begin{equation}\label{eq:logmel}
+\widehat{S}[f,m] = \log\big(S[f,m] + \varepsilon\big).
+\end{equation}
+
+6) DCT-II decorrelates the log-Mel energies, yielding MFCCs:
+\begin{equation}\label{eq:dct}
+c_q[m] = \sum_{f=1}^{F} \widehat{S}[f,m] \cos\!\left( \frac{\pi q}{F} \Big(f - \tfrac{1}{2}\Big) \right), \quad 0 \le q < Q,
+\end{equation}
+where \(Q\) is the number of cepstral coefficients retained (commonly \(Q\in[12,20]\)). An optional sinusoidal lifter improves energy distribution across coefficients:
+\begin{equation}\label{eq:lifter}
+\widetilde{c}_q[m] = \Big(1 + \frac{L}{2} \sin\!\frac{\pi q}{L}\Big) c_q[m], \quad L>0.
+\end{equation}
+
+Temporal dynamics are often captured by regression-based derivatives using a symmetric window of radius \(R\):
+\begin{equation}\label{eq:delta}
+\Delta c_q[m] = \frac{\sum_{r=1}^{R} r\, \big(c_q[m+r] - c_q[m-r]\big)}{2 \sum_{r=1}^{R} r^2}, \quad \Delta\!\Delta c_q[m] \text{ analogously.}
+\end{equation}
+
+Advantages: MFCCs are compact, relatively robust to slowly varying convolutive effects, and widely validated in speech tasks. Figure \ref{fig:mfcc_vis_1} and Figure \ref{fig:mfcc_vis_2} show the MFCCs of a sample in IEMOCAP and RAVDESS. Limitations: information loss due to coarse spectral integration and DCT decorrelation, frame-level stationarity assumptions, and sensitivity to noise and channel mismatch without appropriate normalization or enhancement.
+
+\begin{figure}[htbp]
+    \centering
+    \caption{The MFCC of a sample in IEMOCAP}
+    \label{fig:mfcc_vis_1}
+    \includegraphics[width=.8\textwidth]{Figures/mfcc_vis/IEMOCAP_Ses01F_impro03.png}
+    % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+  \end{figure}
+
+  \begin{figure}[htbp]
+    \centering
+    \caption{The MFCC of a sample in RAVDESS}
+    \label{fig:mfcc_vis_2}
+    \includegraphics[width=.8\textwidth]
+    {Figures/mfcc_vis/RAVDESS_03-02-02-01-01-01-01.png}
+    % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+  \end{figure}
+
+\subsection{Mel-spectrogram}
+The Mel-spectrogram represents short-time spectral energy projected onto a perceptual frequency axis, typically used directly as a 2D input to convolutional or transformer models.
+
+Given the short-time spectrum in (Equation \ref{eq:stft}) and power spectrum in (Equation \ref{eq:power}), the Mel-spectrogram is
+\begin{equation}\label{eq:melspec}
+\mathrm{MelSpec}[f,m] = \sum_{k=0}^{K-1} B[f,k] \, P[k,m], \quad 1 \le f \le F.
+\end{equation}
+A log or power-law compression is commonly applied to stabilize training and approximate loudness:
+\begin{equation}\label{eq:logmelspec}
+\mathrm{LogMel}[f,m] = \log\big( \mathrm{MelSpec}[f,m] + \varepsilon \big) \quad \text{or} \quad \mathrm{MelSpec}[f,m]^{\gamma},\; \gamma\in(0,1].
+\end{equation}
+
+Design choices include the sample rate \(f_s\), frame length \(N\), hop size \(H\), window type \(w[n]\), number of Mel filters \(F\), lower/upper frequency bounds of the filterbank, and whether to use magnitude or power spectra. Per-utterance or global mean-variance normalization is often applied to reduce channel variability.
+
+Advantages: Mel-spectrograms preserve local time–frequency structure and are highly compatible with CNNs and attention-based encoders; they avoid the information loss introduced by the DCT in MFCC. Figure \ref{fig:mel_vis_1} and Figure \ref{fig:mel_vis_2} show the Mel-spectrograms of a sample in RAVDESS and IEMOCAP. Limitations: higher dimensionality increases memory and compute cost; the representation remains sensitive to additive noise and reverberation without enhancement or robust training; choices of \(F\), bounds, and \(f_s\) affect resolution and cross-dataset transferability.
+
+
+\begin{figure}[htbp]
+  \centering
+  \caption{The Mel-spectrogram of a sample in RAVDESS}
+  \label{fig:mel_vis_1}
+  \includegraphics[width=.8\textwidth]
+  {Figures/mfcc_vis/RAVDESS_03-02-01-01-01-02-01_mel.png}
+  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \caption{The Mel-spectrogram of a sample in IEMOCAP}
+  \label{fig:mel_vis_2}
+  \includegraphics[width=.8\textwidth]
+  {Figures/mfcc_vis/IEMOCAP_Ses01F_impro05_mel.png}
+  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+\end{figure}
+
+
+\section{Model Developments}
+
+We consider a label set \(\mathcal{C}\) with \(|\mathcal{C}|=C\) emotion classes. For utterance-level classification, we denote the per-frame MFCC feature as \(\mathbf{z}_m \in \mathbb{R}^{Q}\) from (Equation \ref{eq:dct}) (optionally concatenated with \(\Delta\) and \(\Delta\!\Delta\) features from (Equation \ref{eq:delta})). A fixed-dimensional utterance representation is obtained by temporal mean pooling
+\begin{equation}\label{eq:meanpool}
+\bar{\mathbf{z}} = \frac{1}{T} \sum_{m=1}^{T} \mathbf{z}_m \in \mathbb{R}^{D}, \quad (D=Q \text{ or } 3Q),
+\end{equation}
+optionally augmented with standard deviation pooling. Let \(\mathbf{y} \in \{0,1\}^{C}\) be the one-hot label vector.
+
+\subsection{Multi-layer Perceptron}
+
+We adopt a feed-forward multilayer perceptron (MLP, as shown in Figure \ref{fig:mlp arch}) as a lightweight baseline operating on MFCC-based utterance vectors. Given input \(\bar{\mathbf{z}}\) from (Equation \ref{eq:meanpool}), a depth-\(L\) MLP computes
+\begin{align}\label{eq:mlp}
+\mathbf{h}^{(1)} &= \sigma\!\big( \mathbf{W}^{(1)} \bar{\mathbf{z}} + \mathbf{b}^{(1)} \big),\\
+\mathbf{h}^{(\ell)} &= \sigma\!\big( \mathbf{W}^{(\ell)} \mathbf{h}^{(\ell-1)} + \mathbf{b}^{(\ell)} \big), \quad 2\le \ell \le L-1,\\
+\mathbf{o} &= \mathbf{W}^{(L)} \mathbf{h}^{(L-1)} + \mathbf{b}^{(L)},
+\end{align}
+where \(\sigma(\cdot)\) is a pointwise nonlinearity (ReLU by default), \(\mathbf{W}^{(\ell)}\) and \(\mathbf{b}^{(\ell)}\) are trainable parameters. Class probabilities are
+\begin{equation}\label{eq:softmax}
+\mathbf{p} = \mathrm{softmax}(\mathbf{o}), \quad p_c = \frac{\exp(o_c)}{\sum_{c'=1}^{C} \exp(o_{c'})}.
+\end{equation}
+We train with cross-entropy and \(\ell_2\) regularization:
+\begin{equation}\label{eq:ce}
+\mathcal{L} = - \sum_{c=1}^{C} y_c \log p_c + \lambda \lVert \Theta \rVert_2^2,
+\end{equation}
+where \(\Theta\) collects all parameters and \(\lambda\) controls weight decay. Dropout between hidden layers improves generalization.
+
+Role in this thesis: the MLP serves as a parameter-efficient baseline with MFCC inputs, quantifying the incremental benefits of time–frequency 2D models.
+
+
+\begin{figure}[htbp]
+    \centering
+    \caption{The architecture of MLP }
+    \label{fig:mlp arch}
+    \includestandalone[mode=image,width=.8\textwidth]{Figures/tikz/mlp}
+    % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+  \end{figure}
+
+\subsection{Shallow CNN}
+
+For time–frequency inputs we use the log-Mel representation \(\mathrm{LogMel} \in \mathbb{R}^{F\times T}\) from (Equation \ref{eq:logmelspec}). A shallow 2D CNN treats \(\mathrm{LogMel}\) as a single-channel image: \(\mathbf{X} \in \mathbb{R}^{1\times F\times T}\). Let a 2D convolution with kernel \(\mathbf{W} \in \mathbb{R}^{C_{\text{out}} \times C_{\text{in}} \times k_f \times k_t}\), stride \((s_f,s_t)\), and padding \((p_f,p_t)\) be
+\begin{equation}\label{eq:cnnconv}
+(\mathbf{W} * \mathbf{X})[c,f,t] = \sum_{c'=1}^{C_{\text{in}}} \sum_{i=0}^{k_f-1} \sum_{j=0}^{k_t-1} \mathbf{W}[c,c',i,j] \, \mathbf{X}[c', f+i-p_f,\, t+j-p_t].
+\end{equation}
+Each convolutional block applies convolution, batch normalization, ReLU, and pooling:
+\begin{align}
+\mathbf{U}_1 &= \mathrm{ReLU}\big(\mathrm{BN}(\mathbf{W}_1 * \mathbf{X})\big), & \mathbf{V}_1 &= \mathrm{Pool}(\mathbf{U}_1),\\
+\mathbf{U}_2 &= \mathrm{ReLU}\big(\mathrm{BN}(\mathbf{W}_2 * \mathbf{V}_1)\big), & \mathbf{V}_2 &= \mathrm{Pool}(\mathbf{U}_2).
+\end{align}
+We then apply global average pooling over time and frequency and a linear classifier to obtain logits \(\mathbf{o}\) followed by (Equation \ref{eq:softmax}).
+
+Design: we use two convolutional blocks with moderate kernels (e.g., \(k_f\in\{3,5\}\), \(k_t\in\{3,5\}\)), stride \(1\), and max-pooling with small windows to preserve resolution. Regularization includes dropout and additive noise during training to improve robustness.
+
+Advantages: shallow CNNs are data-efficient and fast, capturing local spectro-temporal patterns. Limitations: weaker long-range modeling and limited receptive field without deeper stacks or dilations. In this thesis, the shallow CNN consumes log-Mel features to quantify the benefits of local 2D structure over MFCC-based MLPs.
+
+\begin{figure}[htbp]
+  \centering
+  \caption{The architecture of shallow CNN }
+  \label{fig:shallow_cnn_arch}
+  \includestandalone[mode=image,width=.8\textwidth]{Figures/tikz/shallow_cnn}
+  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+\end{figure}
+
+\subsection{ResNet-18}
+
+We adopt ResNet-18 as a deeper convolutional baseline to enhance receptive field and hierarchical feature learning on \(\mathrm{LogMel}\). A basic residual block computes
+\begin{equation}\label{eq:residual}
+\mathbf{y} = \mathcal{F}(\mathbf{x};\, \{\mathbf{W}_i\}) + \mathcal{S}(\mathbf{x}),
+\end{equation}
+where \(\mathcal{F}\) is a stack of \(\mathrm{Conv}{\to}\mathrm{BN}{\to}\mathrm{ReLU}{\to}\mathrm{Conv}{\to}\mathrm{BN}\), and \(\mathcal{S}\) is either identity or a \(1\!\times\!1\) projection to match shape when stride/downsampling is used. The network stacks such blocks with increasing channels and occasional stride-2 to downsample along time and frequency. After global average pooling, a linear classifier produces logits \(\mathbf{o}\) and probabilities via (Equation \ref{eq:softmax}).
+
+For spectrogram inputs, the first convolution is adapted to single-channel input (\(C_{\text{in}}=1\)) with kernel size \(7\!\times\!7\) and stride 2, followed by batch normalization and ReLU. Weight decay and label smoothing may be applied to improve generalization.
+
+Advantages: ResNet-18 balances capacity and efficiency, modeling broader context and invariances. Limitations: increased compute relative to shallow CNNs and potential overfitting on small corpora without strong regularization. In this thesis, ResNet-18 processes \(\mathrm{LogMel}\) to assess the gains of residual learning.
+
+Figure \ref{fig:resnet_arch} shows the architecture of ResNet-18.
+
+\begin{figure}[htbp]
+  \centering
+  \caption{The architecture of ResNet-18 }
+  \label{fig:resnet_arch}
+  \includestandalone[mode=image,width=.8\textwidth]{Figures/tikz/resnet18}
+  % mode=image 仅用已编译图；buildmissing 若缺失则自动构建
+\end{figure}
+
+\subsection{Audio Spectrogram Transformer}
+
+The Audio Spectrogram Transformer (AST) adapts the Vision Transformer (ViT) to audio by treating the log-Mel spectrogram as a 2D patch sequence. Given \(\mathrm{LogMel} \in \mathbb{R}^{F\times T}\), we partition it into non-overlapping patches of size \(P_f\!\times\!P_t\), yielding \(N = \lfloor F/P_f \rfloor \cdot \lfloor T/P_t \rfloor\) patches. Each patch is flattened and linearly projected to a token embedding:
+\begin{equation}\label{eq:patchify}
+\mathbf{z}_i = \mathrm{vec}(\mathrm{patch}_i)\, \mathbf{W}_e + \mathbf{b}_e \in \mathbb{R}^{d}, \quad i=1,\dots,N.
+\end{equation}
+A learnable classification token \(\mathbf{z}_{\mathrm{cls}}\) is prepended and positional embeddings \(\mathbf{p}_i\) are added. The resulting sequence \(\{\mathbf{z}_{\mathrm{cls}}, \mathbf{z}_1,\dots,\mathbf{z}_N\}\) is processed by a stack of transformer encoder layers, each composed of multi-head self-attention (MHSA) and a positionwise feed-forward network (FFN) with residual connections and layer normalization. For a single head,
+\begin{equation}\label{eq:attn}
+\mathrm{Attn}(\mathbf{Q},\mathbf{K},\mathbf{V}) = \mathrm{softmax}\!\left( \frac{\mathbf{Q}\mathbf{K}^\top}{\sqrt{d_k}} \right) \mathbf{V},
+\end{equation}
+with queries \(\mathbf{Q}=\mathbf{Z}\mathbf{W}^Q\), keys \(\mathbf{K}=\mathbf{Z}\mathbf{W}^K\), values \(\mathbf{V}=\mathbf{Z}\mathbf{W}^V\), and \(\mathbf{Z}\) the input token matrix; MHSA concatenates multiple heads. The FFN uses two linear layers and a nonlinearity (e.g., GELU). The classification head reads the \([\mathrm{CLS}]\) token to produce logits \(\mathbf{o}\) and probabilities via (Equation \ref{eq:softmax}).
+
+Design: patch sizes \((P_f,P_t)\) balance spectral and temporal resolution; smaller patches increase sequence length and cost but improve detail. Regularization includes dropout and stochastic depth; data augmentation includes time/frequency masking and additive noise.
+
+Advantages: AST captures global dependencies and long-range context beyond CNN receptive fields. Limitations: higher computational cost and sensitivity to data scale; careful regularization and pretraining can be beneficial. In this thesis, AST consumes log-Mel inputs to examine the benefits of attention-based modeling.
+
+Figure \ref{fig:ast_arch} shows the architecture of AST.
+
+\begin{figure}[htbp]
+  \centering
+  \caption{The architecture of AST}
+  \label{fig:ast_arch}
+  \includegraphics[width=.8\textwidth]
+  {Figures/arch of AST.jpg}
+  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+\end{figure}
+
+
+\section{Data Augmentation}
+
+Deep models for SER often overfit clean, laboratory speech and degrade under domain shift caused by background noise, channel mismatch, and reverberation. To improve generalization from clean training conditions to noisy evaluations, we perform on-the-fly additive-noise augmentation during training while keeping the validation and clean test sets unchanged. We follow the unified notation in Section~6: the discrete-time speech signal is \(x[n]\) at sample rate \(f_s\), and we denote a noise signal by \(v[n]\). All mixing is performed in the time domain prior to feature extraction (MFCC or Log-Mel), ensuring that downstream features consistently reflect the augmented acoustics.
+
+\subsection{Noise sources and SNR set}
+We consider two noise families: (i) white Gaussian noise as a controlled baseline; and (ii) environmental recordings sampled from ESC-50 (three representative classes). The target signal-to-noise ratio (SNR) in decibels is uniformly sampled from \(\mathcal{S} = \{0, 5, 10, 20\}\,\mathrm{dB}\). When comparing architectures, we additionally use a fixed 20 dB white-noise setting as a reference point.
+
+\subsection{On-the-fly sampling policy}
+For each training utterance, with probability \(p_{\mathrm{aug}} = 0.7\) we inject one type of noise, otherwise we keep the sample clean. The noise family (white vs. ESC-50 subset) and the SNR are sampled uniformly. Each speech sample is mixed with at most one noise instance.
+
+\subsection{Time alignment and preprocessing}
+Given a speech clip of length \(T\) samples and a noise recording \(v[n]\): if the noise is shorter than \(T\), we tile it by concatenation or loop with a random starting offset; if it is longer, we randomly crop a segment of length \(T\). Both speech and noise are resampled to \(f_s\) if needed and centered to zero mean. Let \(x_s[n]\) and \(x_n[n]\) denote the length-matched speech and noise signals, respectively, for \(0 \le n < T\).
+
+\subsection{RMS, target SNR, and gain computation}
+We use the root-mean-square (RMS) to control the noise gain. For a discrete signal \(z[n]\) of length \(T\):
+\begin{equation}\label{eq:rms}
+R(z) = \sqrt{\frac{1}{T} \sum_{n=0}^{T-1} z[n]^2}.
+\end{equation}
+Let \(R_s = R(x_s)\) and \(R_n = R(x_n)\). Given a desired SNR in decibels, \(\mathrm{SNR}_{\mathrm{dB}}\), the linear SNR is \(\mathrm{SNR}_{\mathrm{lin}} = 10^{\mathrm{SNR}_{\mathrm{dB}}/20}\). We choose a scalar gain \(g\) such that the mixture achieves the target SNR:
+\begin{equation}\label{eq:gain}
+g = \frac{R_s}{R_n\, \mathrm{SNR}_{\mathrm{lin}}} = \frac{R_s}{R_n \cdot 10^{\mathrm{SNR}_{\mathrm{dB}}/20}}.
+\end{equation}
+The mixture is
+\begin{equation}\label{eq:mix}
+x_{\mathrm{mix}}[n] = x_s[n] + g\, x_n[n].
+\end{equation}
+By construction, the realized SNR satisfies
+\begin{equation}\label{eq:snr_db}
+\mathrm{SNR}_{\mathrm{dB}} = 20\, \log_{10} \! \bigg( \frac{R(x_s)}{R(g\,x_n)} \bigg) = 20\, \log_{10} \! \bigg( \frac{R_s}{g\, R_n} \bigg).
+\end{equation}
+
+\subsection{Peak limiting and re-normalization}
+To prevent clipping after mixing, we enforce a peak limit of \(-1\,\mathrm{dBFS}\). Let \(A_{\max} = 10^{-1/20}\) be the amplitude threshold and \(A_{\mathrm{peak}} = \max_n |x_{\mathrm{mix}}[n]|\). If \(A_{\mathrm{peak}} > A_{\max}\), we rescale
+\begin{equation}\label{eq:limit}
+\widetilde{x}_{\mathrm{mix}}[n] = x_{\mathrm{mix}}[n]\, \frac{A_{\max}}{A_{\mathrm{peak}}},
+\end{equation}
+and otherwise leave the mixture unchanged. A final mean-variance normalization per utterance can be applied before feature extraction for numerical stability.
+
+\subsection{Integration with the training pipeline}
+The augmentation is performed online per mini-batch before computing features: we form either MFCCs  or Log-Mel spectrograms  from \(\widetilde{x}_{\mathrm{mix}}[n]\) or \(x_s[n]\) depending on whether augmentation was applied. This preserves consistency of notation and ensures identical downstream preprocessing. The same policy is shared by all architectures (MLP, shallow CNN, ResNet-18, AST) to enable fair comparison.
+
+\subsection{Evaluation protocol}
+We adopt RAVDESS (speech actors 01–24) as the primary dataset with the existing data split strategy. Augmentation is applied only to the training split. We evaluate on: (i) the original clean test set to verify no degradation on matched conditions; and (ii) noisy test sets generated by mixing the clean test audio with held-out noise at SNRs in \(\mathcal{S}\). We report standard metrics for categorical SER (e.g., accuracy and unweighted average recall) and analyze performance as a function of SNR to identify robustness trends and breakpoints. A fixed 20 dB white-noise protocol is additionally used as a reference to compare architectural robustness, with particular attention to transformer-based AST versus conventional CNN/MLP baselines.
+
+Figure \ref{fig:noise_aug_vis} and Figure \ref{fig:noise_aug_vis_2} show the waveform and Mel-spectrogram of a sample in RAVDESS and IEMOCAP after adding natural\_soundscapes(chirping\_birds) noise.
+
+\begin{figure}[htbp]
+  \centering
+  \caption{Example of adding natural\_soundscapes(chirping\_birds) noise to a sample in RAVDESS}
+  \label{fig:noise_aug_vis}
+  \includegraphics[width=.8\textwidth]{Figures/mfcc_vis/03-01-02-01-01-02-02_esc50-chirping_birds_p0.70_snr5.0_seed0.png}
+  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \caption{Example of adding natural\_soundscapes(chirping\_birds) noise to a sample in IEMOCAP}
+  \label{fig:noise_aug_vis_2}
+  \includegraphics[width=.8\textwidth]
+  {Figures/mfcc_vis/Ses01M_impro03_esc50-chirping_birds_p0.70_snr5.0_seed0.png}
+  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+\end{figure}
