@@ -19,6 +19,6 @@ noise_augmentation:
     groups:
       - name: "natural_soundscapes"
         categories: ["rain", "sea_waves", "crickets", "chirping_birds", "wind", "frog", "thunderstorm", "water_drops", "crackling_fire", "insects"]
-      # - name: "human_non_speech"
-      #   categories: ["coughing", "sneezing", "breathing", "laughing", "footsteps", "clapping"]
+      - name: "human_non_speech"
+        categories: ["coughing", "sneezing", "breathing", "laughing", "footsteps", "clapping"]
 

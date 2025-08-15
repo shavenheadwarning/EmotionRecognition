@@ -50,7 +50,7 @@ python visualization/vis_add_noise.py --audio "D:\path\to\your.wav" --type esc50
 python visualization/vis_add_noise.py --audio "D:\PTProjects\EmotionRecognition\data\IEMOCAP\Session1\Session1\dialog\wav\Ses01M_impro03.wav" --config "config/noise.yaml" --force-apply
 
 
-python visualization/vis_add_noise.py --audio "D:\PTProjects\EmotionRecognition\data\RAVDESS\Audio_Speech_Actors_01-24\Actor_02\03-01-02-01-01-02-02.wav" --config "config/noise.yaml" --force-apply
+python visualization/vis_add_noise.py --audio ".\data\RAVDESS\Audio_Speech_Actors_01-24\Actor_02\03-01-02-01-01-02-02.wav" --config "config/noise.yaml" --force-apply
 
 ```
 
