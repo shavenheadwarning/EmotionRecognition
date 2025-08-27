@@ -33,3 +33,9 @@ __pycache__/
 .idea/
 .cursor/
 
+thesis/workshop-modelling 20250824 v2.pptx
+thesis/workshop-modelling.pptx
+*.log
+*.toc
+*.lot
+*.log

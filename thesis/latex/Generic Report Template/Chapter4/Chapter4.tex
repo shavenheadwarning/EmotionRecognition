@@ -10,8 +10,30 @@ This chapter presents a comprehensive experimental study on SER under clean and 
 \subsection{Datasets and splits}
 We use RAVDESS (speech actors 01–24) and IEMOCAP. Data splits follow the established protocol for each dataset. Validation and clean test sets are never augmented; only the training split is subjected to on-the-fly noise mixing when enabled. The batch size of MLP, shallow CNN, and Resnet18 is 128, and 64 for AST. All models are trained using Adam \cite{Kingma2014Adam} optimizer with a initial learning rate of 0.001. The training is terminated when the validation loss does not improve for 10 epochs.
 
+\paragraph{Class schemes and dataset sizes.}
+For categorical SER we adopt fixed emotion inventories per corpus.
+\begin{itemize}
+  \item \textbf{RAVDESS (8 classes).} Neutral, Calm, Happy, Sad, Angry, Fearful, Disgust, Surprised. We use the speech subset from actors 01–24 and retain all eight categories. Splits are speaker-disjoint following the common protocol. Dataset sizes used in this work (utterances): \textit{Train = 1152,  Test = 288}.
+  \item \textbf{IEMOCAP (4 classes).} We adopt the standard 4-class mapping with Happy and Excited merged into Happy: Angry, Happy, Sad, Neutral. Sessions are used for speaker-disjoint splits. Dataset sizes (utterances): \textit{Train = 10560, Test = 2896}.
+\end{itemize}
+These label spaces remain fixed across Experiments A–D. All reported metrics are computed on the same class definitions; no relabeling is performed between experiments.
+
 \subsection{Models}
 We compare a convolutional baseline (ResNet-18 on Log-Mel spectrograms) and a transformer-based model (AST Base on filterbank features), alongside lighter baselines where applicable (MLP and shallow CNN) to contextualize complexity–performance trade-offs.
+
+\paragraph{Implementation summary.}
+Models are instantiated via a configuration-driven factory in \texttt{models.py}: \texttt{create\_model(config)} reads \texttt{config['training']}
+
+\texttt{['model\_name']} and \texttt{config['models'][...]['type']} to build the requested architecture (MLP, ShallowCNN, ResNet18, AST). Core hyperparameters—including \textit{num\_classes}, dropout rates, hidden sizes, and feature types—are taken from the configuration for reproducibility and easy switching between architectures.
+
+\begin{itemize}
+  \item \textbf{MLP (MFCC-based).} Input features are MFCC statistics (per-utterance mean and standard deviation concatenated; dimension \(2\times\textit{input\_size}\)). The backbone is a sequence of \texttt{Linear→ReLU→Dropout} blocks; a final linear classifier produces emotion logits. This baseline targets low-dimensional hand-crafted features with small parameter count and stable training.
+  \item \textbf{Shallow CNN (Log-Mel-based).} The convolutional trunk has three blocks with channels \(32\to64\to128\). Each block applies \texttt{Conv2d + BatchNorm + ReLU + MaxPool}; an adaptive global average pooling aggregates time–frequency features. A dropout layer and a single \texttt{Linear} head complete classification. The design is lightweight yet effective for 2D time–frequency modeling.
+  \item \textbf{ResNet-18 (Log-Mel-based).} The network begins with a \(7\times7\) convolution and max-pooling, followed by four residual stages (channels \(64/128/256/512\), increasing strides). Each \textit{BasicBlock} uses two \(3\times3\) convolutions with identity/projection shortcuts. After adaptive average pooling, a fully connected layer outputs logits. Kaiming initialization and BatchNorm parameter initialization are used; \texttt{num\_classes} is validated at construction.
+  \item \textbf{AST (Audio Spectrogram Transformer).} Implemented in \texttt{ast\_model.py} using a DeiT/ViT variant (via \texttt{timm}). \textit{PatchEmbed} is adapted for single-channel Log-Mel; 3-channel weights are merged to 1-channel, and patch grid plus positional embeddings are recomputed (bilinear interpolation or cropping) to match audio shapes. ImageNet pretraining is supported (optionally AudioSet). The head is \texttt{LayerNorm + Linear}. A wrapper (e.g., \texttt{RAVDESSASTModel}) derives input time steps from sampling rate, duration, and \(n\_\mathrm{mels}\), instantiating AST accordingly. Forward path: reshape \((B,T,F)\to(B,1,F,T)\), apply patch embedding, add \texttt{[cls]/[dist]} tokens and positional encodings, pass transformer blocks and normalization, then pool \texttt{cls}/\texttt{dist} representations and use an MLP head to obtain logits.
+\end{itemize}
+
+
 
 \subsection{Training and evaluation}
 Training uses mini-batch stochastic optimization with standard regularization. Metrics on the validation set include accuracy, precision, recall, and macro-F1. Confusion matrices are reported to analyze class-wise separability. Robustness is further assessed on noisy test sets created by offline mixing of \(x[n]\) with held-out noise at specified SNRs \(\in \{0,5,10,20\}\,\mathrm{dB}\). All experiments fix a base random seed 42 unless otherwise stated.
@@ -172,6 +194,8 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
     \centering
     \caption{ Results of Experiment B on two datasets }
     \label{tab:white_noise_results}
+    \setlength{\tabcolsep}{5pt}
+    \resizebox{\textwidth}{!}{%
     \begin{tabular}{lcccccccc}
         \hline
          & \multicolumn{4}{c}{RAVDESS} & \multicolumn{4}{c}{IEMOCAP} \\
@@ -180,7 +204,8 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
         ResNet-18 & 0.677 & 0.674 & 0.680 & 0.674 &  0.551 &  0.491 & 0.378 & 0.315 \\
         AST Base & 0.718 & 0.717 & 0.716 & 0.713 & 0.583 & 0.565 & 0.4713 & 0.472 \\
         \hline
-    \end{tabular}
+    \end{tabular}%
+    }
 \end{table}
 
 
@@ -199,6 +224,8 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
     \centering
     \caption{ Results of Experiment C on two datasets }
     \label{tab:esc_noise_results}
+    \setlength{\tabcolsep}{5pt}
+    \resizebox{\textwidth}{!}{%
     \begin{tabular}{lcccccccc}
         \hline
          & \multicolumn{4}{c}{RAVDESS} & \multicolumn{4}{c}{IEMOCAP} \\
@@ -207,7 +234,8 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
         ResNet-18 & 0.548 & 0.541 & 0.546 & 0.527 & 0.554 & 0.519 & 0.327 & 0.323 \\
         AST Base & 0.739 & 0.746 & 0.745 & 0.734 & 0.625 & 0.645 & 0.488 & 0.515 \\
         \hline
-    \end{tabular}
+    \end{tabular}%
+    }
 \end{table}
 
 \section{Experiment D: SNR Ablation (Natural Soundscapes)}
