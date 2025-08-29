@@ -1,91 +1,101 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.10.8)  14 AUG 2025 22:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.6.10)  29 AUG 2025 21:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Dissertation.tex
 (./Dissertation.tex
-LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-02-24>
-(d:/texlive/2022/texmf-dist/tex/latex/base/report.cls
-Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
-(d:/texlive/2022/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(g:/texlive/2025/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2024/06/29 v1.4n Standard LaTeX document class
+(g:/texlive/2025/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count181
-\c@chapter=\count182
-\c@section=\count183
-\c@subsection=\count184
-\c@subsubsection=\count185
-\c@paragraph=\count186
-\c@subparagraph=\count187
-\c@figure=\count188
-\c@table=\count189
-\abovecaptionskip=\skip47
-\belowcaptionskip=\skip48
-\bibindent=\dimen138
+\c@part=\count196
+\c@chapter=\count197
+\c@section=\count198
+\c@subsection=\count199
+\c@subsubsection=\count266
+\c@paragraph=\count267
+\c@subparagraph=\count268
+\c@figure=\count269
+\c@table=\count270
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
 )
-(d:/texlive/2022/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2021/10/15 v2.17l AMS math features
-\@mathmargin=\skip49
+(g:/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2024/11/05 v2.17t AMS math features
+\@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
-(d:/texlive/2022/texmf-dist/tex/latex/amsmath/amstext.sty
+(g:/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
 
-(d:/texlive/2022/texmf-dist/tex/latex/amsmath/amsgen.sty
+(g:/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks16
-\ex@=\dimen139
+\@emptytoks=\toks17
+\ex@=\dimen142
 ))
-(d:/texlive/2022/texmf-dist/tex/latex/amsmath/amsbsy.sty
+(g:/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen140
+\pmbraise@=\dimen143
 )
-(d:/texlive/2022/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2021/08/26 v2.02 operator names
+(g:/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count190
-LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count191
-\leftroot@=\count192
-LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count193
-\DOTSCASE@=\count194
-LaTeX Info: Redefining \ldots on input line 496.
-LaTeX Info: Redefining \dots on input line 499.
-LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box50
-\strutbox@=\box51
-\big@size=\dimen141
-LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count195
-\c@MaxMatrixCols=\count196
-\dotsspace@=\muskip16
-\c@parentequation=\count197
-\dspbrk@lvl=\count198
-\tag@help=\toks17
-\row@=\count199
-\column@=\count266
-\maxfields@=\count267
-\andhelp@=\toks18
-\eqnshift@=\dimen142
-\alignsep@=\dimen143
-\tagshift@=\dimen144
-\tagwidth@=\dimen145
-\totwidth@=\dimen146
-\lineht@=\dimen147
-\@envbody=\toks19
-\multlinegap=\skip50
-\multlinetaggap=\skip51
-\mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2938.
-LaTeX Info: Redefining \] on input line 2939.
+\inf@bad=\count271
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count272
+\leftroot@=\count273
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count274
+\DOTSCASE@=\count275
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box52
+\strutbox@=\box53
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen144
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count276
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count277
+\dotsspace@=\muskip17
+\c@parentequation=\count278
+\dspbrk@lvl=\count279
+\tag@help=\toks18
+\row@=\count280
+\column@=\count281
+\maxfields@=\count282
+\andhelp@=\toks19
+\eqnshift@=\dimen145
+\alignsep@=\dimen146
+\tagshift@=\dimen147
+\tagwidth@=\dimen148
+\totwidth@=\dimen149
+\lineht@=\dimen150
+\@envbody=\toks20
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
 )
-(d:/texlive/2022/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(g:/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(d:/texlive/2022/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+(g:/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
@@ -93,1333 +103,1155 @@ LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(d:/texlive/2022/texmf-dist/tex/latex/algorithms/algorithm.sty
-Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+(g:/texlive/2025/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 
-(d:/texlive/2022/texmf-dist/tex/latex/float/float.sty
+(g:/texlive/2025/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count268
-\float@exts=\toks21
-\float@box=\box52
-\@float@everytoks=\toks22
-\@floatcapt=\box53
+\c@float@type=\count283
+\float@exts=\toks22
+\float@box=\box54
+\@float@everytoks=\toks23
+\@floatcapt=\box55
 )
-(d:/texlive/2022/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+(g:/texlive/2025/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
-\@float@every@algorithm=\toks23
-\c@algorithm=\count269
+\@float@every@algorithm=\toks24
+\c@algorithm=\count284
 )
-(d:/texlive/2022/texmf-dist/tex/latex/algorithms/algorithmic.sty
-Invalid UTF-8 byte or sequence at line 11 replaced by U+FFFD.
+(g:/texlive/2025/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
 
-(d:/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks24
+(g:/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks25
 )
-\c@ALC@unique=\count270
-\c@ALC@line=\count271
-\c@ALC@rem=\count272
-\c@ALC@depth=\count273
-\ALC@tlm=\skip52
-\algorithmicindent=\skip53
+\c@ALC@unique=\count285
+\c@ALC@line=\count286
+\c@ALC@rem=\count287
+\c@ALC@depth=\count288
+\ALC@tlm=\skip54
+\algorithmicindent=\skip55
 )
-(d:/texlive/2022/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
-rs
-\f@nch@headwidth=\skip54
-\f@nch@O@elh=\skip55
-\f@nch@O@erh=\skip56
-\f@nch@O@olh=\skip57
-\f@nch@O@orh=\skip58
-\f@nch@O@elf=\skip59
-\f@nch@O@erf=\skip60
-\f@nch@O@olf=\skip61
-\f@nch@O@orf=\skip62
+(g:/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+
+\f@nch@headwidth=\skip56
+\f@nch@offset@elh=\skip57
+\f@nch@offset@erh=\skip58
+\f@nch@offset@olh=\skip59
+\f@nch@offset@orh=\skip60
+\f@nch@offset@elf=\skip61
+\f@nch@offset@erf=\skip62
+\f@nch@offset@olf=\skip63
+\f@nch@offset@orf=\skip64
+\f@nch@height=\skip65
+\f@nch@footalignment=\skip66
+\f@nch@widthL=\skip67
+\f@nch@widthC=\skip68
+\f@nch@widthR=\skip69
+\@temptokenb=\toks26
 )
-(d:/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
+(g:/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(d:/texlive/2022/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+(g:/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
 
-(d:/texlive/2022/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+(g:/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 )
-(d:/texlive/2022/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(g:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 107.
+Package graphics Info: Driver file: pdftex.def on input line 106.
 
-(d:/texlive/2022/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+(g:/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen148
-\Gin@req@width=\dimen149
+\Gin@req@height=\dimen151
+\Gin@req@width=\dimen152
 )
-(d:/texlive/2022/texmf-dist/tex/latex/lipsum/lipsum.sty
-(d:/texlive/2022/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-(d:/texlive/2022/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-02-24 L3 programming layer (loader) 
+(g:/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.sty
+(g:/texlive/2025/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+(g:/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2025-01-18 L3 programming layer (loader) 
 
-
-! LaTeX3 Error: Backend request inconsistent with engine: using 'xetex'
-(LaTeX3)        backend.
-
-For immediate help type H <return>.
- ...                                              
-                                                  
-l.144   { \sys_load_backend:n { } }
-                                   
-
-You have requested backend 'pdfmode', but this is not suitable for use with
-the active engine. LaTeX3 will use the 'xetex' backend instead.
-
-
-(d:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
-File: l3backend-xetex.def 2022-02-07 L3 backend support: XeTeX
-
-(|extractbb --version)
-\c__kernel_sys_dvipdfmx_version_int=\count274
-\l__color_backend_stack_int=\count275
-\g__color_backend_stack_int=\count276
-\g__graphics_track_int=\count277
-\l__pdf_internal_box=\box54
-\g__pdf_backend_object_int=\count278
-\g__pdf_backend_annotation_int=\count279
-\g__pdf_backend_link_int=\count280
+(g:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count289
+\l__pdf_internal_box=\box56
 ))
-Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
+Package: l3keys2e 2024-08-16 LaTeX2e option processing using LaTeX3 keys
 )
 Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count281
-\l__lipsum_a_int=\count282
-\l__lipsum_b_int=\count283
+\g__lipsum_par_int=\count290
+\l__lipsum_a_int=\count291
+\l__lipsum_b_int=\count292
 
-(d:/texlive/2022/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
-(d:/texlive/2022/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip63
-\multirow@cntb=\count284
-\multirow@dima=\skip64
-\bigstrutjot=\dimen150
+(g:/texlive/2025/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex))
+(g:/texlive/2025/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip70
+\multirow@cntb=\count293
+\multirow@dima=\skip71
+\bigstrutjot=\dimen153
 )
-(d:/texlive/2022/texmf-dist/tex/latex/setspace/setspace.sty
-Package: setspace 2011/12/19 v6.7a set line spacing
+(g:/texlive/2025/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
 )
-(d:/texlive/2022/texmf-dist/tex/latex/tools/verbatim.sty
-Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks25
-\verbatim@line=\toks26
+(g:/texlive/2025/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks27
+\verbatim@line=\toks28
 \verbatim@in@stream=\read2
 )
-(d:/texlive/2022/texmf-dist/tex/latex/standalone/standalone.sty
-Package: standalone 2018/03/26 v1.3a Package to include TeX sub-files with prea
+(g:/texlive/2025/texmf-dist/tex/latex/standalone/standalone.sty
+Package: standalone 2025/02/22 v1.5a Package to include TeX sub-files with prea
 mbles
 
-(d:/texlive/2022/texmf-dist/tex/latex/tools/shellesc.sty
-Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+(g:/texlive/2025/texmf-dist/tex/latex/tools/shellesc.sty
+Package: shellesc 2023/07/08 v1.0d unified shell escape interface for LaTeX
 Package shellesc Info: Restricted shell escape enabled on input line 77.
 )
-(d:/texlive/2022/texmf-dist/tex/generic/iftex/ifluatex.sty
+(g:/texlive/2025/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 
-(d:/texlive/2022/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
+(g:/texlive/2025/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
-(d:/texlive/2022/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+(g:/texlive/2025/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 
-(d:/texlive/2022/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-(d:/texlive/2022/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks27
-\XKV@tempa@toks=\toks28
+(g:/texlive/2025/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(g:/texlive/2025/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks29
+\XKV@tempa@toks=\toks30
 )
-\XKV@depth=\count285
+\XKV@depth=\count294
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
-(d:/texlive/2022/texmf-dist/tex/latex/currfile/currfile.sty
-Package: currfile 2020/09/29 v0.7d Provides the file path elements of the curre
-nt input file
+(g:/texlive/2025/texmf-dist/tex/latex/currfile/currfile.sty
+Package: currfile 2024/03/14 v1.0 Provides the file path elements of the curren
+t input file
 
-(d:/texlive/2022/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+(g:/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 
-(d:/texlive/2022/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+(g:/texlive/2025/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
-(d:/texlive/2022/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+(g:/texlive/2025/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ))
-(d:/texlive/2022/texmf-dist/tex/latex/filehook/filehook.sty
-Package: filehook 2020/09/29 v0.8a Hooks for input files
+(g:/texlive/2025/texmf-dist/tex/latex/filehook/filehook.sty
+Package: filehook 2022/10/25 v0.8b Hooks for input files
 
-(d:/texlive/2022/texmf-dist/tex/latex/filehook/filehook-2020.sty
-Package: filehook-2020 2020/09/29 v0.8a Hooks for input files
+(g:/texlive/2025/texmf-dist/tex/latex/filehook/filehook-2020.sty
+Package: filehook-2020 2022/10/25 v0.8b Hooks for input files
 ))
-\c@currfiledepth=\count286
+\c@currfiledepth=\count295
 )
-(d:/texlive/2022/texmf-dist/tex/latex/gincltex/gincltex.sty
-(d:/texlive/2022/texmf-dist/tex/latex/svn-prov/svn-prov.sty
+(g:/texlive/2025/texmf-dist/tex/latex/gincltex/gincltex.sty
+(g:/texlive/2025/texmf-dist/tex/latex/svn-prov/svn-prov.sty
 Package: svn-prov 2010/04/24 v3.1862 Package Date/Version from SVN Keywords
 )
 Package: gincltex 2011/09/04 v0.3 Include external LaTeX files like graphics
 
-(d:/texlive/2022/texmf-dist/tex/latex/adjustbox/adjustbox.sty
-Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
+(g:/texlive/2025/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2025/02/26 v1.3c Adjusting TeX boxes (trim, clip, ...)
 
-(d:/texlive/2022/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+(g:/texlive/2025/texmf-dist/tex/latex/adjustbox/adjcalc.sty
 Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back
 -ends (calc, etex, pgfmath)
 )
-(d:/texlive/2022/texmf-dist/tex/latex/adjustbox/trimclip.sty
-Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+(g:/texlive/2025/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2025/02/21 v1.2a Trim and clip general TeX material
 
-(d:/texlive/2022/texmf-dist/tex/latex/collectbox/collectbox.sty
-Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
-\collectedbox=\box55
+(g:/texlive/2025/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box57
 )
-\tc@llx=\dimen151
-\tc@lly=\dimen152
-\tc@urx=\dimen153
-\tc@ury=\dimen154
+\tc@llx=\dimen154
+\tc@lly=\dimen155
+\tc@urx=\dimen156
+\tc@ury=\dimen157
 Package trimclip Info: Using driver 'tc-pdftex.def'.
 
-(d:/texlive/2022/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
-File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+(g:/texlive/2025/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2025/02/26 v2.3 Clipping driver for pdftex
 ))
-\adjbox@Width=\dimen155
-\adjbox@Height=\dimen156
-\adjbox@Depth=\dimen157
-\adjbox@Totalheight=\dimen158
-\adjbox@pwidth=\dimen159
-\adjbox@pheight=\dimen160
-\adjbox@pdepth=\dimen161
-\adjbox@ptotalheight=\dimen162
+\adjbox@Width=\dimen158
+\adjbox@Height=\dimen159
+\adjbox@Depth=\dimen160
+\adjbox@Totalheight=\dimen161
+\adjbox@pwidth=\dimen162
+\adjbox@pheight=\dimen163
+\adjbox@pdepth=\dimen164
+\adjbox@ptotalheight=\dimen165
 
-(d:/texlive/2022/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
-Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count287
+(g:/texlive/2025/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count296
 )
-(d:/texlive/2022/texmf-dist/tex/latex/varwidth/varwidth.sty
+(g:/texlive/2025/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box56
-\sift@deathcycles=\count288
-\@vwid@loff=\dimen163
-\@vwid@roff=\dimen164
+\@vwid@box=\box58
+\sift@deathcycles=\count297
+\@vwid@loff=\dimen166
+\@vwid@roff=\dimen167
 ))
-\gincltex@box=\box57
+\gincltex@box=\box59
+)
+(g:/texlive/2025/texmf-dist/tex/latex/filemod/filemod-expmin.sty
+Package: filemod-expmin 2011/09/19 v1.2 Get and compare file modification times
+ (expandable; minimal)
 ))
-(d:/texlive/2022/texmf-dist/tex/latex/pgfplots/pgfplots.sty
-(d:/texlive/2022/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+(g:/texlive/2025/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+
+(g:/texlive/2025/texmf-dist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen168
+\ar@mcellbox=\box60
+\extrarowheight=\dimen169
+\NC@list=\toks31
+\extratabsurround=\skip72
+\backup@length=\skip73
+\ar@cellbox=\box61
+)
+\TX@col@width=\dimen170
+\TX@old@table=\dimen171
+\TX@old@col=\dimen172
+\TX@target=\dimen173
+\TX@delta=\dimen174
+\TX@cols=\count298
+\TX@ftn=\toks32
+)
+(g:/texlive/2025/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 
-(d:/texlive/2022/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
-(d:/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
-(d:/texlive/2022/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
-(d:/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks29
-\pgfutil@tempdima=\dimen165
-\pgfutil@tempdimb=\dimen166
-
-(d:/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex)
-) (d:/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box58
+(g:/texlive/2025/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(g:/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(g:/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks33
+\pgfutil@tempdima=\dimen175
+\pgfutil@tempdimb=\dimen176
 )
-(d:/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
-(d:/texlive/2022/texmf-dist/tex/generic/pgf/pgf.revision.tex)
-Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box62
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 ))
-Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
 
-(d:/texlive/2022/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
-(d:/texlive/2022/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
-(d:/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+(g:/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(g:/texlive/2025/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 
-(d:/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks30
-\pgfkeys@temptoks=\toks31
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks34
+\pgfkeys@temptoks=\toks35
 
-(d:/texlive/2022/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks32
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.co
+de.tex
+\pgfkeys@tmptoks=\toks36
 ))
-\pgf@x=\dimen167
-\pgf@y=\dimen168
-\pgf@xa=\dimen169
-\pgf@ya=\dimen170
-\pgf@xb=\dimen171
-\pgf@yb=\dimen172
-\pgf@xc=\dimen173
-\pgf@yc=\dimen174
-\pgf@xd=\dimen175
-\pgf@yd=\dimen176
+\pgf@x=\dimen177
+\pgf@y=\dimen178
+\pgf@xa=\dimen179
+\pgf@ya=\dimen180
+\pgf@xb=\dimen181
+\pgf@yb=\dimen182
+\pgf@xc=\dimen183
+\pgf@yc=\dimen184
+\pgf@xd=\dimen185
+\pgf@yd=\dimen186
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count289
-\c@pgf@countb=\count290
-\c@pgf@countc=\count291
-\c@pgf@countd=\count292
-\t@pgf@toka=\toks33
-\t@pgf@tokb=\toks34
-\t@pgf@tokc=\toks35
-\pgf@sys@id@count=\count293
- (d:/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
+\c@pgf@counta=\count299
+\c@pgf@countb=\count300
+\c@pgf@countc=\count301
+\c@pgf@countd=\count302
+\t@pgf@toka=\toks37
+\t@pgf@tokb=\toks38
+\t@pgf@tokc=\toks39
+\pgf@sys@id@count=\count303
+ (g:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
 Driver file for pgf: pgfsys-pdftex.def
 
-(d:/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
 
-(d:/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
-File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+)))
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count304
+\pgfsyssoftpath@bigbuffer@items=\count305
 )
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ->\pdfobj 
-                                           reserveobjnum \edef \pgf@sys@pdf@...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (g:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+
+(g:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+
+(g:/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen187
+\pgfmath@count=\count306
+\pgfmath@box=\box63
+\pgfmath@toks=\toks40
+\pgfmath@stack@operand=\toks41
+\pgfmath@stack@operation=\toks42
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.te
+x)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric
+.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.t
+ex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.co
+de.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.te
+x)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithm
+etics.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count307
+))
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen188
+\pgf@picmaxx=\dimen189
+\pgf@picminy=\dimen190
+\pgf@picmaxy=\dimen191
+\pgf@pathminx=\dimen192
+\pgf@pathmaxx=\dimen193
+\pgf@pathminy=\dimen194
+\pgf@pathmaxy=\dimen195
+\pgf@xx=\dimen196
+\pgf@xy=\dimen197
+\pgf@yx=\dimen198
+\pgf@yy=\dimen199
+\pgf@zx=\dimen256
+\pgf@zy=\dimen257
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.cod
+e.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen258
+\pgf@path@lasty=\dimen259
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.te
+x
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen260
+\pgf@shorten@start@additional=\dimen261
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box64
+\pgf@hbox=\box65
+\pgf@layerbox@main=\box66
+\pgf@picture@serial@count=\count308
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code
+.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen262
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.c
+ode.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen263
+\pgf@pt@y=\dimen264
+\pgf@pt@temp=\dimen265
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.co
+de.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen266
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen267
+\pgf@sys@shading@range@num=\count309
+\pgf@shadingcount=\count310
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box67
+) (g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code
+.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (g:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (g:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.te
+x
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box68
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(g:/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.st
+y
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen268
+\pgf@nodesepend=\dimen269
+)
+(g:/texlive/2025/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.st
+y
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+)) (g:/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(g:/texlive/2025/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(g:/texlive/2025/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen270
+\pgffor@skip=\dimen271
+\pgffor@stack=\toks43
+\pgffor@toks=\toks44
+))
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.co
+de.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count311
+\pgfplotmarksize=\dimen272
+)
+\tikz@lastx=\dimen273
+\tikz@lasty=\dimen274
+\tikz@lastxsaved=\dimen275
+\tikz@lastysaved=\dimen276
+\tikz@lastmovetox=\dimen277
+\tikz@lastmovetoy=\dimen278
+\tikzleveldistance=\dimen279
+\tikzsiblingdistance=\dimen280
+\tikz@figbox=\box69
+\tikz@figbox@bg=\box70
+\tikz@tempbox=\box71
+\tikz@tempbox@bg=\box72
+\tikztreelevel=\count312
+\tikznumberofchildren=\count313
+\tikznumberofcurrentchild=\count314
+\tikz@fig@count=\count315
+
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count316
+\pgfmatrixcurrentcolumn=\count317
+\pgf@matrix@numberofcolumns=\count318
+)
+\tikz@expandcount=\count319
+
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks45
+\t@pgfplots@tokb=\toks46
+\t@pgfplots@tokc=\toks47
+\pgfplots@tmpa=\dimen281
+\c@pgfplots@coordindex=\count320
+\c@pgfplots@scanlineindex=\count321
+
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.te
+x))
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex)
+
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfs
+upp_loader.code.tex
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+Package pgfplots: loading complementary utilities for your pgf version...
+\t@pgf@toka=\toks48
+\t@pgf@tokb=\toks49
+\t@pgf@tokc=\toks50
+
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfs
+upp_pgfutil-common-lists.tex))
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststru
+cture.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststru
+ctureext.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.co
+de.tex
+\c@pgfplotsarray@tmp=\count322
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.c
+ode.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.c
+ode.tex
+\c@pgfplotstable@counta=\count323
+\t@pgfplotstable@a=\toks51
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.co
+de.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.
+tex))
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.te
+x)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfsh
+ading.code.tex
+\c@pgfplotslibrarysurf@no=\count324
+
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfsha
+ding.pgfsys-pdftex.def)))
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex))
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.t
+ex
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex
+))) (g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex)
+
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.t
+ex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarydecorations.code.tex
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.t
+ex
+\pgfdecoratedcompleteddistance=\dimen282
+\pgfdecoratedremainingdistance=\dimen283
+\pgfdecoratedinputsegmentcompleteddistance=\dimen284
+\pgfdecoratedinputsegmentremainingdistance=\dimen285
+\pgf@decorate@distancetomove=\dimen286
+\pgf@decorate@repeatstate=\count325
+\pgfdecorationsegmentamplitude=\dimen287
+\pgfdecorationsegmentlength=\dimen288
+)
+\tikz@lib@dec@box=\box73
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarydecorations.pathmorphing.code.tex
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydec
+orations.pathmorphing.code.tex))
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarydecorations.pathreplacing.code.tex
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydec
+orations.pathreplacing.code.tex))
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.conto
+urlua.code.tex)
+\pgfplots@numplots=\count326
+\pgfplots@xmin@reg=\dimen289
+\pgfplots@xmax@reg=\dimen290
+\pgfplots@ymin@reg=\dimen291
+\pgfplots@ymax@reg=\dimen292
+\pgfplots@zmin@reg=\dimen293
+\pgfplots@zmax@reg=\dimen294
+)
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+braryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.
+tex
+File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)))
+(g:/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.group
+plots.code.tex
+\pgfplots@group@current@plot=\count327
+\pgfplots@group@current@row=\count328
+\pgfplots@group@current@column=\count329
+
+(g:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzli
+brarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(g:/texlive/2025/texmf-dist/tex/latex/fncychap/fncychap.sty
+Package: fncychap 2007/07/30 v1.34 LaTeX package (Revised chapters)
+\RW=\skip74
+\mylen=\skip75
+\myhi=\skip76
+\px=\skip77
+\py=\skip78
+\pyy=\skip79
+\pxx=\skip80
+)
+(./Dissertation.aux (./Preamble/Frontpage.aux) (./Preamble/Abstract.aux)
+(./Preamble/Acknowledge.aux) (./Preamble/Abbreviations.aux)
+(./Preamble/Contents.aux) (./Preamble/Lists.aux) (./Preamble/ChapterMods.aux)
+(./Chapter1/Chapter1.aux) (./Chapter2/Chapter2.aux) (./Chapter3/Chapter3.aux)
+(./Chapter4/Chapter4.aux) (./Chapter5/Chapter5.aux) (./Chapter6/Chapter6.aux)
+(./Appendices/Appendices.aux))
+\openout1 = `Dissertation.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+
+(g:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count330
+\scratchdimen=\dimen295
+\scratchbox=\box74
+\nofMPsegments=\count331
+\nofMParguments=\count332
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count333
+\MPscratchDim=\dimen296
+\MPnumerator=\count334
+\makeMPintoPDFobject=\count335
+\everyMPtoPDFconversion=\toks53
+) (g:/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+
+(g:/texlive/2025/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(g:/texlive/2025/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+
+(g:/texlive/2025/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+))
+(g:/texlive/2025/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
+
+(g:/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package pgfplots notification 'compat/show suggested version=true': document ha
+s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+
+\openout2 = `Preamble/Frontpage.aux'.
+
+(./Preamble/Frontpage.tex
+<Preamble/BirmCrest.png, id=4, 78.7743pt x 94.4328pt>
+File: Preamble/BirmCrest.png Graphic file (type png)
+<use Preamble/BirmCrest.png>
+Package pdftex.def Info: Preamble/BirmCrest.png  used on input line 7.
+(pdftex.def)             Requested size: 118.16116pt x 141.64883pt.
+)
+
+[1
 
 
-! LaTeX Error: Missing \begin{document}.
+{g:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Preamble/Birm
+Crest.png>]
+\openout2 = `Preamble/Abstract.aux'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+ (./Preamble/Abstract.tex)
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...e \pdflastobj 
-                                                  } \pdfobj reserveobjnum \e...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+[2
 
-! You can't use `end-group character }' after \the.
-\pgf@sys@setuppdfresources@plain ... \pdflastobj }
-                                                   \pdfobj reserveobjnum \ed...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-I'm forgetting what you said and using zero instead.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...obj } \pdfobj 
-                                                  reserveobjnum \edef \pgf@s...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...attern@objnum 
-                                                  {\the \pdflastobj } \pdfob...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...e \pdflastobj 
-                                                  } \pdfobj reserveobjnum \e...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+]
+\openout2 = `Preamble/Acknowledge.aux'.
 
-! You can't use `end-group character }' after \the.
-\pgf@sys@setuppdfresources@plain ... \pdflastobj }
-                                                   \pdfobj reserveobjnum \ed...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-I'm forgetting what you said and using zero instead.
+ (./Preamble/Acknowledge.tex)
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...obj } \pdfobj 
-                                                  reserveobjnum \edef \pgf@s...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+[3
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...spaces@objnum 
-                                                  {\the \pdflastobj } \def \...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...e \pdflastobj 
-                                                  } \def \pgf@sys@pdf@possib...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-! You can't use `end-group character }' after \the.
-\pgf@sys@setuppdfresources@plain ... \pdflastobj }
-                                                   \def \pgf@sys@pdf@possibl...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-I'm forgetting what you said and using zero instead.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...ble@resources 
-                                                  {/ColorSpace \pgf@sys@pdf@...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+]
+\openout2 = `Preamble/Abbreviations.aux'.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...spaces@objnum 
-                                                  \space 0 R /Pattern \pgf@s...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+ (./Preamble/Abbreviations.tex)
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...attern@objnum 
-                                                  \space 0 R /ExtGState \pgf...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+[4
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...@extgs@objnum 
-                                                  \space 0 R } \let \pgf@sys...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...eck@resources 
-                                                  =\relax \def \pgf@sys@pdf@...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...pageresources 
-                                                  { { \edef \temp { \pgf@sys...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...{ \edef \temp 
-                                                  { \pgf@sys@pdf@possible@re...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+]
+\openout2 = `Preamble/Contents.aux'.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...ble@resources 
-                                                  } \expandafter \global \ex...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+ (./Preamble/Contents.tex (./Dissertation.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 7.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...dafter {\temp 
-                                                  } } } \pgf@sys@pdf@install...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(g:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 7.
 
-! Undefined control sequence.
-<recently read> \pdfpageresources 
-                                  
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(g:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...pageresources 
-                                                  \expandafter \pgfutil@ever...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+[5
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...diate \pdfobj 
-                                                  useobjnum \pgf@sys@pdf@ext...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...@extgs@objnum 
-                                                  {<<\pgf@sys@pgf@resource@l...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...ce@list@extgs 
-                                                  >>}\immediate \pdfobj useo...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...diate \pdfobj 
-                                                  useobjnum \pgf@sys@pdf@pat...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...attern@objnum 
-                                                  {<<\pgf@sys@pgf@resource@l...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...list@patterns 
-                                                  >>}\immediate \pdfobj useo...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...diate \pdfobj 
-                                                  useobjnum \pgf@sys@pdf@col...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...spaces@objnum 
-                                                  {<<\pgf@sys@pgf@resource@l...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...t@colorspaces 
-                                                  >>}} \let \pgf@sys@pgf@res...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...ce@list@extgs 
-                                                  =\pgfutil@empty \let \pgf@...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...list@patterns 
-                                                  =\pgfutil@empty \let \pgf@...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...t@colorspaces 
-                                                  =\pgfutil@empty \def \pgf@...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...e@extgs@plain 
-                                                  ##1{\xdef \pgf@sys@pgf@res...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
-<to be read again> 
-                   1
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...ce@list@extgs 
-                                                  {\pgf@sys@pgf@resource@lis...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...ce@list@extgs 
-                                                  \space ##1}} \def \pgf@sys...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
-<to be read again> 
-                   1
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...atterns@plain 
-                                                  ##1{\xdef \pgf@sys@pgf@res...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
-<to be read again> 
-                   1
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...list@patterns 
-                                                  {\pgf@sys@pgf@resource@lis...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...list@patterns 
-                                                  \space ##1}} \def \pgf@sys...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
-<to be read again> 
-                   1
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...rspaces@plain 
-                                                  ##1{\xdef \pgf@sys@pgf@res...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
-<to be read again> 
-                   1
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...t@colorspaces 
-                                                  {\pgf@sys@pgf@resource@lis...
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-\pgf@sys@setuppdfresources@plain ...t@colorspaces 
-                                                  \space ##1}} 
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Illegal parameter number in definition of \pgf@sys@pdf@extgs@objnum.
-<to be read again> 
-                   1
-l.385 \pgfutil@setuppdfresources
-                                 % possibly call the above
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-! Undefined control sequence.
-\pgfutil@addpdfresource@colorspaces ...aces@plain 
-                                                  {#1}
-l.387 ...rspaces{ /pgfprgb [/Pattern /DeviceRGB] }
-                                                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.390     \pdfliteral
-                     {\csname\string\color@#1\endcsname}%
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+])
+\tf@toc=\write4
+\openout4 = `Dissertation.toc'.
 
 )
-Runaway definition?
-->0 reserveobjnum \edef {0 reserveobjnum \edef {0 \def {/ColorSpace  \ETC.
-! File ended while scanning definition of \pgf@sys@pdf@extgs@objnum.
-<inserted text> 
-                }
-l.1755 ...iver file ``\pgfsysdriver'' not found.}}
-                                                  
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
 
+[6]
+\openout2 = `Preamble/Lists.aux'.
+
+ (./Preamble/Lists.tex (./Dissertation.lof)
+\tf@lof=\write5
+\openout5 = `Dissertation.lof'.
+
+
+
+[7
+
+
+
+
+] (./Dissertation.lot)
+\tf@lot=\write6
+\openout6 = `Dissertation.lot'.
+
+
+
+[8
+
+])
+\openout2 = `Preamble/ChapterMods.aux'.
+
+ (./Preamble/ChapterMods.tex)
+\openout2 = `Chapter1/Chapter1.aux'.
+
+ (./Chapter1/Chapter1.tex
+Chapter 1.
+
+
+[1
+
+
+
+
+
+
+
+])
+
+[2]
+
+[3]
+\openout2 = `Chapter2/Chapter2.aux'.
+
+ (./Chapter2/Chapter2.tex
+Chapter 2.
+
+
+[4
+
+
+
+
+]
+
+[5]
+
+[6])
+
+[7]
+
+[8]
+\openout2 = `Chapter3/Chapter3.aux'.
+
+ (./Chapter3/Chapter3.tex
+Chapter 3.
+
+
+[9
+
+
+
+
+]
+<Figures/mfcc_vis/IEMOCAP_Ses01F_impro03.png, id=75, 722.7pt x 433.62pt>
+File: Figures/mfcc_vis/IEMOCAP_Ses01F_impro03.png Graphic file (type png)
+<use Figures/mfcc_vis/IEMOCAP_Ses01F_impro03.png>
+Package pdftex.def Info: Figures/mfcc_vis/IEMOCAP_Ses01F_impro03.png  used on i
+nput line 67.
+(pdftex.def)             Requested size: 276.00105pt x 165.59775pt.
+<Figures/mfcc_vis/RAVDESS_03-02-02-01-01-01-01.png, id=76, 722.7pt x 433.62pt>
+File: Figures/mfcc_vis/RAVDESS_03-02-02-01-01-01-01.png Graphic file (type png)
+
+<use Figures/mfcc_vis/RAVDESS_03-02-02-01-01-01-01.png>
+Package pdftex.def Info: Figures/mfcc_vis/RAVDESS_03-02-02-01-01-01-01.png  use
+d on input line 76.
+(pdftex.def)             Requested size: 276.00105pt x 165.59775pt.
+
+
+[10]
+
+[11 <./Figures/mfcc_vis/IEMOCAP_Ses01F_impro03.png> <./Figures/mfcc_vis/RAVDESS
+_03-02-02-01-01-01-01.png>]
+<Figures/mfcc_vis/RAVDESS_03-02-01-01-01-02-01_mel.png, id=87, 722.7pt x 433.62
+pt>
+File: Figures/mfcc_vis/RAVDESS_03-02-01-01-01-02-01_mel.png Graphic file (type 
+png)
+<use Figures/mfcc_vis/RAVDESS_03-02-01-01-01-02-01_mel.png>
+Package pdftex.def Info: Figures/mfcc_vis/RAVDESS_03-02-01-01-01-02-01_mel.png 
+ used on input line 102.
+(pdftex.def)             Requested size: 276.00105pt x 165.59775pt.
+<Figures/mfcc_vis/IEMOCAP_Ses01F_impro05_mel.png, id=88, 722.7pt x 433.62pt>
+File: Figures/mfcc_vis/IEMOCAP_Ses01F_impro05_mel.png Graphic file (type png)
+<use Figures/mfcc_vis/IEMOCAP_Ses01F_impro05_mel.png>
+Package pdftex.def Info: Figures/mfcc_vis/IEMOCAP_Ses01F_impro05_mel.png  used 
+on input line 111.
+(pdftex.def)             Requested size: 276.00105pt x 165.59775pt.
+
+
+[12 <./Figures/mfcc_vis/RAVDESS_03-02-01-01-01-02-01_mel.png>]
+<Figures/tikz/mlp.pdf, id=93, 318.91145pt x 164.44437pt>
+File: Figures/tikz/mlp.pdf Graphic file (type pdf)
+<use Figures/tikz/mlp.pdf>
+Package pdftex.def Info: Figures/tikz/mlp.pdf  used on input line 149.
+(pdftex.def)             Requested size: 276.00105pt x 142.31769pt.
+
+
+[13 <./Figures/mfcc_vis/IEMOCAP_Ses01F_impro05_mel.png>]
+Overfull \hbox (4.47281pt too wide) in paragraph at lines 168--169
+[]\OT1/cmr/m/n/10 Advantages: shal-low CNNs are data-efficient and fast, cap-tu
+r-ing lo-cal spectro-
+ []
+
+<Figures/tikz/shallow_cnn.pdf, id=99, 430.51237pt x 307.16858pt>
+File: Figures/tikz/shallow_cnn.pdf Graphic file (type pdf)
+<use Figures/tikz/shallow_cnn.pdf>
+Package pdftex.def Info: Figures/tikz/shallow_cnn.pdf  used on input line 174.
+(pdftex.def)             Requested size: 276.00105pt x 196.92935pt.
+
+
+[14 <./Figures/tikz/mlp.pdf>]
+<Figures/tikz/resnet18.pdf, id=112, 350.68718pt x 151.50702pt>
+File: Figures/tikz/resnet18.pdf Graphic file (type pdf)
+<use Figures/tikz/resnet18.pdf>
+Package pdftex.def Info: Figures/tikz/resnet18.pdf  used on input line 196.
+(pdftex.def)             Requested size: 276.00105pt x 119.24997pt.
+
+
+[15 <./Figures/tikz/shallow_cnn.pdf> <./Figures/tikz/resnet18.pdf>]
+Overfull \hbox (0.83272pt too wide) in paragraph at lines 212--213
+[]\OT1/cmr/m/n/10 Design: patch sizes $(\OML/cmm/m/it/10 P[]; P[]\OT1/cmr/m/n/1
+0 )$ bal-ance spec-tral and tem-po-ral res-o-lu-tion; smaller
+ []
+
+
+Overfull \hbox (2.03773pt too wide) in paragraph at lines 212--213
+\OT1/cmr/m/n/10 cludes dropout and stochas-tic depth; data aug-men-ta-tion in-c
+ludes time/frequency
+ []
+
+<Figures/arch of AST.jpg, id=155, 1355.0625pt x 1048.91875pt>
+File: Figures/arch of AST.jpg Graphic file (type jpg)
+<use Figures/arch of AST.jpg>
+Package pdftex.def Info: Figures/arch of AST.jpg  used on input line 223.
+(pdftex.def)             Requested size: 276.00105pt x 213.63728pt.
+
+
+[16]
+
+[17 <./Figures/arch of AST.jpg>]
+Overfull \hbox (10.17073pt too wide) in paragraph at lines 272--273
+\OT1/cmr/m/n/10 ple in RAVDESS and IEMO-CAP af-ter adding nat-u-ral[]soundscape
+s(chirping[]birds)
+ []
+
+<Figures/mfcc_vis/03-01-02-01-01-02-02_esc50-chirping_birds_p0.70_snr5.0_seed0.
+png, id=163, 859.16985pt x 610.80196pt>
+File: Figures/mfcc_vis/03-01-02-01-01-02-02_esc50-chirping_birds_p0.70_snr5.0_s
+eed0.png Graphic file (type png)
+<use Figures/mfcc_vis/03-01-02-01-01-02-02_esc50-chirping_birds_p0.70_snr5.0_se
+ed0.png>
+Package pdftex.def Info: Figures/mfcc_vis/03-01-02-01-01-02-02_esc50-chirping_b
+irds_p0.70_snr5.0_seed0.png  used on input line 278.
+(pdftex.def)             Requested size: 276.00105pt x 196.21555pt.
+<Figures/mfcc_vis/Ses01M_impro03_esc50-chirping_birds_p0.70_snr5.0_seed0.png, i
+d=164, 862.54245pt x 610.80196pt>
+File: Figures/mfcc_vis/Ses01M_impro03_esc50-chirping_birds_p0.70_snr5.0_seed0.p
+ng Graphic file (type png)
+<use Figures/mfcc_vis/Ses01M_impro03_esc50-chirping_birds_p0.70_snr5.0_seed0.pn
+g>
+Package pdftex.def Info: Figures/mfcc_vis/Ses01M_impro03_esc50-chirping_birds_p
+0.70_snr5.0_seed0.png  used on input line 287.
+(pdftex.def)             Requested size: 276.00105pt x 195.44197pt.
 )
-Runaway definition?
-->0 reserveobjnum \edef {0 reserveobjnum \edef {0 \def {/ColorSpace  \ETC.
-! File ended while scanning definition of \pgf@sys@pdf@extgs@objnum.
-<inserted text> 
-                }
-l.16 \input{pgfsys.code.tex}
-                            
-I suspect you have forgotten a `}', causing me
-to read past where you wanted me to stop.
-I'll try to recover; but if the error is serious,
-you'd better type `E' or `X' now and fix your file.
 
-! Missing \endcsname inserted.
-<to be read again> 
-                   \protect 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
+[18]
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: \protect invalid in file name. Lost: \Input...
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
+[19 <./Figures/mfcc_vis/03-01-02-01-01-02-02_esc50-chirping_birds_p0.70_snr5.0_
+seed0.png> <./Figures/mfcc_vis/Ses01M_impro03_esc50-chirping_birds_p0.70_snr5.0
+_seed0.png>]
+\openout2 = `Chapter4/Chapter4.aux'.
 
-! Missing \endcsname inserted.
-<to be read again> 
-                   \protect 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
+ (./Chapter4/Chapter4.tex
+Chapter 4.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: \protect invalid in file name. Lost: \Input...
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Argument of \@iinput has an extra }.
-<inserted text> 
-                \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
+[20
 
-Runaway argument?
-! Paragraph ended before \@iinput was complete.
-<to be read again> 
-                   \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
 
-! Missing \endcsname inserted.
-<to be read again> 
-                   \scan_stop: 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: \scan_stop: invalid in file name. Lost: \mo...
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
+{g:/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Overfull \hbox (7.08357pt too wide) in paragraph at lines 25--26
+\OT1/cmr/m/n/10 driven fac-tory in \OT1/cmtt/m/n/10 models.py\OT1/cmr/m/n/10 : 
+\OT1/cmtt/m/n/10 create[]model(config) \OT1/cmr/m/n/10 reads \OT1/cmtt/m/n/10 c
+onfig['training'] 
+ []
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Argument of \@secondoftwo has an extra }.
-<inserted text> 
-                \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
+Overfull \hbox (10.19487pt too wide) in paragraph at lines 27--28
+[]\OT1/cmtt/m/n/10 ['model[]name'] \OT1/cmr/m/n/10 and \OT1/cmtt/m/n/10 config[
+'models'][...]['type'] \OT1/cmr/m/n/10 to build the re-quested
+ []
 
-Runaway argument?
-! Paragraph ended before \@secondoftwo was complete.
-<to be read again> 
-                   \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
 
-! Missing \endcsname inserted.
-<to be read again> 
-                   \scan_stop: 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
+Overfull \hbox (22.3062pt too wide) in paragraph at lines 27--28
+\OT1/cmr/m/n/10 ar-chi-tec-ture (MLP, Shal-lowCNN, ResNet18, AST). Core hy-per-
+pa-ram-e-ters|including
+ []
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: \scan_stop: invalid in file name. Lost: \mo...
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
+Overfull \hbox (4.71869pt too wide) in paragraph at lines 30--31
+[]\OT1/cmr/bx/n/10 MLP (MFCC-based). \OT1/cmr/m/n/10 In-put fea-tures are MFCC 
+statis-tics (per-utterance
+ []
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Argument of \@secondoftwo has an extra }.
-<inserted text> 
-                \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
+Overfull \hbox (27.72302pt too wide) in paragraph at lines 32--33
+\OT1/cmr/m/n/10 tion and max-pooling, fol-lowed by four resid-ual stages (chan-
+nels $64\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 128\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 
+256\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 512$,
+ []
 
-Runaway argument?
-! Paragraph ended before \@secondoftwo was complete.
-<to be read again> 
-                   \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
 
-! Missing \endcsname inserted.
-<to be read again> 
-                   \scan_stop: 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
+Overfull \hbox (14.33192pt too wide) in paragraph at lines 33--34
+[]\OT1/cmr/bx/n/10 AST (Au-dio Spec-tro-gram Trans-former). \OT1/cmr/m/n/10 Im-
+ple-mented in \OT1/cmtt/m/n/10 ast[]model.py
+ []
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: \scan_stop: invalid in file name. Lost: \mo...
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
+[21]
+Package pgfplots info on input line 180: Using 'lua backend=false' for axis: x 
+coord trafo unsupported.
+Package pgfplots info on input line 180: Using 'lua backend=false' for axis: x 
+coord trafo unsupported.
 
-! Argument of \@secondoftwo has an extra }.
-<inserted text> 
-                \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
 
-Runaway argument?
-! Paragraph ended before \@secondoftwo was complete.
-<to be read again> 
-                   \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+[22]
 
-! Missing \endcsname inserted.
-<to be read again> 
-                   \scan_stop: 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
+[23]
+Overfull \hbox (16.59288pt too wide) in paragraph at lines 217--217
+[]\OT1/cmr/bx/n/14.4 Experiment C: ESC-50 Multi-Category, Multi-
+ []
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: \scan_stop: invalid in file name. Lost: \mo...
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
+[24]
+Overfull \hbox (15.58948pt too wide) in paragraph at lines 253--253
+[]\OT1/cmr/bx/n/14.4 Experiment D: SNR Ab-la-tion (Nat-u-ral Sound-
+ []
 
-! Argument of \@secondoftwo has an extra }.
-<inserted text> 
-                \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
 
-Runaway argument?
-! Paragraph ended before \@secondoftwo was complete.
-<to be read again> 
-                   \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
 
-! Missing \endcsname inserted.
-<to be read again> 
-                   \scan_stop: 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
+[25]
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: \scan_stop: invalid in file name. Lost: \mo...
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
+[26])
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
+[27]
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
+[28]
+\openout2 = `Chapter5/Chapter5.aux'.
 
-! Argument of \@secondoftwo has an extra }.
-<inserted text> 
-                \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
+ (./Chapter5/Chapter5.tex
+Chapter 5.
 
-Runaway argument?
-! Paragraph ended before \@secondoftwo was complete.
-<to be read again> 
-                   \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+Overfull \hbox (7.35335pt too wide) in paragraph at lines 6--7
+[]\OT1/cmr/bx/n/10 Architecture{augmentation in-ter-ac-tion \OT1/cmr/m/n/10 Acr
+oss ex-per-i-ments, the trans-
+ []
 
-! Missing \endcsname inserted.
-<to be read again> 
-                   \scan_stop: 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: \scan_stop: invalid in file name. Lost: \mo...
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
+Overfull \hbox (28.47289pt too wide) in paragraph at lines 8--9
+\OT1/cmr/m/n/10 ex-hibits stronger class im-bal-ance and ses-sion/speaker vari-
+abil-ity than RAVDESS,
+ []
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Argument of \@secondoftwo has an extra }.
-<inserted text> 
-                \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
+[29
 
-Runaway argument?
-! Paragraph ended before \@secondoftwo was complete.
-<to be read again> 
-                   \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
 
-! Missing \endcsname inserted.
-<to be read again> 
-                   \scan_stop: 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-The control sequence marked <to be read again> should
-not appear between \csname and \endcsname.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: \scan_stop: invalid in file name. Lost: \mo...
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
+])
 
-! Use of \??? doesn't match its definition.
-<argument> \???  
-                 ! LaTeX3 Error: Missing \endcsname inserted in filename.
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-If you say, e.g., `\def\a1{...}', then you must always
-put `1' after `\a', since control sequence names are
-made up of letters only. The macro here has not been
-followed by the required stuff, so I'm ignoring it.
+[30]
+\openout2 = `Chapter6/Chapter6.aux'.
 
-! Argument of \@secondoftwo has an extra }.
-<inserted text> 
-                \par 
-l.17 \input
-           {pgfsyssoftpath.code.tex}
-(That makes 100 errors; please try again.) 
+ (./Chapter6/Chapter6.tex
+Chapter 6.
+
+
+[31
+
+
+
+
+])
+
+[32] (./Dissertation.bbl
+
+[33
+
+
+
+]
+
+[34]
+
+[35]
+
+[36])
+
+[37]
+\openout2 = `Appendices/Appendices.aux'.
+
+ (./Appendices/Appendices.tex) (./Dissertation.aux
+(./Preamble/Frontpage.aux) (./Preamble/Abstract.aux)
+(./Preamble/Acknowledge.aux) (./Preamble/Abbreviations.aux)
+(./Preamble/Contents.aux) (./Preamble/Lists.aux) (./Preamble/ChapterMods.aux)
+(./Chapter1/Chapter1.aux) (./Chapter2/Chapter2.aux) (./Chapter3/Chapter3.aux)
+(./Chapter4/Chapter4.aux) (./Chapter5/Chapter5.aux) (./Chapter6/Chapter6.aux)
+(./Appendices/Appendices.aux))
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+ ) 
 Here is how much of TeX's memory you used:
- 6429 strings out of 476179
- 119283 string characters out of 5813072
- 489953 words of memory out of 5000000
- 27038 multiletter control sequences out of 15000+600000
- 469267 words of font info for 29 fonts, out of 8000000 for 9000
- 1348 hyphenation exceptions out of 8191
- 109i,0n,141p,360b,44s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 28088 strings out of 473189
+ 710841 string characters out of 5719958
+ 1299482 words of memory out of 5000000
+ 50711 multiletter control sequences out of 15000+600000
+ 568852 words of font info for 73 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 100i,21n,107p,1593b,2769s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><g:/tex
+live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><g:/texlive/2025
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><g:/texlive/2025/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi10.pfb><g:/texlive/2025/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi5.pfb><g:/texlive/2025/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi8.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9
+.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><g:/t
+exlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><g:/texlive/202
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><g:/texlive/2025/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr7.pfb><g:/texlive/2025/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr8.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr9.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmss12.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pf
+b><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><g:/tex
+live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><g:/texlive/2025/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><g:/texlive/2025/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb><g:/texlive/2025/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmsy9.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmti10.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmtt10.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sbm10.pfb><g:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
+<g:/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
+Output written on Dissertation.pdf (45 pages, 6031621 bytes).
+PDF statistics:
+ 335 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-No pages of output.

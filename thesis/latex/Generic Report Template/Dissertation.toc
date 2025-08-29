@@ -31,12 +31,15 @@
 \contentsline {chapter}{\numberline {4}Experiments}{20}{}%
 \contentsline {section}{\numberline {4.1}Common Settings}{20}{}%
 \contentsline {subsection}{\numberline {4.1.1}Datasets and splits}{20}{}%
-\contentsline {subsection}{\numberline {4.1.2}Models}{20}{}%
-\contentsline {subsection}{\numberline {4.1.3}Training and evaluation}{21}{}%
-\contentsline {subsection}{\numberline {4.1.4}Noise augmentation policy}{21}{}%
-\contentsline {section}{\numberline {4.2}Experiment A: Clean Baselines}{21}{}%
-\contentsline {section}{\numberline {4.3}Experiment B: White-Noise Training at 20 dB}{23}{}%
-\contentsline {section}{\numberline {4.4}Experiment C: ESC-50 Multi-Category, Multi-SNR}{23}{}%
-\contentsline {section}{\numberline {4.5}Experiment D: SNR Ablation (Natural Soundscapes)}{24}{}%
-\contentsline {chapter}{\numberline {5}Discussion}{27}{}%
-\contentsline {chapter}{\numberline {6}Conclusion}{29}{}%
+\contentsline {paragraph}{Class schemes and dataset sizes.}{20}{}%
+\contentsline {subsection}{\numberline {4.1.2}Models}{21}{}%
+\contentsline {paragraph}{Implementation summary.}{21}{}%
+\contentsline {subsection}{\numberline {4.1.3}Training and evaluation}{22}{}%
+\contentsline {subsection}{\numberline {4.1.4}Noise augmentation policy}{22}{}%
+\contentsline {section}{\numberline {4.2}Experiment A: Clean Baselines}{22}{}%
+\contentsline {section}{\numberline {4.3}Experiment B: White-Noise Training at 20 dB}{24}{}%
+\contentsline {section}{\numberline {4.4}Experiment C: ESC-50 Multi-Category, Multi-SNR}{24}{}%
+\contentsline {section}{\numberline {4.5}Experiment D: SNR Ablation (Natural Soundscapes)}{25}{}%
+\contentsline {paragraph}{Low-SNR analysis.}{27}{}%
+\contentsline {chapter}{\numberline {5}Discussion}{29}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{31}{}%

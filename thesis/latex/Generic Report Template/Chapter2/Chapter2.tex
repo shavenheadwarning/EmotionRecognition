@@ -52,7 +52,10 @@ To model spatial relationships in spectra, capsule networks based on CNNs have a
     \centering
     \caption{Related research on SER using spectrogram-based models}
     \label{tab:ser_spectrogram_related_work}
-    \begin{tabular}{lll p{2.5cm} p{2.5cm}}
+    \small
+    \setlength{\tabcolsep}{5pt}
+    \renewcommand{\arraystretch}{1.1}
+    \begin{tabularx}{\textwidth}{lll>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
     \hline
     Study & Year & Method & Dataset & Result \\
     \hline
@@ -64,16 +67,19 @@ To model spatial relationships in spectra, capsule networks based on CNNs have a
     Bhosale et al. \cite{bhosale2020deep} & 2020 & ACNN & IEMOCAP & UAR: 63.15\% \\
     Mustaqeem et al. \cite{sajjad2020clustering} & 2020 & CNN-LSTM & EMODB & Accuracy: 85.57\% \\
     \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 On top of high-capacity encoders, attention mechanisms have been extensively used to further improve accuracy , including self-attention \cite{vaswani2017attention}, local attention \cite{mirsamadi2017automatic}, hop-wise attention \cite{yoon2019speech}, and many other variants \cite{nediyanchath2020multi,yeh2019interaction}. These modules enhance weights of informative time–frequency regions while suppressing irrelevant ones, thereby focusing the network on discriminative patterns; see Table~\ref{tab:ser_attention_related_work} for recent studies leveraging attention to boost SER.
 
 \begin{table}[htbp]
     \centering
+    \small
     \caption{Related research on SER using attention-based mechanisms}
     \label{tab:ser_attention_related_work}
-    \begin{tabular}{lll p{2.5cm} p{2.5cm}}
+    \setlength{\tabcolsep}{5pt}
+    \renewcommand{\arraystretch}{1.1}
+    \begin{tabularx}{\textwidth}{lll>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
     \hline
     Study & Year & Method & Dataset & Result \\
     \hline
@@ -85,7 +91,7 @@ On top of high-capacity encoders, attention mechanisms have been extensively use
     Xu et al. \cite{xu2019learning} & 2020 & Alignment Attention & IEMOCAP & UAR: 57.4\% \\
     Li et al. \cite{li2021speech} & 2021 & Self BiAttention & EMODB & Accuracy: 85.95\% \\
     \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 

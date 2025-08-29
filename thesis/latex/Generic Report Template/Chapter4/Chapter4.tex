@@ -70,6 +70,8 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
     \end{tabular}
 \end{table}
 
+
+
 \begin{table}[htbp]
     \centering
     \caption{ Results of Experiment A on IEMOCAP}
@@ -90,6 +92,7 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
 
 \begin{figure}[htbp]
     \centering
+    \scalebox{0.7}{
     \begin{tikzpicture}
     \pgfplotsset{compat=1.18}
 
@@ -174,6 +177,7 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
 
     \end{groupplot}
     \end{tikzpicture}
+	}
     \caption{Experiment A: Grouped bar charts of four models across four metrics on RAVDESS and IEMOCAP.}
     \label{fig:expA_barplots}
     \end{figure}
@@ -219,6 +223,7 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
 
 \textbf{Results and analysis.} Table \ref{tab:esc_noise_results} shows the results of Experiment C on RAVDESS and IEMOCAP. On RAVDESS, AST Base improves over the clean baseline (Acc 0.739 vs. 0.718; Macro-F1 0.734 vs. 0.714), indicating that diverse ESC-50 perturbations enhance generalization without harming clean discriminability. In contrast, ResNet-18 degrades notably (Acc 0.548; Macro-F1 0.527 vs. 0.687/0.682 in Exp A), suggesting sensitivity to the broader noise distribution and possible misalignment between convolutional inductive biases and heterogeneous background cues. On IEMOCAP, AST Base again benefits: recall rises (0.488 vs. 0.413) and macro-F1 increases (0.515 vs. 0.448), with a slight accuracy gain (0.625 vs. 0.615) and modest precision reduction (0.645 vs. 0.682). This pattern reflects improved coverage of minority or ambiguous classes, consistent with more balanced decision boundaries under augmentation. By contrast, ResNet-18 exhibits a pronounced precision–recall trade-off (precision 0.519↑, recall 0.327↓; macro-F1 0.323↓ from 0.406), indicating a conservative operating regime that reduces false positives at the expense of sensitivity. Overall, multi-SNR, multi-category augmentation appears especially effective for the transformer (AST) architecture, yielding higher ceilings on the simpler RAVDESS distribution and recall-oriented gains on the heterogeneous IEMOCAP corpus, while the CNN (ResNet-18) shows vulnerability to over-regularization or distributional mismatch.
 
+Incorporating related literature baselines provides clearer context for Experiment C. Under ESC-50 multi-category and multi-SNR augmentation, AST Base achieves higher performance on RAVDESS (Acc 0.739, Macro-F1 0.734) and a more balanced outcome on IEMOCAP (Acc 0.625, Recall 0.488, Macro-F1 0.515), whereas ResNet-18 exhibits a precision-biased trade-off with lower Macro-F1 (0.323). Compared with reported IEMOCAP results from SFormer (71.00\%), AMSNet (69.87\%), TIM-Net (72.25\%), and RAVDESS UA from LSTM, BLSTM+Capsule, and Gated ResNets, these findings suggest that realistic, heterogeneous augmentation particularly benefits the transformer architecture, yielding competitive robustness under natural soundscapes.
 
 \begin{table}[htbp]
     \centering
@@ -227,9 +232,16 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
     \setlength{\tabcolsep}{5pt}
     \resizebox{\textwidth}{!}{%
     \begin{tabular}{lcccccccc}
-        \hline
+      \hline
          & \multicolumn{4}{c}{RAVDESS} & \multicolumn{4}{c}{IEMOCAP} \\
         Model & Acc. & Prec. & Recall & Macro-F1 & Acc. & Prec. & Recall & Macro-F1 \\
+        \hline
+        SFormer\cite{10011559} & -- & -- & -- & -- & 0.710 & -- & -- & -- \\
+        AMSNet\cite{chen2023learning} & -- & -- & -- & -- & 0.698 & -- & -- & -- \\
+        TIM-Net\cite{10096370} & -- & -- & -- & -- & 0.722 & -- & -- & -- \\
+        LSTM\cite{Parry2019Analysis} & 0.540 & -- & -- & -- & -- & -- & -- & -- \\
+        BLSTM+Capsule\cite{Jalal2019LearningTC} & 0.562 & -- & -- & -- & -- & -- & -- & -- \\
+        Gated ResNets\cite{RN2069} & 0.604 & -- & -- & -- & -- & -- & -- & -- \\
         \hline
         ResNet-18 & 0.548 & 0.541 & 0.546 & 0.527 & 0.554 & 0.519 & 0.327 & 0.323 \\
         AST Base & 0.739 & 0.746 & 0.745 & 0.734 & 0.625 & 0.645 & 0.488 & 0.515 \\
@@ -250,6 +262,9 @@ When enabled, augmentation follows Chapter 3: with probability \(p_{\mathrm{aug}
 On IEMOCAP, AST Base again improves relative to Experiment A: Acc increases to 0.625 (from 0.615), recall rises to 0.488 (from 0.413), and Macro-F1 reaches 0.515 (from 0.448), while precision decreases moderately to 0.645 (from 0.682). The pattern reflects a more balanced decision surface that captures minority or ambiguous emotions without substantial loss of overall correctness. ResNet-18, however, shifts to a conservative regime: precision increases to 0.519 (from 0.388), but recall drops to 0.327 (from 0.475), bringing Macro-F1 down to 0.323 (from 0.406). This precision–recall asymmetry indicates tighter boundaries that reduce false positives at the cost of sensitivity, a behavior consistent with session and speaker variability interacting with heterogeneous noise.
 
 
+\paragraph{Low-SNR analysis.} Extending the SNR grid to $-10$, $-5$, and $-3$ dB corroborates these trends. On RAVDESS, AST Base’s macro-F1 remains comparatively stable under severe SNRs (0.675/0.676/0.705 at $-10$/$-5$/$-3$ dB), whereas ResNet-18 fluctuates more markedly (0.633/0.680/0.642) with a local peak at $-5$ dB. On IEMOCAP, low-SNR conditions are substantially more challenging: ResNet-18’s macro-F1 falls to 0.298 at $-5$ dB, while AST degrades more gracefully (approximately 0.49–0.50 across $-10$/$-5$/$-3$ dB). These observations reinforce AST’s robustness to natural soundscapes at adverse SNRs and the higher sensitivity of the CNN baseline in such regimes.
+
+
 Relative to white-noise training (Experiment B), multi-category augmentation yields clearer benefits for AST. On RAVDESS, AST’s Macro-F1 increases further (0.734 vs. 0.713), and on IEMOCAP, Macro-F1 improves as well (0.515 vs. 0.472), with gains primarily driven by higher recall. For ResNet-18, the multi-category setting underperforms white-noise on RAVDESS (Macro-F1 0.527 vs. 0.674), while on IEMOCAP its Macro-F1 is similar in magnitude (0.323 vs. 0.315) but exhibits a stronger precision bias. Taken together, these results show that multi-SNR, multi-category augmentation is especially effective for the transformer architecture, which maintains or raises clean-set performance on RAVDESS and improves recall and macro-F1 on the more heterogeneous IEMOCAP corpus. The CNN, by contrast, displays model-dependent trade-offs and a greater susceptibility to the diversity of environmental noise, as reflected by reduced macro-F1 and altered calibration on clean evaluation.
 
 
@@ -257,32 +272,38 @@ Relative to white-noise training (Experiment B), multi-category augmentation yie
     \centering
     \caption{Experiment D (RAVDESS): SNR ablation with natural soundscapes for ResNet-18 and AST. Metrics reported are accuracy (Acc.) and macro-F1 per SNR.}
     \label{tab:snr_ablation_ravdess}
-    \begin{tabular}{lcccc}
+    \begin{tabularx}{\textwidth}{lccc>{\raggedright\arraybackslash}X}
         \hline
         SNR (dB) & ResNet-18 Acc. & ResNet-18 Macro-F1 & AST Acc. & AST Macro-F1 \\
         \hline
+        -10 & 0.638&  0.633& 0.704 & 0.675 \\
+        -5  & 0.680 & 0.680 & 0.697 & 0.676 \\
+        -3  & 0.652 & 0.642 &  0.722& 0.705  \\
         0  & 0.625 & 0.619 & 0.718 & 0.714 \\
         5  & 0.681 & 0.671 & 0.736 & 0.716 \\
         10 & 0.673 & 0.667 & 0.739 & 0.718 \\
         20 &  0.680 & 0.670 & 0.746 & 0.731 \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 \begin{table}[htbp]
     \centering
     \caption{Experiment D (IEMOCAP): SNR ablation with natural soundscapes for ResNet-18 and AST. Metrics reported are accuracy (Acc.) and macro-F1 per SNR.}
     \label{tab:snr_ablation_iemocap}
-    \begin{tabular}{lcccc}
+    \begin{tabularx}{\textwidth}{lccc>{\raggedright\arraybackslash}X}
         \hline
         SNR (dB) & ResNet-18 Acc. & ResNet-18 Macro-F1 & AST Acc. & AST Macro-F1 \\
         \hline
+        -10 & 0.590 & 0.347  & 0.609 &0.489  \\
+        -5  & 0. 546 & 0.298 & 0.592 & 0.497 \\
+        -3  & 0.590 & 0.346 & 0.632 &  0.495 \\
         0  & 0.570 & 0.406 & 0.615 & 0.448 \\
         5  & 0.577 & 0.366 & 0.624 & 0.460 \\
         10 & 0.596 & 0.370 & 0.642 & 0.526 \\
         20 & 0.609 & 0.351 & 0.636 & 0.457 \\
         \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
 
@@ -300,9 +321,9 @@ Relative to white-noise training (Experiment B), multi-category augmentation yie
     \begin{groupplot}[
       group style={group size=2 by 1, horizontal sep=3.5em},
       width=0.46\textwidth, height=0.36\textwidth,
-      xmin=-0.5, xmax=20.5,
-      ymin=0.30, ymax=0.80,
-      xtick={0,5,10,20},
+      xmin=-10.5, xmax=20.5,
+      ymin=0.28, ymax=0.80,
+      xtick={-10,-5,-3,0,5,10,20},
       xlabel={SNR (dB)}, ylabel={Macro-F1},
       grid=both,
       grid style={line width=.1pt, draw=gray!30},
@@ -317,19 +338,19 @@ Relative to white-noise training (Experiment B), multi-category augmentation yie
       legend style={nodes={scale=0.9, transform shape}, at={(0.5,1.25)}, anchor=south, legend columns=2}
     ]
     \addplot+[very thick, color=orange!95!black, mark=*, mark size=2.5pt, mark options={fill=orange!80!white}]
-      coordinates {(0,0.619) (5,0.671) (10,0.667) (20,0.670)};
+      coordinates {(-10,0.633) (-5,0.680) (-3,0.642) (0,0.619) (5,0.671) (10,0.667) (20,0.670)};
     \addlegendentry{ResNet-18}
 
     \addplot+[very thick, color=violet!90!black, mark=triangle*, mark size=3pt, mark options={fill=violet!80!white}]
-      coordinates {(0,0.714) (5,0.716) (10,0.718) (20,0.731)};
+      coordinates {(-10,0.675) (-5,0.676) (-3,0.705) (0,0.714) (5,0.716) (10,0.718) (20,0.731)};
     \addlegendentry{AST Base}
 
     % ---------- IEMOCAP ----------
     \nextgroupplot[title={IEMOCAP}, title style={font=\small}]
     \addplot+[very thick, color=orange!95!black, mark=*, mark size=2.5pt, mark options={fill=orange!80!white}]
-      coordinates {(0,0.406) (5,0.366) (10,0.370) (20,0.351)};
+      coordinates {(-10,0.347) (-5,0.298) (-3,0.346) (0,0.406) (5,0.366) (10,0.370) (20,0.351)};
     \addplot+[very thick, color=violet!90!black, mark=triangle*, mark size=3pt, mark options={fill=violet!80!white}]
-      coordinates {(0,0.448) (5,0.460) (10,0.526) (20,0.457)};
+      coordinates {(-10,0.489) (-5,0.497) (-3,0.495) (0,0.448) (5,0.460) (10,0.526) (20,0.457)};
 
     \end{groupplot}
     \end{tikzpicture}
