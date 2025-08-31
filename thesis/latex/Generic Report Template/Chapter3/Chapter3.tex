@@ -60,7 +60,7 @@ Temporal dynamics are often captured by regression-based derivatives using a sym
 
 Advantages: MFCCs are compact, relatively robust to slowly varying convolutive effects, and widely validated in speech tasks. Figure \ref{fig:mfcc_vis_1} and Figure \ref{fig:mfcc_vis_2} show the MFCCs of a sample in IEMOCAP and RAVDESS. Limitations: information loss due to coarse spectral integration and DCT decorrelation, frame-level stationarity assumptions, and sensitivity to noise and channel mismatch without appropriate normalization or enhancement.
 
-\begin{figure}[htbp]
+\begin{figure}[h!tbp]
     \centering
     \caption{The MFCC of a sample in IEMOCAP}
     \label{fig:mfcc_vis_1}
@@ -68,7 +68,7 @@ Advantages: MFCCs are compact, relatively robust to slowly varying convolutive e
     % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
   \end{figure}
 
-  \begin{figure}[htbp]
+  \begin{figure}[h!tbp]
     \centering
     \caption{The MFCC of a sample in RAVDESS}
     \label{fig:mfcc_vis_2}
@@ -94,21 +94,19 @@ Design choices include the sample rate \(f_s\), frame length \(N\), hop size \(H
 Advantages: Mel-spectrograms preserve local time–frequency structure and are highly compatible with CNNs and attention-based encoders; they avoid the information loss introduced by the DCT in MFCC. Figure \ref{fig:mel_vis_1} and Figure \ref{fig:mel_vis_2} show the Mel-spectrograms of a sample in RAVDESS and IEMOCAP. Limitations: higher dimensionality increases memory and compute cost; the representation remains sensitive to additive noise and reverberation without enhancement or robust training; choices of \(F\), bounds, and \(f_s\) affect resolution and cross-dataset transferability.
 
 
-\begin{figure}[htbp]
+\begin{figure}[h!tbp]
   \centering
-  \caption{The Mel-spectrogram of a sample in RAVDESS}
-  \label{fig:mel_vis_1}
-  \includegraphics[width=.8\textwidth]
-  {Figures/mfcc_vis/RAVDESS_03-02-01-01-01-02-01_mel.png}
-  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
-\end{figure}
 
-\begin{figure}[htbp]
-  \centering
+  \includegraphics[width=.6\textwidth]
+  {Figures/mfcc_vis/RAVDESS_03-02-01-01-01-02-01_mel.png}
+   \caption{The Mel-spectrogram of a sample in RAVDESS}
+  \label{fig:mel_vis_1}
+  % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
+  \vspace{1cm}
+  \includegraphics[width=.6\textwidth]{Figures/mfcc_vis/IEMOCAP_Ses01F_impro05_mel.png}
   \caption{The Mel-spectrogram of a sample in IEMOCAP}
   \label{fig:mel_vis_2}
-  \includegraphics[width=.8\textwidth]
-  {Figures/mfcc_vis/IEMOCAP_Ses01F_impro05_mel.png}
+
   % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
 \end{figure}
 
@@ -142,7 +140,7 @@ where \(\Theta\) collects all parameters and \(\lambda\) controls weight decay. 
 Role in this thesis: the MLP serves as a parameter-efficient baseline with MFCC inputs, quantifying the incremental benefits of time–frequency 2D models.
 
 
-\begin{figure}[htbp]
+\begin{figure}[h!tbp]
     \centering
     \caption{The architecture of MLP }
     \label{fig:mlp arch}
@@ -167,7 +165,7 @@ Design: we use two convolutional blocks with moderate kernels (e.g., \(k_f\in\{3
 
 Advantages: shallow CNNs are data-efficient and fast, capturing local spectro-temporal patterns. Limitations: weaker long-range modeling and limited receptive field without deeper stacks or dilations. In this thesis, the shallow CNN consumes log-Mel features to quantify the benefits of local 2D structure over MFCC-based MLPs.
 
-\begin{figure}[htbp]
+\begin{figure}[h!tbp]
   \centering
   \caption{The architecture of shallow CNN }
   \label{fig:shallow_cnn_arch}
@@ -189,7 +187,7 @@ Advantages: ResNet-18 balances capacity and efficiency, modeling broader context
 
 Figure \ref{fig:resnet_arch} shows the architecture of ResNet-18.
 
-\begin{figure}[htbp]
+\begin{figure}[h!tbp]
   \centering
   \caption{The architecture of ResNet-18 }
   \label{fig:resnet_arch}
@@ -215,7 +213,7 @@ Advantages: AST captures global dependencies and long-range context beyond CNN r
 
 Figure \ref{fig:ast_arch} shows the architecture of AST.
 
-\begin{figure}[htbp]
+\begin{figure}[h!tbp]
   \centering
   \caption{The architecture of AST}
   \label{fig:ast_arch}
@@ -271,19 +269,19 @@ We adopt RAVDESS (speech actors 01–24) as the primary dataset with the existin
 
 Figure \ref{fig:noise_aug_vis} and Figure \ref{fig:noise_aug_vis_2} show the waveform and Mel-spectrogram of a sample in RAVDESS and IEMOCAP after adding natural\_soundscapes(chirping\_birds) noise.
 
-\begin{figure}[htbp]
+\begin{figure}[h!tbp]
   \centering
   \caption{Example of adding natural\_soundscapes(chirping\_birds) noise to a sample in RAVDESS}
   \label{fig:noise_aug_vis}
-  \includegraphics[width=.8\textwidth]{Figures/mfcc_vis/03-01-02-01-01-02-02_esc50-chirping_birds_p0.70_snr5.0_seed0.png}
+  \includegraphics[width=.6\textwidth]{Figures/mfcc_vis/03-01-02-01-01-02-02_esc50-chirping_birds_p0.70_snr5.0_seed0.png}
   % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[h!tbp]
   \centering
   \caption{Example of adding natural\_soundscapes(chirping\_birds) noise to a sample in IEMOCAP}
   \label{fig:noise_aug_vis_2}
-  \includegraphics[width=.8\textwidth]
+  \includegraphics[width=.6\textwidth]
   {Figures/mfcc_vis/Ses01M_impro03_esc50-chirping_birds_p0.70_snr5.0_seed0.png}
   % mode=image 仅用已编译图；mode=buildmissing 若缺失则自动构建
 \end{figure}

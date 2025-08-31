@@ -1,45 +1,46 @@
 \contentsline {chapter}{Abstract}{ii}{}%
 \contentsline {chapter}{Acknowledgements}{iii}{}%
-\contentsline {chapter}{Abbreviations}{iv}{}%
-\contentsline {chapter}{List of Figures}{vii}{}%
-\contentsline {chapter}{List of Tables}{viii}{}%
+\contentsline {chapter}{Declarations}{iv}{}%
+\contentsline {chapter}{Abbreviations}{v}{}%
+\contentsline {chapter}{List of Figures}{viii}{}%
+\contentsline {chapter}{List of Tables}{ix}{}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{}%
 \contentsline {section}{\numberline {1.1}Background}{1}{}%
 \contentsline {section}{\numberline {1.2}Main Contents of the Dissertation}{2}{}%
 \contentsline {section}{\numberline {1.3}Structure of the Dissertation}{2}{}%
-\contentsline {chapter}{\numberline {2}Literature Review}{4}{}%
-\contentsline {section}{\numberline {2.1}Datasets for Speech Emotion Recognition}{4}{}%
-\contentsline {section}{\numberline {2.2}SER with Acoustic Features}{5}{}%
-\contentsline {section}{\numberline {2.3}SER with Spectrogram-based Features}{6}{}%
-\contentsline {chapter}{\numberline {3}Methodology}{9}{}%
-\contentsline {section}{\numberline {3.1}Feature Extraction}{9}{}%
-\contentsline {subsection}{\numberline {3.1.1}MFCC}{9}{}%
-\contentsline {subsection}{\numberline {3.1.2}Mel-spectrogram}{12}{}%
-\contentsline {section}{\numberline {3.2}Model Developments}{12}{}%
-\contentsline {subsection}{\numberline {3.2.1}Multi-layer Perceptron}{13}{}%
-\contentsline {subsection}{\numberline {3.2.2}Shallow CNN}{14}{}%
-\contentsline {subsection}{\numberline {3.2.3}ResNet-18}{14}{}%
-\contentsline {subsection}{\numberline {3.2.4}Audio Spectrogram Transformer}{16}{}%
-\contentsline {section}{\numberline {3.3}Data Augmentation}{16}{}%
-\contentsline {subsection}{\numberline {3.3.1}Noise sources and SNR set}{16}{}%
-\contentsline {subsection}{\numberline {3.3.2}On-the-fly sampling policy}{17}{}%
-\contentsline {subsection}{\numberline {3.3.3}Time alignment and preprocessing}{17}{}%
-\contentsline {subsection}{\numberline {3.3.4}RMS, target SNR, and gain computation}{17}{}%
-\contentsline {subsection}{\numberline {3.3.5}Peak limiting and re-normalization}{18}{}%
-\contentsline {subsection}{\numberline {3.3.6}Integration with the training pipeline}{18}{}%
-\contentsline {subsection}{\numberline {3.3.7}Evaluation protocol}{18}{}%
-\contentsline {chapter}{\numberline {4}Experiments}{20}{}%
-\contentsline {section}{\numberline {4.1}Common Settings}{20}{}%
-\contentsline {subsection}{\numberline {4.1.1}Datasets and splits}{20}{}%
-\contentsline {paragraph}{Class schemes and dataset sizes.}{20}{}%
-\contentsline {subsection}{\numberline {4.1.2}Models}{21}{}%
-\contentsline {paragraph}{Implementation summary.}{21}{}%
-\contentsline {subsection}{\numberline {4.1.3}Training and evaluation}{22}{}%
-\contentsline {subsection}{\numberline {4.1.4}Noise augmentation policy}{22}{}%
-\contentsline {section}{\numberline {4.2}Experiment A: Clean Baselines}{22}{}%
-\contentsline {section}{\numberline {4.3}Experiment B: White-Noise Training at 20 dB}{24}{}%
-\contentsline {section}{\numberline {4.4}Experiment C: ESC-50 Multi-Category, Multi-SNR}{24}{}%
-\contentsline {section}{\numberline {4.5}Experiment D: SNR Ablation (Natural Soundscapes)}{25}{}%
-\contentsline {paragraph}{Low-SNR analysis.}{27}{}%
-\contentsline {chapter}{\numberline {5}Discussion}{29}{}%
-\contentsline {chapter}{\numberline {6}Conclusion}{31}{}%
+\contentsline {chapter}{\numberline {2}Literature Review}{3}{}%
+\contentsline {section}{\numberline {2.1}Datasets for Speech Emotion Recognition}{3}{}%
+\contentsline {section}{\numberline {2.2}SER with Acoustic Features}{4}{}%
+\contentsline {section}{\numberline {2.3}SER with Spectrogram-based Features}{4}{}%
+\contentsline {chapter}{\numberline {3}Methodology}{7}{}%
+\contentsline {section}{\numberline {3.1}Feature Extraction}{7}{}%
+\contentsline {subsection}{\numberline {3.1.1}MFCC}{7}{}%
+\contentsline {subsection}{\numberline {3.1.2}Mel-spectrogram}{9}{}%
+\contentsline {section}{\numberline {3.2}Model Developments}{10}{}%
+\contentsline {subsection}{\numberline {3.2.1}Multi-layer Perceptron}{11}{}%
+\contentsline {subsection}{\numberline {3.2.2}Shallow CNN}{11}{}%
+\contentsline {subsection}{\numberline {3.2.3}ResNet-18}{12}{}%
+\contentsline {subsection}{\numberline {3.2.4}Audio Spectrogram Transformer}{13}{}%
+\contentsline {section}{\numberline {3.3}Data Augmentation}{14}{}%
+\contentsline {subsection}{\numberline {3.3.1}Noise sources and SNR set}{14}{}%
+\contentsline {subsection}{\numberline {3.3.2}On-the-fly sampling policy}{14}{}%
+\contentsline {subsection}{\numberline {3.3.3}Time alignment and preprocessing}{14}{}%
+\contentsline {subsection}{\numberline {3.3.4}RMS, target SNR, and gain computation}{15}{}%
+\contentsline {subsection}{\numberline {3.3.5}Peak limiting and re-normalization}{15}{}%
+\contentsline {subsection}{\numberline {3.3.6}Integration with the training pipeline}{15}{}%
+\contentsline {subsection}{\numberline {3.3.7}Evaluation protocol}{16}{}%
+\contentsline {chapter}{\numberline {4}Experiments}{17}{}%
+\contentsline {section}{\numberline {4.1}Common Settings}{17}{}%
+\contentsline {subsection}{\numberline {4.1.1}Datasets and splits}{17}{}%
+\contentsline {paragraph}{Class schemes and dataset sizes.}{17}{}%
+\contentsline {subsection}{\numberline {4.1.2}Models}{18}{}%
+\contentsline {paragraph}{Implementation summary.}{18}{}%
+\contentsline {subsection}{\numberline {4.1.3}Training and evaluation}{19}{}%
+\contentsline {subsection}{\numberline {4.1.4}Noise augmentation policy}{19}{}%
+\contentsline {section}{\numberline {4.2}Experiment A: Clean Baselines}{19}{}%
+\contentsline {section}{\numberline {4.3}Experiment B: White-Noise Training at 20 dB}{20}{}%
+\contentsline {section}{\numberline {4.4}Experiment C: ESC-50 Multi-Category, Multi-SNR}{21}{}%
+\contentsline {section}{\numberline {4.5}Experiment D: SNR Ablation (Natural Soundscapes)}{22}{}%
+\contentsline {paragraph}{Low-SNR analysis.}{23}{}%
+\contentsline {chapter}{\numberline {5}Discussion}{25}{}%
+\contentsline {chapter}{\numberline {6}Conclusion}{26}{}%

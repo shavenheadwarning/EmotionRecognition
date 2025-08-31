@@ -14,6 +14,7 @@
 \usepackage{standalone}
 \usepackage{tabularx}
 \usepackage{pgfplots}
+\usepackage{etoolbox} % 引入 etoolbox 宏包
 \usepgfplotslibrary{groupplots}
 \pgfplotsset{compat=1.18}
 
@@ -22,15 +23,40 @@
 \renewcommand{\headrulewidth}{0.2pt}
 
 % Styles can be Sonny, Lenny, Glenn, Conny, Rejne, Bjarne and Bjornstrup
+\raggedbottom
+\setcounter{topnumber}{5}
+\setcounter{bottomnumber}{5}
+\setcounter{totalnumber}{10}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.95}
 \usepackage[Sonny]{fncychap}
+\usepackage[font=small,labelfont=bf]{caption}
+\captionsetup{skip=2pt} % caption与内容间距
+\setlength{\textfloatsep}{3pt plus 2pt minus 1pt} % 图/表与正文间
+\setlength{\floatsep}{3pt plus 1pt minus 1pt}     % 两个浮动体之间
+\setlength{\intextsep}{3pt plus 1pt minus 1pt}    % 文中浮动体与正文
+% 定义一个命令来应用所有参考文献格式
+\newcommand{\setupbib}{%
+	\small % 1. 设置字体大小为 \small
+	% 你也可以用 \footnotesize, \scriptsize 等
+	
+	\setlength{\itemsep}{0pt} % 2. 设置条目之间的垂直间距
+	% 设置为 0pt 表示移除额外的间距，只保留基线间距。你也可以设为 2pt, 5pt 等来增加间距。
+	
+	\setlength{\parskip}{0pt} % 3. 设置条目内部段落的间距（对于有多个段落的条目）
+}
 
+% 在 thebibliography 环境开始时，自动执行 \setupbib 命令
+\AtBeginEnvironment{thebibliography}{\setupbib}
 \begin{document}
 
 \include{Preamble/Frontpage}
 \include{Preamble/Abstract}
 %\include{Preamble/Dedication} % Comment out for UG dissertations
 \include{Preamble/Acknowledge}
-%\include{Preamble/Declarations} % Comment out for UG dissertations
+\include{Preamble/Declarations} % Comment out for UG dissertations
 %\include{Preamble/Sponsors} % Comment out for UG dissertations
 \include{Preamble/Abbreviations}
 %\include{Preamble/Notations} % Comment out for most dissertations
@@ -46,8 +72,14 @@
 \include{Chapter6/Chapter6}
 
 
+
+
+
+
+
 \bibliographystyle{abbrv}
 \bibliography{bibliography}
+
 
 \include{Appendices/Appendices}
 
